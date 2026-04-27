@@ -1,0 +1,13 @@
+[project]
+name = "recentpapers"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.97.0",
+    "google-api-python-client>=2.194.0",
+    "google-auth>=2.49.2",
+    "google-auth-oauthlib>=1.3.1",
+    "notion-client>=3.0.0",
+    "python-dotenv>=1.2.2",
+]
