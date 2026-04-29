@@ -275,6 +275,7 @@ def create_notion_page(
     keyword: str,
 ) -> str:
     """Create a Notion database record and return its URL."""
+    # Notion データベースレコードの生成
     title = jp.get("japanese_title") or paper.get("title", "（タイトル不明）")
     journal_str = (
         f"{paper.get('journal', '')} {paper.get('year', '')}".strip()
