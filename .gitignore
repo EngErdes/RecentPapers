@@ -1,0 +1,13 @@
+# Secrets / credentials
+.env
+gmail_credentials.json
+gmail_token.pickle
+client_secret_*.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+scholar_to_notion.log
+scholar_to_notion_error.log

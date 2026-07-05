@@ -28,21 +28,25 @@ from notion import create_notion_page
 def main() -> None:
     print(f"[{datetime.now():%Y-%m-%d %H:%M}] Scholar → Notion pipeline starting")
 
+    # 必須環境変数が設定されているか確認
     required = ["ANTHROPIC_API_KEY", "NOTION_TOKEN"]
     missing = [k for k in required if not os.getenv(k)]
     if missing:
         sys.exit(f"Missing environment variables: {', '.join(missing)}")
 
+    # 各APIクライアントを初期化
     anthropic_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     notion_client = NotionClient(auth=os.environ["NOTION_TOKEN"])
     gmail_service = get_gmail_service()
 
+    # 対象ラベルのIDを取得し、過去24時間のスレッドを取得
     label_id = get_label_id(gmail_service, GMAIL_LABEL)
     threads = fetch_recent_threads(gmail_service, label_id, hours=24)
     print(f"Found {len(threads)} thread(s) in the past 24 hours")
 
     total = 0
     for thread in threads:
+        # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
         subject, html_body = get_thread_content(gmail_service, thread["id"])
         keyword = extract_keyword_from_subject(subject)
         print(f"  Thread: {subject[:70]}")
@@ -51,6 +55,7 @@ def main() -> None:
             print("    ⚠ No HTML body found, skipping")
             continue
 
+        # ClaudeでHTML本文を解析し、論文メタデータ（タイトル・著者・掲載誌・URLなど）を抽出
         papers = extract_papers_with_claude(anthropic_client, html_body)
         print(f"    Extracted {len(papers)} paper(s)")
 
@@ -58,7 +63,9 @@ def main() -> None:
             if not paper.get("title"):
                 continue
             print(f"    → {paper['title'][:70]}")
+            # Claudeで日本語タイトル・要約・解説などのコンテンツを生成
             jp = generate_japanese_content(anthropic_client, paper)
+            # Notionデータベースに論文レコードを作成
             url = create_notion_page(notion_client, paper, jp, keyword)
             print(f"      ✓ {url}")
             total += 1
