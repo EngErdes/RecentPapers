@@ -6,9 +6,13 @@ Fetches Google Scholar alert emails from Gmail and creates Notion DB records
 with Japanese titles, summaries, and explanations via the Anthropic API.
 """
 
+import json
 import os
 import sys
 from datetime import datetime
+
+# デバッグフラグ: True のときだけデバッグ用の出力処理を実行する
+DEBUG = True
 
 import anthropic
 from notion_client import Client as NotionClient
@@ -23,6 +27,7 @@ from gmail import (
     get_thread_content,
 )
 from notion import create_notion_page
+from pdf import download_paper_pdf
 
 
 def main() -> None:
@@ -41,10 +46,27 @@ def main() -> None:
 
     # 対象ラベルのIDを取得し、過去24時間のスレッドを取得
     label_id = get_label_id(gmail_service, GMAIL_LABEL)
-    threads = fetch_recent_threads(gmail_service, label_id, hours=24)
-    print(f"Found {len(threads)} thread(s) in the past 24 hours")
+    threads = fetch_recent_threads(gmail_service, label_id, hours=72)
+    print(f"Found {len(threads)} thread(s) in the past 72 hours")
+
+    # デバッグ: 取得したスレッド一覧を debug ディレクトリに JSON 出力
+    pdf_dir = None
+    if DEBUG:
+        debug_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "debug")
+        os.makedirs(debug_dir, exist_ok=True)
+        debug_path = os.path.join(
+            debug_dir, f"threads_{datetime.now():%Y%m%d_%H%M%S}.json"
+        )
+        with open(debug_path, "w", encoding="utf-8") as f:
+            json.dump(threads, f, ensure_ascii=False, indent=2)
+        print(f"  [debug] threads dumped to {debug_path}")
+
+        # 論文 PDF の保存先ディレクトリを用意
+        pdf_dir = os.path.join(debug_dir, f"pdf_{datetime.now():%Y%m%d_%H%M%S}")
+        os.makedirs(pdf_dir, exist_ok=True)
 
     total = 0
+    pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
     for thread in threads:
         # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
         subject, html_body = get_thread_content(gmail_service, thread["id"])
@@ -63,11 +85,25 @@ def main() -> None:
             if not paper.get("title"):
                 continue
             print(f"    → {paper['title'][:70]}")
+
+            # デバッグ: 論文の元 PDF を保存し、重い日本語生成はスキップ
+            if DEBUG:
+                path = download_paper_pdf(paper, pdf_dir, pdf_index)
+                pdf_index += 1
+                if path:
+                    print(f"      [pdf] saved: {path}")
+                else:
+                    print("      [pdf] PDF が見つからずスキップ")
+                total += 1
+                continue
+
             # Claudeで日本語タイトル・要約・解説などのコンテンツを生成
             jp = generate_japanese_content(anthropic_client, paper)
+
+
             # Notionデータベースに論文レコードを作成
-            url = create_notion_page(notion_client, paper, jp, keyword)
-            print(f"      ✓ {url}")
+            # url = create_notion_page(notion_client, paper, jp, keyword)
+            # print(f"      ✓ {url}")
             total += 1
 
     print(f"[{datetime.now():%Y-%m-%d %H:%M}] Done — {total} page(s) created in Notion")
