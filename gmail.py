@@ -1,4 +1,5 @@
 import base64
+import os
 import pickle
 import re
 from datetime import datetime, timedelta, timezone
@@ -10,6 +11,40 @@ from googleapiclient.discovery import build
 from config import CREDENTIALS_PATH, GMAIL_SCOPES, TOKEN_PATH
 
 
+def _client_config_from_env() -> dict | None:
+    """GitHub Actions の repository secret（環境変数）から OAuth client config を組み立てる。
+
+    gmail_credentials.json を置けない環境向け。標準的で秘匿性の低い項目（auth_uri 等）は
+    デフォルト値を持つ。必須項目（client_id / client_secret / project_id）が揃わなければ
+    None を返し、呼び出し側はファイル（CREDENTIALS_PATH）にフォールバックする。
+    """
+    client_id = os.getenv("GMAIL_CLIENT_ID")
+    client_secret = os.getenv("GMAIL_CLIENT_SECRET")
+    project_id = os.getenv("GMAIL_PROJECT_ID")
+    if not (client_id and client_secret and project_id):
+        return None
+
+    redirect_uris = os.getenv("GMAIL_REDIRECT_URIS", "http://localhost")
+    return {
+        "installed": {
+            "client_id": client_id,
+            "project_id": project_id,
+            "auth_uri": os.getenv(
+                "GMAIL_AUTH_URI", "https://accounts.google.com/o/oauth2/auth"
+            ),
+            "token_uri": os.getenv(
+                "GMAIL_TOKEN_URI", "https://oauth2.googleapis.com/token"
+            ),
+            "auth_provider_x509_cert_url": os.getenv(
+                "GMAIL_AUTH_PROVIDER_X509_CERT_URL",
+                "https://www.googleapis.com/oauth2/v1/certs",
+            ),
+            "client_secret": client_secret,
+            "redirect_uris": [u.strip() for u in redirect_uris.split(",") if u.strip()],
+        }
+    }
+
+
 def get_gmail_service():
     creds = None
     if TOKEN_PATH.exists():
@@ -19,9 +54,22 @@ def get_gmail_service():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                str(CREDENTIALS_PATH), GMAIL_SCOPES
-            )
+            # repository secret（環境変数）に client 情報があればそれを、
+            # 無ければ従来どおり gmail_credentials.json を使う。
+            client_config = _client_config_from_env()
+            if client_config is not None:
+                flow = InstalledAppFlow.from_client_config(
+                    client_config, GMAIL_SCOPES
+                )
+            elif CREDENTIALS_PATH.exists():
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    str(CREDENTIALS_PATH), GMAIL_SCOPES
+                )
+            else:
+                raise RuntimeError(
+                    "OAuth client 情報が見つかりません。gmail_credentials.json を配置するか、"
+                    "GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_PROJECT_ID を設定してください。"
+                )
             creds = flow.run_local_server(port=0)
         with open(TOKEN_PATH, "wb") as f:
             pickle.dump(creds, f)
