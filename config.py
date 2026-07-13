@@ -18,8 +18,20 @@ TOKEN_PATH = BASE_DIR / "gmail_token.pickle"
 CREDENTIALS_PATH = BASE_DIR / "gmail_credentials.json"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 
-# デバッグフラグ: True のとき Claude API を呼ばず、ダミーの日本語コンテンツを返す
-DEBUG = True
+def _env_bool(name: str, default: bool) -> bool:
+    """repository secret（環境変数）を真偽値として読む。未設定なら default。
+
+    "1" / "true" / "yes" / "on"（大文字小文字問わず）を True とみなす。
+    """
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() in ("1", "true", "yes", "on")
+
+
+# デバッグフラグ: True のとき Claude API を呼ばず、ダミーの日本語コンテンツを返す。
+# GitHub Actions では repository secret / variable の DEBUG で制御する（例: DEBUG=false）。
+DEBUG = _env_bool("DEBUG", default=True)
 
 # DEBUG 時に extract_papers_with_claude が返す固定のダミー論文リスト
 DEBUG_PAPERS = [
