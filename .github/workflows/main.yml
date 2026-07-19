@@ -9,8 +9,8 @@ jobs:
     name: recent-papers    # 省略可能
     runs-on: ubuntu-latest
     steps:
-      - name: exec recent papers
-      run: echo "exec recent papers"
+      - name: exec recent papers 
+        run: echo "exec recent papers"
       
       
       
