@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: exec recent papers 
         run: echo "exec recent papers"
+
+        # secretの登録なども必要
       
       
       
