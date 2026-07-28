@@ -5,10 +5,38 @@ import re
 from datetime import datetime, timedelta, timezone
 
 from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 from config import CREDENTIALS_PATH, GMAIL_SCOPES, TOKEN_PATH
+
+
+def _creds_from_refresh_token() -> Credentials | None:
+    """refresh token（環境変数）から OAuth credentials を組み立てて返す。
+
+    Web アプリのバックエンド／GitHub Actions などブラウザを開けない環境向け。
+    事前にローカルで一度だけ同意フローを通して取得した refresh token を
+    GMAIL_REFRESH_TOKEN として渡す想定。必須項目
+    （GMAIL_REFRESH_TOKEN / GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET）が
+    揃わなければ None を返し、呼び出し側は従来のフローにフォールバックする。
+    """
+    refresh_token = os.getenv("GMAIL_REFRESH_TOKEN")
+    client_id = os.getenv("GMAIL_CLIENT_ID")
+    client_secret = os.getenv("GMAIL_CLIENT_SECRET")
+    if not (refresh_token and client_id and client_secret):
+        return None
+
+    creds = Credentials(
+        token=None,
+        refresh_token=refresh_token,
+        client_id=client_id,
+        client_secret=client_secret,
+        token_uri=os.getenv("GMAIL_TOKEN_URI", "https://oauth2.googleapis.com/token"),
+        scopes=GMAIL_SCOPES,
+    )
+    creds.refresh(Request())  # refresh token を使ってアクセストークンを取得
+    return creds
 
 
 def _client_config_from_env() -> dict | None:
@@ -46,6 +74,12 @@ def _client_config_from_env() -> dict | None:
 
 
 def get_gmail_service():
+    # ブラウザを開けない環境（Web アプリのバックエンド / GitHub Actions）では、
+    # refresh token から直接 credentials を組み立てて認証する。
+    creds = _creds_from_refresh_token()
+    if creds is not None:
+        return build("gmail", "v1", credentials=creds)
+
     creds = None
     if TOKEN_PATH.exists():
         with open(TOKEN_PATH, "rb") as f:

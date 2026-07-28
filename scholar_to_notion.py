@@ -83,6 +83,9 @@ def main() -> None:
     print(f"[{datetime.now():%Y-%m-%d %H:%M}] Scholar → Notion pipeline starting")
     _require_env()
 
+    # [debug] GitHub Actions から渡された NOTION_TOKEN を確認する
+    print(f"  [debug] NOTION_TOKEN={os.getenv('NOTION_TOKEN')}")
+
     # 各APIクライアントを初期化
     anthropic_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     notion_client = NotionClient(auth=os.environ["NOTION_TOKEN"])

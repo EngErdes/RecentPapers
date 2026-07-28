@@ -3,20 +3,28 @@ name: RecentPapers
 on:
   schedule:
     - cron: "0 9 * * *"
-    
+  workflow_dispatch:  # 手動実行も可能にする
+
 jobs:
   recent-papers:
-    name: recent-papers    # 省略可能
+    name: recent-papers
     runs-on: ubuntu-latest
     steps:
-      - name: exec recent papers 
-        env:
-          API_KEY: ${{ secrets.NOTION_TOKEN }}
-        run: echo "exec recent papers"
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        # secretの登録なども必要
-      
-      
-      
-    
-  
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run Scholar → Notion pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          DEBUG: ${{ secrets.DEBUG }}
+        run: uv run python scholar_to_notion.py
