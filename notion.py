@@ -5,6 +5,8 @@
 主要情報はページ本文のブロックへ退避して情報欠落を防ぐ。
 """
 
+import re
+
 from notion_client import Client as NotionClient
 
 from config import NOTION_DATA_SOURCE_ID
@@ -16,6 +18,7 @@ from config import NOTION_DATA_SOURCE_ID
 # プロパティ割り当て（_build_properties）と本文フォールバック判定の両方で
 # 同じ定義を共有し、名称の食い違いを防ぐ。
 # （タイトルは名前ではなく title 型で特定するためエイリアスは持たない）
+_ALIAS_ORIGINAL_TITLE = ["原題", "原文タイトル", "Original Title"]
 _ALIAS_AUTHORS = ["著者", "Authors", "Author"]
 _ALIAS_JOURNAL = ["掲載誌", "Journal", "雑誌", "出典"]
 _ALIAS_SUMMARY = ["要約", "概要", "Summary", "Abstract"]
@@ -174,6 +177,64 @@ def _build_properties(
 
 
 # ---------------------------------------------------------------------------
+# 重複判定
+# ---------------------------------------------------------------------------
+def normalize_title(title: str) -> str:
+    """比較用にタイトルを正規化する。
+
+    前後の空白、連続空白、大文字小文字の揺れを吸収する。判定キーには
+    Claude の訳に左右されない原題を使うため、この程度の正規化で足りる。
+    """
+    return re.sub(r"\s+", " ", (title or "").strip()).casefold()
+
+
+def _plain_text(prop: dict) -> str:
+    """rich_text / title プロパティから素のテキストを取り出す。"""
+    items = prop.get(prop.get("type", ""))
+    if not isinstance(items, list):
+        return ""
+    return "".join(item.get("plain_text", "") for item in items)
+
+
+def fetch_registered_titles(
+    notion: NotionClient,
+    schema: dict,
+    data_source_id: str = NOTION_DATA_SOURCE_ID,
+) -> set[str] | None:
+    """登録済みレコードの原題を、正規化した集合として返す。
+
+    原題カラムが無い DB では判定できないため None を返す。
+    呼び出し側はその場合に重複チェックを無効にする。
+    """
+    found = _find_property(schema, _ALIAS_ORIGINAL_TITLE)
+    if not found:
+        return None
+    name, _ = found
+
+    titles: set[str] = set()
+    cursor = None
+    while True:
+        params = {"data_source_id": data_source_id, "page_size": 100}
+        if cursor:
+            params["start_cursor"] = cursor
+        result = notion.data_sources.query(**params)
+
+        for page in result.get("results", []):
+            prop = page.get("properties", {}).get(name)
+            if not prop:
+                continue
+            text = normalize_title(_plain_text(prop))
+            if text:
+                titles.add(text)
+
+        if not result.get("has_more"):
+            break
+        cursor = result.get("next_cursor")
+
+    return titles
+
+
+# ---------------------------------------------------------------------------
 # ページ作成
 # ---------------------------------------------------------------------------
 def create_notion_page(
@@ -198,6 +259,8 @@ def create_notion_page(
     # (候補カラム名リスト, 値) の並び。メモ列には一言キャッチコピーを入れる。
     # PDF は実取得できたリンクを優先し、無ければアラート記載の URL にフォールバック。
     field_values: list[tuple[list[str], str]] = [
+        # 原題は重複判定のキー。Claude の訳に依存しない安定した識別子として保存する。
+        (_ALIAS_ORIGINAL_TITLE, paper.get("title", "")),
         (_ALIAS_AUTHORS, paper.get("authors", "")),
         (_ALIAS_JOURNAL, journal_str),
         (_ALIAS_SUMMARY, summary),

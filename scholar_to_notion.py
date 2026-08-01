@@ -23,7 +23,12 @@ from gmail import (
     get_thread_content,
     resolve_label_mailbox,
 )
-from notion import create_notion_page, get_data_source_schema
+from notion import (
+    create_notion_page,
+    fetch_registered_titles,
+    get_data_source_schema,
+    normalize_title,
+)
 from pdf import extract_git_url_from_pdf, fetch_pdf_bytes, save_pdf_bytes
 
 FETCH_HOURS = 72  # 取得対象とするスレッドの遡り時間
@@ -98,6 +103,13 @@ def main() -> None:
         notion_schema = get_data_source_schema(notion_client)
         print(f"Notion columns: {', '.join(notion_schema)}")
 
+        # 登録済みの原題を読み込み、同じ論文を二重登録しないようにする
+        registered = fetch_registered_titles(notion_client, notion_schema)
+        if registered is None:
+            print("  ⚠ 原題カラムが無いため重複チェックを行いません")
+        else:
+            print(f"  {len(registered)} paper(s) already registered")
+
         # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得。
         # DEBUG 時は動作確認のため日付で絞らず、最新 DEBUG_THREAD_LIMIT 件だけを対象にする。
         mailbox = resolve_label_mailbox(gmail_conn, GMAIL_LABEL)
@@ -117,6 +129,7 @@ def main() -> None:
         pdf_dir = _prepare_debug_dir(threads) if DEBUG else None
 
         total = 0
+        skipped = 0  # 登録済みでスキップした論文数
         pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
         for mail_index, thread in enumerate(threads, 1):
             # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
@@ -139,6 +152,14 @@ def main() -> None:
             for paper in papers:
                 if not paper.get("title"):
                     continue
+
+                # 登録済みなら PDF 取得も Claude 呼び出しも行わずスキップする
+                key = normalize_title(paper["title"])
+                if registered is not None and key in registered:
+                    print(f"    ⏭ 登録済み: {paper['title'][:60]}")
+                    skipped += 1
+                    continue
+
                 print(f"    → {paper['title'][:70]}")
 
                 # 論文本文（PDF）を取得し、pdf_link / git_url を付与
@@ -153,10 +174,17 @@ def main() -> None:
                 )
                 print(f"      ✓ {url}")
                 total += 1
+
+                # 同一実行内でメールをまたいで重複するケースにも対応する
+                if registered is not None:
+                    registered.add(key)
     finally:
         gmail_conn.logout()
 
-    print(f"[{datetime.now():%Y-%m-%d %H:%M}] Done — {total} page(s) created in Notion")
+    print(
+        f"[{datetime.now():%Y-%m-%d %H:%M}] Done — {total} page(s) created in Notion"
+        f"（登録済みスキップ: {skipped} 件）"
+    )
 
 
 if __name__ == "__main__":
