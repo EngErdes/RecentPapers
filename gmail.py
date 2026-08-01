@@ -144,12 +144,16 @@ def resolve_label_mailbox(conn: imaplib.IMAP4_SSL, label_name: str) -> str:
     """
     mailbox = f'"{_encode_mailbox(label_name)}"'
 
-    typ, _ = conn.select(mailbox, readonly=True)
+    typ, data = conn.select(mailbox, readonly=True)
     if typ != "OK":
         available = "\n  ".join(_list_labels(conn))
         raise ValueError(
             f"Gmail label not found: '{label_name}'\n利用可能なラベル:\n  {available}"
         )
+
+    # ラベル自体が空なのか、期間の絞り込みで0件になったのかを切り分けられるようにする
+    total = int(data[0]) if data and data[0] and data[0].isdigit() else 0
+    print(f"  [imap] label '{label_name}' → {total} message(s) total")
     return mailbox
 
 
@@ -180,6 +184,7 @@ def fetch_recent_threads(
         raise RuntimeError(f"IMAP SEARCH に失敗しました: {typ}")
 
     uids = data[0].split() if data and data[0] else []
+    print(f"  [imap] SEARCH SINCE {since} → {len(uids)} message(s)")
     if not uids:
         return []
 
@@ -224,6 +229,11 @@ def fetch_recent_threads(
         threads.append(candidate)
         if limit is not None and len(threads) >= limit:
             break
+
+    print(
+        f"  [imap] {len(candidates)} message(s) within {hours}h "
+        f"→ {len(threads)} thread(s)"
+    )
     return threads
 
 
