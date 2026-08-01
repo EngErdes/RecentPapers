@@ -34,7 +34,8 @@ DEBUG = _env_bool("DEBUG", default=True)
 
 # DEBUG 時に処理するスレッド数の上限（新しいものから）。
 # 動作確認のたびに全スレッドを処理しないよう件数を絞る。
-DEBUG_THREAD_LIMIT = int(os.getenv("DEBUG_THREAD_LIMIT", "3"))
+# なお DEBUG 時は日付でも絞らず、ラベル内の最新スレッドを対象にする。
+DEBUG_THREAD_LIMIT = int(os.getenv("DEBUG_THREAD_LIMIT", "1"))
 
 # DEBUG 時に extract_papers_with_claude が返す固定のダミー論文リスト
 DEBUG_PAPERS = [

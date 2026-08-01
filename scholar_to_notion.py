@@ -99,16 +99,19 @@ def main() -> None:
         print(f"Notion columns: {', '.join(notion_schema)}")
 
         # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得。
-        # DEBUG 時は動作確認用に新しい順 DEBUG_THREAD_LIMIT 件までに絞る。
+        # DEBUG 時は動作確認のため日付で絞らず、最新 DEBUG_THREAD_LIMIT 件だけを対象にする。
         mailbox = resolve_label_mailbox(gmail_conn, GMAIL_LABEL)
+        hours = None if DEBUG else FETCH_HOURS
         limit = DEBUG_THREAD_LIMIT if DEBUG else None
-        threads = fetch_recent_threads(
-            gmail_conn, mailbox, hours=FETCH_HOURS, limit=limit
-        )
-        limit_note = f"（DEBUG: 最新 {DEBUG_THREAD_LIMIT} 件に制限）" if DEBUG else ""
-        print(
-            f"Found {len(threads)} mail(s) in the past {FETCH_HOURS} hours{limit_note}"
-        )
+        threads = fetch_recent_threads(gmail_conn, mailbox, hours=hours, limit=limit)
+
+        if DEBUG:
+            print(
+                f"Found {len(threads)} mail(s)"
+                f"（DEBUG: 日付フィルタなし・最新 {DEBUG_THREAD_LIMIT} 件に制限）"
+            )
+        else:
+            print(f"Found {len(threads)} mail(s) in the past {FETCH_HOURS} hours")
 
         # DEBUG 時はスレッド一覧を JSON 出力し、PDF 保存先を用意する
         pdf_dir = _prepare_debug_dir(threads) if DEBUG else None

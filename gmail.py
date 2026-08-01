@@ -21,6 +21,10 @@ from config import IMAP_HOST, IMAP_PORT
 _THRID_RE = re.compile(rb"X-GM-THRID\s+(\d+)")
 _UID_RE = re.compile(rb"UID\s+(\d+)")
 
+# 日付で絞らない場合に走査する上限（新しい側から）。ラベル全体を FETCH すると
+# 件数次第で重くなるため、最新数件を取れれば十分な用途に備えて頭を抑える。
+_NO_DATE_SCAN_LIMIT = 200
+
 
 def _require_credentials() -> tuple[str, str]:
     """GMAIL_USER / GMAIL_APP_PASSWORD を読み出す。未設定なら明示的に失敗する。"""
@@ -157,43 +161,95 @@ def resolve_label_mailbox(conn: imaplib.IMAP4_SSL, label_name: str) -> str:
     return mailbox
 
 
+def _log_latest_messages(
+    conn: imaplib.IMAP4_SSL, total: int, count: int = 5
+) -> None:
+    """ラベル内で最後に届いたメールの受信日時と件名を出力する。
+
+    直近の検索が0件だったときに、ラベルが空なのか受信が止まっているのかを
+    切り分けるための診断。
+    """
+    if total <= 0:
+        print("  [imap] ラベルにメッセージが1通もありません")
+        return
+
+    start = max(1, total - count + 1)
+    typ, data = conn.fetch(
+        f"{start}:{total}", "(INTERNALDATE BODY.PEEK[HEADER.FIELDS (SUBJECT)])"
+    )
+    if typ != "OK":
+        return
+
+    print(f"  [imap] ラベル内の最新メッセージ（全 {total} 通）:")
+    for item in data:
+        if not isinstance(item, tuple):
+            continue
+
+        received = imaplib.Internaldate2tuple(item[0])
+        stamp = time.strftime("%Y-%m-%d %H:%M:%S", received) if received else "?"
+
+        header = email.message_from_bytes(item[1])
+        subject = _decode_subject(header.get("Subject", ""))
+        print(f"           {stamp}  {subject[:60]}")
+
+
 def fetch_recent_threads(
     conn: imaplib.IMAP4_SSL,
     mailbox: str,
-    hours: int = 24,
+    hours: int | None = 24,
     limit: int | None = None,
 ) -> list[dict]:
-    """直近 hours 時間のメッセージをスレッド単位（新しい順）で返す。
+    """メッセージをスレッド単位（新しい順）で返す。
 
     IMAP の SEARCH SINCE は日単位でしか絞れないため、日付で粗く検索したうえで
     INTERNALDATE により時刻まで厳密に判定する。同一スレッド（X-GM-THRID）の
     メッセージは最新の1通だけを残す。
 
+    hours に None を渡すと日付で絞らず、ラベル内の全メッセージを対象にする
+    （動作確認用）。件数が多いと FETCH が重くなるため、この場合は新しい側の
+    _NO_DATE_SCAN_LIMIT 件だけを走査する。
     limit を指定すると、新しい順に最大その件数までで打ち切る。
     """
-    typ, _ = conn.select(mailbox, readonly=True)
+    typ, select_data = conn.select(mailbox, readonly=True)
     if typ != "OK":
         raise RuntimeError(f"メールボックスを開けませんでした: {mailbox}")
 
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
-    # サーバとローカルのタイムゾーン差で取りこぼさないよう、検索は1日広く取る
-    since = (cutoff - timedelta(days=1)).strftime("%d-%b-%Y")
+    total = (
+        int(select_data[0])
+        if select_data and select_data[0] and select_data[0].isdigit()
+        else 0
+    )
 
-    typ, data = conn.uid("SEARCH", None, "SINCE", since)
+    if hours is None:
+        cutoff_ts = None
+        criteria: tuple[str, ...] = ("ALL",)
+    else:
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+        cutoff_ts = cutoff.timestamp()
+        # サーバとローカルのタイムゾーン差で取りこぼさないよう、検索は1日広く取る
+        criteria = ("SINCE", (cutoff - timedelta(days=1)).strftime("%d-%b-%Y"))
+
+    typ, data = conn.uid("SEARCH", None, *criteria)
     if typ != "OK":
         raise RuntimeError(f"IMAP SEARCH に失敗しました: {typ}")
 
     uids = data[0].split() if data and data[0] else []
-    print(f"  [imap] SEARCH SINCE {since} → {len(uids)} message(s)")
+    print(f"  [imap] SEARCH {' '.join(criteria)} → {len(uids)} message(s)")
     if not uids:
+        # 0件の原因（ラベルが空 / 受信が止まっている）を切り分けられるよう、
+        # ラベル内で最後に届いたメールを表示する。
+        _log_latest_messages(conn, total)
         return []
+
+    if cutoff_ts is None:
+        # SEARCH は UID 昇順に返るため、末尾が最新
+        uids = uids[-_NO_DATE_SCAN_LIMIT:]
 
     uid_set = ",".join(uid.decode("ascii") for uid in uids)
     typ, data = conn.uid("FETCH", uid_set, "(X-GM-THRID INTERNALDATE)")
     if typ != "OK":
         raise RuntimeError(f"IMAP FETCH に失敗しました: {typ}")
 
-    cutoff_ts = cutoff.timestamp()
     candidates = []
     for line in data:
         if not isinstance(line, bytes):
@@ -204,7 +260,9 @@ def fetch_recent_threads(
             continue
 
         received = imaplib.Internaldate2tuple(line)
-        if received is None or time.mktime(received) < cutoff_ts:
+        if received is None:
+            continue
+        if cutoff_ts is not None and time.mktime(received) < cutoff_ts:
             continue
 
         thrid_match = _THRID_RE.search(line)
@@ -230,10 +288,8 @@ def fetch_recent_threads(
         if limit is not None and len(threads) >= limit:
             break
 
-    print(
-        f"  [imap] {len(candidates)} message(s) within {hours}h "
-        f"→ {len(threads)} thread(s)"
-    )
+    window = "全期間" if hours is None else f"直近 {hours}h"
+    print(f"  [imap] {window} {len(candidates)} message(s) → {len(threads)} thread(s)")
     return threads
 
 
