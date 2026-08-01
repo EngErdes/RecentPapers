@@ -3,7 +3,7 @@ import re
 
 import anthropic
 
-from config import CLAUDE_MODEL, DEBUG, DEBUG_JAPANESE_CONTENT, DEBUG_PAPERS
+from config import CLAUDE_MODEL
 
 _EXTRACT_SYSTEM = (
     "You are a precise data extraction assistant. "
@@ -47,10 +47,6 @@ def extract_papers_with_claude(
     client: anthropic.Anthropic, html_body: str
 ) -> list[dict]:
     """Parse Google Scholar alert HTML → list of paper dicts using Claude."""
-    # DEBUG 時は Claude を呼ばず、あらかじめ指定したダミー論文リストを返す
-    if DEBUG:
-        return [dict(p) for p in DEBUG_PAPERS]
-
     # Trim to avoid excessive token usage; Scholar alerts are usually < 30 KB
     body = html_body[:40000] if len(html_body) > 40000 else html_body
 
@@ -79,9 +75,6 @@ def generate_japanese_content(
     client: anthropic.Anthropic, paper: dict
 ) -> dict:
     """Generate Japanese title, summary, and explanations for a paper."""
-    # DEBUG 時は Claude を呼ばず、あらかじめ指定したダミー内容を返す
-    if DEBUG:
-        return dict(DEBUG_JAPANESE_CONTENT)
 
     prompt = (
         "以下の論文情報をもとに日本語コンテンツを生成してください。\n\n"

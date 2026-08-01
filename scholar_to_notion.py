@@ -144,7 +144,7 @@ def main() -> None:
                 # 論文本文（PDF）を取得し、pdf_link / git_url を付与
                 pdf_index = _attach_pdf_and_git(paper, pdf_dir, pdf_index)
 
-                # Claudeで日本語タイトル・要約・解説などを生成（DEBUG 時はダミー）
+                # Claudeで日本語タイトル・要約・解説などを生成
                 jp = generate_japanese_content(anthropic_client, paper)
 
                 # Notionデータベースに論文レコードを作成
