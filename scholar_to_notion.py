@@ -107,7 +107,7 @@ def main() -> None:
         )
         limit_note = f"（DEBUG: 最新 {DEBUG_THREAD_LIMIT} 件に制限）" if DEBUG else ""
         print(
-            f"Found {len(threads)} thread(s) in the past {FETCH_HOURS} hours{limit_note}"
+            f"Found {len(threads)} mail(s) in the past {FETCH_HOURS} hours{limit_note}"
         )
 
         # DEBUG 時はスレッド一覧を JSON 出力し、PDF 保存先を用意する
@@ -115,11 +115,11 @@ def main() -> None:
 
         total = 0
         pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
-        for thread in threads:
+        for mail_index, thread in enumerate(threads, 1):
             # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
             subject, html_body = get_thread_content(gmail_conn, thread["id"])
             keyword = extract_keyword_from_subject(subject)
-            print(f"  Thread: {subject[:70]}")
+            print(f"  Mail {mail_index}/{len(threads)}: {subject[:70]}")
 
             if not html_body:
                 print("    ⚠ No HTML body found, skipping")
@@ -128,6 +128,10 @@ def main() -> None:
             # ClaudeでHTML本文を解析し、論文メタデータ（タイトル・著者・掲載誌・URLなど）を抽出
             papers = extract_papers_with_claude(anthropic_client, html_body)
             print(f"    Extracted {len(papers)} paper(s)")
+
+            # 処理を始める前に、このメールに含まれる論文タイトルを一覧で出す
+            for paper_index, paper in enumerate(papers, 1):
+                print(f"      {paper_index}. {paper.get('title') or '（タイトル不明）'}")
 
             for paper in papers:
                 if not paper.get("title"):
