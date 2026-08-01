@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## プロジェクト概要
 
 macOS launchd によって毎日 08:00 に実行される Python パイプライン。処理の流れ:
-1. Gmail API（OAuth2）で特定ラベルの Google Scholar アラートメールを取得
+1. Gmail の IMAP（アプリパスワード認証）で特定ラベルの Google Scholar アラートメールを取得
 2. Claude でメール HTML を解析し、論文メタデータ（タイトル・著者・掲載誌・URL）を抽出
 3. Claude で各論文の日本語タイトル・要約・一言キャッチコピー・問題説明・初学者向け解説を生成
 4. Notion データベースに論文ごとのレコードを作成
@@ -31,9 +31,16 @@ uv sync   # インストール・更新
 
 ## 必要な認証情報
 
-- `.env`（`.env.example` をコピーして作成）: `ANTHROPIC_API_KEY`、`NOTION_TOKEN`
-- `gmail_credentials.json` — Google Cloud Console からダウンロードした OAuth2 クライアントシークレット（gitignore 済み）
-- `gmail_token.pickle` — 初回実行時にブラウザ認証フローで自動生成、以降は自動更新
+`.env`（`.env.example` をコピーして作成）に4つすべてを設定する。GitHub Actions では同名の repository secret に登録する。
+
+| 変数 | 取得元 |
+|---|---|
+| `ANTHROPIC_API_KEY` | https://console.anthropic.com/ |
+| `NOTION_TOKEN` | https://www.notion.so/my-integrations |
+| `GMAIL_USER` | 対象の Gmail / Workspace アドレス |
+| `GMAIL_APP_PASSWORD` | https://myaccount.google.com/apppasswords で発行した16文字 |
+
+Gmail の認証は OAuth2 ではなくアプリパスワードによる IMAP ログイン。ブラウザ同意フローが不要なため GitHub Actions でもそのまま動作する。アプリパスワードの発行には対象アカウントで2段階認証が有効になっている必要があり、Workspace の場合は管理者が IMAP アクセスとアプリパスワードを許可している必要がある。
 
 ## 主要定数（`config.py`）
 
@@ -42,8 +49,8 @@ uv sync   # インストール・更新
 | `GMAIL_LABEL` | `"01.日々の情報収集/01.03GoogleScholar"` |
 | `NOTION_DATABASE_ID` | 環境変数、またはハードコードされたデフォルト値 |
 | `CLAUDE_MODEL` | `claude-sonnet-4-6` |
-| `TOKEN_PATH` | `gmail_token.pickle`（スクリプトと同ディレクトリ）|
-| `CREDENTIALS_PATH` | `gmail_credentials.json`（スクリプトと同ディレクトリ）|
+| `IMAP_HOST` | 環境変数、既定 `imap.gmail.com` |
+| `IMAP_PORT` | 環境変数、既定 `993` |
 
 ## launchd スケジューリング（macOS）
 
@@ -72,7 +79,7 @@ launchctl start com.erdes.scholar_to_notion
 |---|---|
 | `scholar_to_notion.py` | エントリポイント。パイプライン全体を統括 |
 | `config.py` | 定数と環境変数のロード |
-| `gmail.py` | Gmail OAuth2 認証・スレッド取得・本文パース |
+| `gmail.py` | Gmail IMAP 接続（アプリパスワード）・ラベル解決・スレッド取得・本文パース |
 | `ai.py` | Claude API 呼び出し2種（論文抽出・日本語コンテンツ生成）|
 | `notion.py` | Notion ページ・ブロック生成ヘルパー |
 

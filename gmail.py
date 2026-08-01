@@ -1,179 +1,263 @@
+"""Gmail から Google Scholar アラートメールを取得する。
+
+認証は Google Workspace で発行したアプリパスワードによる IMAP ログイン
+（GMAIL_USER / GMAIL_APP_PASSWORD）。OAuth2 の同意フローが不要なため、
+ブラウザを開けない GitHub Actions でもそのまま動作する。
+"""
+
 import base64
+import email
+import imaplib
 import os
-import pickle
 import re
+import time
 from datetime import datetime, timedelta, timezone
+from email.header import decode_header, make_header
+from email.message import Message
 
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
+from config import IMAP_HOST, IMAP_PORT
 
-from config import CREDENTIALS_PATH, GMAIL_SCOPES, TOKEN_PATH
+# FETCH レスポンス（例: b'1 (X-GM-THRID 1699... UID 42 INTERNALDATE "01-Aug-2026 ...")'）の解析用
+_THRID_RE = re.compile(rb"X-GM-THRID\s+(\d+)")
+_UID_RE = re.compile(rb"UID\s+(\d+)")
 
 
-def _creds_from_refresh_token() -> Credentials | None:
-    """refresh token（環境変数）から OAuth credentials を組み立てて返す。
+def _require_credentials() -> tuple[str, str]:
+    """GMAIL_USER / GMAIL_APP_PASSWORD を読み出す。未設定なら明示的に失敗する。"""
+    user = os.getenv("GMAIL_USER")
+    password = os.getenv("GMAIL_APP_PASSWORD")
 
-    Web アプリのバックエンド／GitHub Actions などブラウザを開けない環境向け。
-    事前にローカルで一度だけ同意フローを通して取得した refresh token を
-    GMAIL_REFRESH_TOKEN として渡す想定。必須項目
-    （GMAIL_REFRESH_TOKEN / GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET）が
-    揃わなければ None を返し、呼び出し側は従来のフローにフォールバックする。
+    missing = [
+        name
+        for name, value in (("GMAIL_USER", user), ("GMAIL_APP_PASSWORD", password))
+        if not value
+    ]
+    if missing:
+        raise RuntimeError(
+            f"Gmail の認証情報が未設定です: {', '.join(missing)}。"
+            "ローカルでは .env に、GitHub Actions では repository secret に設定してください。"
+        )
+
+    # Google はアプリパスワードを4文字ずつ空白区切りで表示する。
+    # そのまま貼り付けられていても通るよう空白を除去する。
+    return user, password.replace(" ", "")
+
+
+def get_gmail_connection() -> imaplib.IMAP4_SSL:
+    """アプリパスワードで Gmail の IMAP に接続し、ログイン済みの接続を返す。"""
+    user, password = _require_credentials()
+
+    conn = imaplib.IMAP4_SSL(IMAP_HOST, IMAP_PORT)
+    try:
+        conn.login(user, password)
+    except imaplib.IMAP4.error as e:
+        conn.logout()
+        raise RuntimeError(
+            f"Gmail への IMAP ログインに失敗しました（{user}）: {e}。"
+            "アプリパスワードが有効か、対象アカウントで IMAP が有効になっているか確認してください。"
+        ) from e
+    return conn
+
+
+def _encode_mailbox(name: str) -> str:
+    """メールボックス名を modified UTF-7（RFC 3501 5.1.3）で符号化する。
+
+    Gmail のラベルは日本語を含むため、そのままでは SELECT できない。
+    印字可能 ASCII はそのまま、'&' は '&-'、それ以外は UTF-16BE を base64 化して
+    '&...-' で囲む（base64 の '/' は ',' に置換する）。
     """
-    refresh_token = os.getenv("GMAIL_REFRESH_TOKEN")
-    client_id = os.getenv("GMAIL_CLIENT_ID")
-    client_secret = os.getenv("GMAIL_CLIENT_SECRET")
-    if not (refresh_token and client_id and client_secret):
-        return None
+    out: list[str] = []
+    buf: list[str] = []
 
-    creds = Credentials(
-        token=None,
-        refresh_token=refresh_token,
-        client_id=client_id,
-        client_secret=client_secret,
-        token_uri=os.getenv("GMAIL_TOKEN_URI", "https://oauth2.googleapis.com/token"),
-        scopes=GMAIL_SCOPES,
-    )
-    creds.refresh(Request())  # refresh token を使ってアクセストークンを取得
-    return creds
+    def flush() -> None:
+        if buf:
+            encoded = base64.b64encode("".join(buf).encode("utf-16-be")).decode("ascii")
+            out.append("&" + encoded.rstrip("=").replace("/", ",") + "-")
+            buf.clear()
 
-
-def _client_config_from_env() -> dict | None:
-    """GitHub Actions の repository secret（環境変数）から OAuth client config を組み立てる。
-
-    gmail_credentials.json を置けない環境向け。標準的で秘匿性の低い項目（auth_uri 等）は
-    デフォルト値を持つ。必須項目（client_id / client_secret / project_id）が揃わなければ
-    None を返し、呼び出し側はファイル（CREDENTIALS_PATH）にフォールバックする。
-    """
-    client_id = os.getenv("GMAIL_CLIENT_ID")
-    client_secret = os.getenv("GMAIL_CLIENT_SECRET")
-    project_id = os.getenv("GMAIL_PROJECT_ID")
-    if not (client_id and client_secret and project_id):
-        return None
-
-    redirect_uris = os.getenv("GMAIL_REDIRECT_URIS", "http://localhost")
-    return {
-        "installed": {
-            "client_id": client_id,
-            "project_id": project_id,
-            "auth_uri": os.getenv(
-                "GMAIL_AUTH_URI", "https://accounts.google.com/o/oauth2/auth"
-            ),
-            "token_uri": os.getenv(
-                "GMAIL_TOKEN_URI", "https://oauth2.googleapis.com/token"
-            ),
-            "auth_provider_x509_cert_url": os.getenv(
-                "GMAIL_AUTH_PROVIDER_X509_CERT_URL",
-                "https://www.googleapis.com/oauth2/v1/certs",
-            ),
-            "client_secret": client_secret,
-            "redirect_uris": [u.strip() for u in redirect_uris.split(",") if u.strip()],
-        }
-    }
-
-
-def get_gmail_service():
-    # ブラウザを開けない環境（Web アプリのバックエンド / GitHub Actions）では、
-    # refresh token から直接 credentials を組み立てて認証する。
-    creds = _creds_from_refresh_token()
-    if creds is not None:
-        return build("gmail", "v1", credentials=creds)
-
-    creds = None
-    if TOKEN_PATH.exists():
-        with open(TOKEN_PATH, "rb") as f:
-            creds = pickle.load(f)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+    for ch in name:
+        if ch == "&":
+            flush()
+            out.append("&-")
+        elif "\x20" <= ch <= "\x7e":
+            flush()
+            out.append(ch)
         else:
-            # repository secret（環境変数）に client 情報があればそれを、
-            # 無ければ従来どおり gmail_credentials.json を使う。
-            client_config = _client_config_from_env()
-            if client_config is not None:
-                flow = InstalledAppFlow.from_client_config(
-                    client_config, GMAIL_SCOPES
-                )
-            elif CREDENTIALS_PATH.exists():
-                flow = InstalledAppFlow.from_client_secrets_file(
-                    str(CREDENTIALS_PATH), GMAIL_SCOPES
-                )
-            else:
-                raise RuntimeError(
-                    "OAuth client 情報が見つかりません。gmail_credentials.json を配置するか、"
-                    "GMAIL_CLIENT_ID / GMAIL_CLIENT_SECRET / GMAIL_PROJECT_ID を設定してください。"
-                )
-            creds = flow.run_local_server(port=0)
-        with open(TOKEN_PATH, "wb") as f:
-            pickle.dump(creds, f)
-    return build("gmail", "v1", credentials=creds)
+            buf.append(ch)
+    flush()
+    return "".join(out)
 
 
-def get_label_id(service, label_name: str) -> str:
-    labels = service.users().labels().list(userId="me").execute().get("labels", [])
-    for label in labels:
-        if label["name"] == label_name:
-            return label["id"]
-    raise ValueError(f"Gmail label not found: '{label_name}'")
+def _decode_mailbox(raw: bytes) -> str:
+    """modified UTF-7 のメールボックス名を復号する（_encode_mailbox の逆）。"""
+    text = raw.decode("ascii", errors="replace")
 
+    out: list[str] = []
+    i = 0
+    while i < len(text):
+        if text[i] != "&":
+            out.append(text[i])
+            i += 1
+            continue
 
-def fetch_recent_threads(service, label_id: str, hours: int = 24) -> list[dict]:
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
-    query = f"after:{int(cutoff.timestamp())}"
-    result = (
-        service.users()
-        .threads()
-        .list(userId="me", labelIds=[label_id], q=query)
-        .execute()
-    )
-    return result.get("threads", [])
-
-
-def _iter_parts(payload):
-    yield payload
-    for part in payload.get("parts", []):
-        yield from _iter_parts(part)
-
-
-def get_thread_content(service, thread_id: str) -> tuple[str, str]:
-    """Return (subject, html_body) for the first message in the thread."""
-    thread = service.users().threads().get(
-        userId="me", id=thread_id, format="full"
-    ).execute()
-
-    subject = ""
-    html_body = ""
-
-    for msg in thread.get("messages", []):
-        payload = msg.get("payload", {})
-
-        if not subject:
-            for header in payload.get("headers", []):
-                if header["name"] == "Subject":
-                    subject = header["value"]
-                    break
-
-        for part in _iter_parts(payload):
-            if part.get("mimeType") == "text/html":
-                data = part.get("body", {}).get("data", "")
-                if data:
-                    html_body = base64.urlsafe_b64decode(data).decode(
-                        "utf-8", errors="replace"
-                    )
-                    break
-
-        if not html_body:
-            data = payload.get("body", {}).get("data", "")
-            if data:
-                html_body = base64.urlsafe_b64decode(data).decode(
-                    "utf-8", errors="replace"
-                )
-
-        if html_body:
+        end = text.find("-", i + 1)
+        if end == -1:  # 閉じられていない符号化。そのまま残す
+            out.append(text[i:])
             break
 
-    return subject, html_body
+        chunk = text[i + 1 : end]
+        if not chunk:  # '&-' はリテラルの '&'
+            out.append("&")
+        else:
+            b64 = chunk.replace(",", "/")
+            b64 += "=" * (-len(b64) % 4)
+            try:
+                out.append(base64.b64decode(b64).decode("utf-16-be"))
+            except (ValueError, UnicodeDecodeError):
+                out.append(text[i : end + 1])
+        i = end + 1
+    return "".join(out)
+
+
+def _list_labels(conn: imaplib.IMAP4_SSL) -> list[str]:
+    """サーバ上のラベル（メールボックス）名を復号して列挙する。"""
+    typ, data = conn.list()
+    if typ != "OK":
+        return []
+
+    labels = []
+    for line in data:
+        if not isinstance(line, bytes):
+            continue
+        # 例: b'(\\HasNoChildren) "/" "INBOX"'
+        m = re.search(rb'"([^"]*)"$', line)
+        if m:
+            labels.append(_decode_mailbox(m.group(1)))
+    return labels
+
+
+def resolve_label_mailbox(conn: imaplib.IMAP4_SSL, label_name: str) -> str:
+    """ラベル名を SELECT 可能なメールボックス名に変換し、存在を確認して返す。
+
+    Gmail API のラベル ID に相当するものは IMAP には無く、
+    符号化済みのメールボックス名がそのまま識別子になる。
+    """
+    mailbox = f'"{_encode_mailbox(label_name)}"'
+
+    typ, _ = conn.select(mailbox, readonly=True)
+    if typ != "OK":
+        available = "\n  ".join(_list_labels(conn))
+        raise ValueError(
+            f"Gmail label not found: '{label_name}'\n利用可能なラベル:\n  {available}"
+        )
+    return mailbox
+
+
+def fetch_recent_threads(
+    conn: imaplib.IMAP4_SSL, mailbox: str, hours: int = 24
+) -> list[dict]:
+    """直近 hours 時間のメッセージをスレッド単位（新しい順）で返す。
+
+    IMAP の SEARCH SINCE は日単位でしか絞れないため、日付で粗く検索したうえで
+    INTERNALDATE により時刻まで厳密に判定する。同一スレッド（X-GM-THRID）の
+    メッセージは最新の1通だけを残す。
+    """
+    typ, _ = conn.select(mailbox, readonly=True)
+    if typ != "OK":
+        raise RuntimeError(f"メールボックスを開けませんでした: {mailbox}")
+
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    # サーバとローカルのタイムゾーン差で取りこぼさないよう、検索は1日広く取る
+    since = (cutoff - timedelta(days=1)).strftime("%d-%b-%Y")
+
+    typ, data = conn.uid("SEARCH", None, "SINCE", since)
+    if typ != "OK":
+        raise RuntimeError(f"IMAP SEARCH に失敗しました: {typ}")
+
+    uids = data[0].split() if data and data[0] else []
+    if not uids:
+        return []
+
+    uid_set = ",".join(uid.decode("ascii") for uid in uids)
+    typ, data = conn.uid("FETCH", uid_set, "(X-GM-THRID INTERNALDATE)")
+    if typ != "OK":
+        raise RuntimeError(f"IMAP FETCH に失敗しました: {typ}")
+
+    cutoff_ts = cutoff.timestamp()
+    candidates = []
+    for line in data:
+        if not isinstance(line, bytes):
+            continue
+
+        uid_match = _UID_RE.search(line)
+        if not uid_match:
+            continue
+
+        received = imaplib.Internaldate2tuple(line)
+        if received is None or time.mktime(received) < cutoff_ts:
+            continue
+
+        thrid_match = _THRID_RE.search(line)
+        # X-GM-THRID が返らない場合は UID をスレッド識別子として扱う
+        thread_id = (thrid_match or uid_match).group(1).decode("ascii")
+        candidates.append(
+            {
+                "id": uid_match.group(1).decode("ascii"),
+                "thread_id": thread_id,
+                "received": time.mktime(received),
+            }
+        )
+
+    candidates.sort(key=lambda c: c["received"], reverse=True)
+
+    threads = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        if candidate["thread_id"] in seen:
+            continue
+        seen.add(candidate["thread_id"])
+        threads.append(candidate)
+    return threads
+
+
+def _decode_subject(raw: str) -> str:
+    """RFC 2047 で符号化された件名を復号する。"""
+    if not raw:
+        return ""
+    try:
+        return str(make_header(decode_header(raw)))
+    except (UnicodeDecodeError, LookupError, ValueError):
+        return raw
+
+
+def _extract_body(msg: Message) -> str:
+    """text/html パートを優先して本文を取り出す。無ければ text/plain。"""
+    plain = ""
+    for part in msg.walk():
+        if part.get_content_maintype() == "multipart":
+            continue
+
+        payload = part.get_payload(decode=True)
+        if not payload:
+            continue
+
+        text = payload.decode(part.get_content_charset() or "utf-8", errors="replace")
+        if part.get_content_type() == "text/html":
+            return text
+        if part.get_content_type() == "text/plain" and not plain:
+            plain = text
+    return plain
+
+
+def get_thread_content(conn: imaplib.IMAP4_SSL, message_uid: str) -> tuple[str, str]:
+    """Return (subject, html_body) for the given message UID."""
+    # BODY.PEEK[] は \Seen を立てずに本文を取得する
+    typ, data = conn.uid("FETCH", message_uid, "(BODY.PEEK[])")
+    if typ != "OK" or not data or not isinstance(data[0], tuple):
+        return "", ""
+
+    msg = email.message_from_bytes(data[0][1])
+    return _decode_subject(msg.get("Subject", "")), _extract_body(msg)
 
 
 def extract_keyword_from_subject(subject: str) -> str:

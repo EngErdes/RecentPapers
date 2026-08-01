@@ -19,9 +19,9 @@ from config import DEBUG, GMAIL_LABEL
 from gmail import (
     extract_keyword_from_subject,
     fetch_recent_threads,
-    get_gmail_service,
-    get_label_id,
+    get_gmail_connection,
     get_thread_content,
+    resolve_label_mailbox,
 )
 from notion import create_notion_page, get_data_source_schema
 from pdf import extract_git_url_from_pdf, fetch_pdf_bytes, save_pdf_bytes
@@ -31,7 +31,8 @@ FETCH_HOURS = 72  # 取得対象とするスレッドの遡り時間
 
 def _require_env() -> None:
     """必須環境変数が無ければ終了する。"""
-    missing = [k for k in ("ANTHROPIC_API_KEY", "NOTION_TOKEN") if not os.getenv(k)]
+    required = ("ANTHROPIC_API_KEY", "NOTION_TOKEN", "GMAIL_USER", "GMAIL_APP_PASSWORD")
+    missing = [k for k in required if not os.getenv(k)]
     if missing:
         sys.exit(f"Missing environment variables: {', '.join(missing)}")
 
@@ -89,54 +90,57 @@ def main() -> None:
     # 各APIクライアントを初期化
     anthropic_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     notion_client = NotionClient(auth=os.environ["NOTION_TOKEN"])
-    gmail_service = get_gmail_service()
+    gmail_conn = get_gmail_connection()
 
-    # レコード作成前に、アクセス先データベースのプロパティ（カラム）を取得しておく。
-    # 以降のページ作成はこのスキーマに基づいて動的に組み立てる。
-    notion_schema = get_data_source_schema(notion_client)
-    print(f"Notion columns: {', '.join(notion_schema)}")
+    try:
+        # レコード作成前に、アクセス先データベースのプロパティ（カラム）を取得しておく。
+        # 以降のページ作成はこのスキーマに基づいて動的に組み立てる。
+        notion_schema = get_data_source_schema(notion_client)
+        print(f"Notion columns: {', '.join(notion_schema)}")
 
-    # 対象ラベルのIDを取得し、直近 FETCH_HOURS 時間のスレッドを取得
-    label_id = get_label_id(gmail_service, GMAIL_LABEL)
-    threads = fetch_recent_threads(gmail_service, label_id, hours=FETCH_HOURS)
-    print(f"Found {len(threads)} thread(s) in the past {FETCH_HOURS} hours")
+        # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得
+        mailbox = resolve_label_mailbox(gmail_conn, GMAIL_LABEL)
+        threads = fetch_recent_threads(gmail_conn, mailbox, hours=FETCH_HOURS)
+        print(f"Found {len(threads)} thread(s) in the past {FETCH_HOURS} hours")
 
-    # DEBUG 時はスレッド一覧を JSON 出力し、PDF 保存先を用意する
-    pdf_dir = _prepare_debug_dir(threads) if DEBUG else None
+        # DEBUG 時はスレッド一覧を JSON 出力し、PDF 保存先を用意する
+        pdf_dir = _prepare_debug_dir(threads) if DEBUG else None
 
-    total = 0
-    pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
-    for thread in threads:
-        # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
-        subject, html_body = get_thread_content(gmail_service, thread["id"])
-        keyword = extract_keyword_from_subject(subject)
-        print(f"  Thread: {subject[:70]}")
+        total = 0
+        pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
+        for thread in threads:
+            # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
+            subject, html_body = get_thread_content(gmail_conn, thread["id"])
+            keyword = extract_keyword_from_subject(subject)
+            print(f"  Thread: {subject[:70]}")
 
-        if not html_body:
-            print("    ⚠ No HTML body found, skipping")
-            continue
-
-        # ClaudeでHTML本文を解析し、論文メタデータ（タイトル・著者・掲載誌・URLなど）を抽出
-        papers = extract_papers_with_claude(anthropic_client, html_body)
-        print(f"    Extracted {len(papers)} paper(s)")
-
-        for paper in papers:
-            if not paper.get("title"):
+            if not html_body:
+                print("    ⚠ No HTML body found, skipping")
                 continue
-            print(f"    → {paper['title'][:70]}")
 
-            # 論文本文（PDF）を取得し、pdf_link / git_url を付与
-            pdf_index = _attach_pdf_and_git(paper, pdf_dir, pdf_index)
+            # ClaudeでHTML本文を解析し、論文メタデータ（タイトル・著者・掲載誌・URLなど）を抽出
+            papers = extract_papers_with_claude(anthropic_client, html_body)
+            print(f"    Extracted {len(papers)} paper(s)")
 
-            # Claudeで日本語タイトル・要約・解説などを生成（DEBUG 時はダミー）
-            jp = generate_japanese_content(anthropic_client, paper)
+            for paper in papers:
+                if not paper.get("title"):
+                    continue
+                print(f"    → {paper['title'][:70]}")
 
-            # Notionデータベースに論文レコードを作成
-            url = create_notion_page(
-                notion_client, paper, jp, keyword, schema=notion_schema
-            )
-            print(f"      ✓ {url}")
-            total += 1
+                # 論文本文（PDF）を取得し、pdf_link / git_url を付与
+                pdf_index = _attach_pdf_and_git(paper, pdf_dir, pdf_index)
+
+                # Claudeで日本語タイトル・要約・解説などを生成（DEBUG 時はダミー）
+                jp = generate_japanese_content(anthropic_client, paper)
+
+                # Notionデータベースに論文レコードを作成
+                url = create_notion_page(
+                    notion_client, paper, jp, keyword, schema=notion_schema
+                )
+                print(f"      ✓ {url}")
+                total += 1
+    finally:
+        gmail_conn.logout()
 
     print(f"[{datetime.now():%Y-%m-%d %H:%M}] Done — {total} page(s) created in Notion")
 

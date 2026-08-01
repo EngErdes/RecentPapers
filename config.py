@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -12,10 +11,10 @@ NOTION_DATA_SOURCE_ID = os.getenv(
     "NOTION_DATA_SOURCE_ID", "1c0a0361-6fa0-80d1-a4cf-000b631d183e"
 )
 GMAIL_LABEL = "01.日々の情報収集/01.03GoogleScholar"
-GMAIL_SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
-BASE_DIR = Path(__file__).parent
-TOKEN_PATH = BASE_DIR / "gmail_token.pickle"
-CREDENTIALS_PATH = BASE_DIR / "gmail_credentials.json"
+# Gmail への接続はアプリパスワードによる IMAP。認証情報は
+# GMAIL_USER / GMAIL_APP_PASSWORD（.env または repository secret）から読む。
+IMAP_HOST = os.getenv("IMAP_HOST", "imap.gmail.com")
+IMAP_PORT = int(os.getenv("IMAP_PORT", "993"))
 CLAUDE_MODEL = "claude-sonnet-4-6"
 
 def _env_bool(name: str, default: bool) -> bool:
