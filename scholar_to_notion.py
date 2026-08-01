@@ -15,7 +15,7 @@ import anthropic
 from notion_client import Client as NotionClient
 
 from ai import extract_papers_with_claude, generate_japanese_content
-from config import DEBUG, GMAIL_LABEL
+from config import DEBUG, DEBUG_THREAD_LIMIT, GMAIL_LABEL
 from gmail import (
     extract_keyword_from_subject,
     fetch_recent_threads,
@@ -98,10 +98,17 @@ def main() -> None:
         notion_schema = get_data_source_schema(notion_client)
         print(f"Notion columns: {', '.join(notion_schema)}")
 
-        # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得
+        # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得。
+        # DEBUG 時は動作確認用に新しい順 DEBUG_THREAD_LIMIT 件までに絞る。
         mailbox = resolve_label_mailbox(gmail_conn, GMAIL_LABEL)
-        threads = fetch_recent_threads(gmail_conn, mailbox, hours=FETCH_HOURS)
-        print(f"Found {len(threads)} thread(s) in the past {FETCH_HOURS} hours")
+        limit = DEBUG_THREAD_LIMIT if DEBUG else None
+        threads = fetch_recent_threads(
+            gmail_conn, mailbox, hours=FETCH_HOURS, limit=limit
+        )
+        limit_note = f"（DEBUG: 最新 {DEBUG_THREAD_LIMIT} 件に制限）" if DEBUG else ""
+        print(
+            f"Found {len(threads)} thread(s) in the past {FETCH_HOURS} hours{limit_note}"
+        )
 
         # DEBUG 時はスレッド一覧を JSON 出力し、PDF 保存先を用意する
         pdf_dir = _prepare_debug_dir(threads) if DEBUG else None

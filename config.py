@@ -32,6 +32,10 @@ def _env_bool(name: str, default: bool) -> bool:
 # GitHub Actions では repository secret / variable の DEBUG で制御する（例: DEBUG=false）。
 DEBUG = _env_bool("DEBUG", default=True)
 
+# DEBUG 時に処理するスレッド数の上限（新しいものから）。
+# 動作確認のたびに全スレッドを処理しないよう件数を絞る。
+DEBUG_THREAD_LIMIT = int(os.getenv("DEBUG_THREAD_LIMIT", "3"))
+
 # DEBUG 時に extract_papers_with_claude が返す固定のダミー論文リスト
 DEBUG_PAPERS = [
     {

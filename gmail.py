@@ -154,13 +154,18 @@ def resolve_label_mailbox(conn: imaplib.IMAP4_SSL, label_name: str) -> str:
 
 
 def fetch_recent_threads(
-    conn: imaplib.IMAP4_SSL, mailbox: str, hours: int = 24
+    conn: imaplib.IMAP4_SSL,
+    mailbox: str,
+    hours: int = 24,
+    limit: int | None = None,
 ) -> list[dict]:
     """直近 hours 時間のメッセージをスレッド単位（新しい順）で返す。
 
     IMAP の SEARCH SINCE は日単位でしか絞れないため、日付で粗く検索したうえで
     INTERNALDATE により時刻まで厳密に判定する。同一スレッド（X-GM-THRID）の
     メッセージは最新の1通だけを残す。
+
+    limit を指定すると、新しい順に最大その件数までで打ち切る。
     """
     typ, _ = conn.select(mailbox, readonly=True)
     if typ != "OK":
@@ -217,6 +222,8 @@ def fetch_recent_threads(
             continue
         seen.add(candidate["thread_id"])
         threads.append(candidate)
+        if limit is not None and len(threads) >= limit:
+            break
     return threads
 
 
