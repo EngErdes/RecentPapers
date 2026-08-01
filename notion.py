@@ -299,6 +299,8 @@ def create_notion_page(
         blocks += _section("📌 論文の一言要約", one_liner)
     if jp.get("problem"):
         blocks += _section("❓ どんな問題？", jp["problem"])
+    if jp.get("novelty"):
+        blocks += _section("✨ 何が新しい？何がすごい？", jp["novelty"])
     if jp.get("for_freshmen"):
         blocks += _section("🎓 大学1年生向けの説明", jp["for_freshmen"])
     if paper.get("paper_url") and not placed(_ALIAS_PAPER_URL):

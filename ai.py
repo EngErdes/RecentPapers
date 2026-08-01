@@ -88,11 +88,13 @@ def generate_japanese_content(
         '  "summary": "内容を2〜3文で要約した日本語テキスト",\n'
         '  "one_liner": "この論文を一言で表すキャッチコピー（25文字以内）",\n'
         '  "problem": "この論文が取り組んだ問題・課題の説明（2〜3文）",\n'
+        '  "novelty": "この論文の新規性は何か、何がすごいのかの説明。'
+        '先行研究との違いと、この研究の主要な貢献を具体的に示す（3〜4文）",\n'
         '  "for_freshmen": "大学1年生でも理解できる平易な説明（3〜5文）"\n'
         "}"
     )
 
-    result = _complete_json(client, _JP_SYSTEM, prompt, max_tokens=2048)
+    result = _complete_json(client, _JP_SYSTEM, prompt, max_tokens=3072)
     if isinstance(result, dict):
         return result
 
@@ -101,5 +103,6 @@ def generate_japanese_content(
         "summary": paper.get("snippet", ""),
         "one_liner": "",
         "problem": "",
+        "novelty": "",
         "for_freshmen": "",
     }

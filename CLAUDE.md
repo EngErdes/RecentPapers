@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 macOS launchd によって毎日 08:00 に実行される Python パイプライン。処理の流れ:
 1. Gmail の IMAP（アプリパスワード認証）で特定ラベルの Google Scholar アラートメールを取得
 2. Claude でメール HTML を解析し、論文メタデータ（タイトル・著者・掲載誌・URL）を抽出
-3. Claude で各論文の日本語タイトル・要約・一言キャッチコピー・問題説明・初学者向け解説を生成
+3. Claude で各論文の日本語タイトル・要約・一言キャッチコピー・問題説明・新規性の説明・初学者向け解説を生成
 4. Notion データベースに論文ごとのレコードを作成
 
 # TODO
@@ -85,4 +85,6 @@ launchctl start com.erdes.scholar_to_notion
 
 論文1件あたりの処理: `ai.extract_papers_with_claude` で HTML を解析 → `ai.generate_japanese_content` で日本語コンテンツを生成 → `notion.create_notion_page` でレコードを書き込む。Claude の両呼び出しは共通の `_parse_json` ヘルパーを使用しており、レスポンスに誤って含まれるマークダウンフェンスを除去し、JSON が不正な場合は正規表現でフォールバック抽出する。
 
-Notion ページの構成: データベースプロパティ（タイトル・著者・掲載誌・要約・キーワード・PDF/DOI URL）＋オプションのブロック本文（一言要約・問題説明・初学者向け解説・原文リンク）。
+Notion ページの構成: データベースプロパティ（タイトル・原題・著者・掲載誌・要約・キーワード・PDF/DOI URL）＋オプションのブロック本文（一言要約・問題説明・新規性の説明・初学者向け解説・原文リンク）。
+
+重複登録の防止には原題（メールから抽出した原文タイトル）を使う。Claude の訳に左右されない安定した識別子であるため。`notion.fetch_registered_titles` が登録済みの原題を集合として返し、`scholar_to_notion` が論文ごとに照合して、重複時は PDF 取得と Claude 呼び出しの前にスキップする。
