@@ -19,3 +19,26 @@
 ### 使い方
 - **Gemini API を使う場合（デフォルト）**: `.env` に `GEMINI_API_KEY=...` を設定して実行
 - **Claude API に切り替える場合**: 環境変数 `USE_GEMINI=false`（または `config.py` の `USE_GEMINI = False`）を設定して実行
+
+---
+
+## 2026-10-26: GitHub Actions 実行時の警告・通知メッセージと対処について
+
+GitHub Actions 実行時に Summary 画面に表示される以下の2件のメッセージは、パイプライン自体のエラーではなく **警告・通知（Annotations）**。
+
+### 1. 表示されたメッセージの意味
+1. **`Node.js 20 is deprecated... (actions/checkout@v4, astral-sh/setup-uv@v5)`**
+   - `.github/workflows/main.yml` で指定している Action のバージョン（`actions/checkout@v4`、`astral-sh/setup-uv@v5`）が古い Node.js 20 向けのため、GitHub Actions 側で強制的に Node.js 24 で実行しているという警告。
+   - `actions/checkout@v5` および新しい `astral-sh/setup-uv` に上げることで解消可能。
+
+2. **`The ubuntu-latest label will migrate to Ubuntu 26...`**
+   - `.github/workflows/main.yml` の `runs-on: ubuntu-latest` に対して、Ubuntu 26 への移行期間中に出る GitHub からの案内通知。
+   - そのままでも動作するが、`runs-on: ubuntu-24.04` のようにバージョンを明示すると通知が出なくなる。
+
+### 2. ジョブ自体が Failed になる場合の注意点
+デフォルトを Gemini API に変更したため、GitHub リポジトリの **Settings → Secrets and variables → Actions** に **`GEMINI_API_KEY`** が未登録だと、`Run Scholar → Notion pipeline` ステップ内の `_require_env` で以下のエラーになって終了する。
+```text
+Missing environment variables: GEMINI_API_KEY
+```
+- **Gemini を使う場合**: GitHub リポジトリの Actions secrets に `GEMINI_API_KEY` を追加する。
+- **Claude を使う場合**: Actions secrets に `USE_GEMINI` = `false` を追加する。
