@@ -16,6 +16,8 @@ GMAIL_LABEL = "01.日々の情報収集/01.03GoogleScholar"
 IMAP_HOST = os.getenv("IMAP_HOST", "imap.gmail.com")
 IMAP_PORT = int(os.getenv("IMAP_PORT", "993"))
 CLAUDE_MODEL = "claude-sonnet-4-6"
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+
 
 def _env_bool(name: str, default: bool) -> bool:
     """repository secret（環境変数）を真偽値として読む。未設定なら default。
@@ -26,6 +28,12 @@ def _env_bool(name: str, default: bool) -> bool:
     if raw is None:
         return default
     return raw.strip().lower() in ("1", "true", "yes", "on")
+
+
+# 使用する AI API の切り替えフラグ。
+# True（デフォルト）なら Gemini API、False なら Claude (Anthropic) API を使用する。
+# 環境変数 USE_GEMINI（例: USE_GEMINI=false）で切り替え可能。
+USE_GEMINI = _env_bool("USE_GEMINI", default=True)
 
 
 # デバッグフラグ: True でも Claude / Notion への処理内容は本番と同じ（ダミーは使わない）。

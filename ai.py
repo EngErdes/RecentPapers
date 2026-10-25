@@ -1,9 +1,15 @@
 import json
+import os
 import re
 
 import anthropic
+import requests
 
-from config import CLAUDE_MODEL
+from config import CLAUDE_MODEL, GEMINI_MODEL, USE_GEMINI
+
+_GEMINI_API_URL = (
+    "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+)
 
 _EXTRACT_SYSTEM = (
     "You are a precise data extraction assistant. "
@@ -30,10 +36,47 @@ def _parse_json(text: str) -> dict | list | None:
     return None
 
 
-def _complete_json(
-    client: anthropic.Anthropic, system: str, prompt: str, max_tokens: int
+def _complete_json_gemini(
+    system: str, prompt: str, max_tokens: int
+) -> dict | list | None:
+    """Gemini REST API に単発のユーザープロンプトを投げ、レスポンスを JSON として解釈する。"""
+    api_key = os.environ["GEMINI_API_KEY"]
+    url = _GEMINI_API_URL.format(model=GEMINI_MODEL)
+    payload = {
+        "system_instruction": {"parts": [{"text": system}]},
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            # Gemini 2.5 系は思考トークンも出力上限に含まれるため余裕を持たせる
+            "maxOutputTokens": max(max_tokens, 8192),
+            "responseMimeType": "application/json",
+        },
+    }
+    resp = requests.post(
+        url,
+        headers={
+            "Content-Type": "application/json",
+            "x-goog-api-key": api_key,
+        },
+        json=payload,
+        timeout=120,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+
+    candidates = data.get("candidates") or []
+    if not candidates:
+        return None
+    parts = candidates[0].get("content", {}).get("parts") or []
+    text = "".join(p.get("text", "") for p in parts if not p.get("thought"))
+    return _parse_json(text)
+
+
+def _complete_json_claude(
+    client: anthropic.Anthropic | None, system: str, prompt: str, max_tokens: int
 ) -> dict | list | None:
     """Claude に単発のユーザープロンプトを投げ、レスポンスを JSON として解釈する。"""
+    if client is None:
+        client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     response = client.messages.create(
         model=CLAUDE_MODEL,
         max_tokens=max_tokens,
@@ -43,10 +86,27 @@ def _complete_json(
     return _parse_json(response.content[0].text)
 
 
+def _complete_json(
+    client: anthropic.Anthropic | None,
+    system: str,
+    prompt: str,
+    max_tokens: int,
+    *,
+    use_gemini: bool = USE_GEMINI,
+) -> dict | list | None:
+    """フラグに応じて Gemini または Claude にプロンプトを投げ、JSON として解釈する。"""
+    if use_gemini:
+        return _complete_json_gemini(system, prompt, max_tokens)
+    return _complete_json_claude(client, system, prompt, max_tokens)
+
+
 def extract_papers_with_claude(
-    client: anthropic.Anthropic, html_body: str
+    client: anthropic.Anthropic | None,
+    html_body: str,
+    *,
+    use_gemini: bool = USE_GEMINI,
 ) -> list[dict]:
-    """Parse Google Scholar alert HTML → list of paper dicts using Claude."""
+    """Parse Google Scholar alert HTML → list of paper dicts using Gemini or Claude."""
     # Trim to avoid excessive token usage; Scholar alerts are usually < 30 KB
     body = html_body[:40000] if len(html_body) > 40000 else html_body
 
@@ -67,12 +127,17 @@ def extract_papers_with_claude(
         f"HTML:\n{body}"
     )
 
-    result = _complete_json(client, _EXTRACT_SYSTEM, prompt, max_tokens=4096)
+    result = _complete_json(
+        client, _EXTRACT_SYSTEM, prompt, max_tokens=4096, use_gemini=use_gemini
+    )
     return result if isinstance(result, list) else []
 
 
 def generate_japanese_content(
-    client: anthropic.Anthropic, paper: dict
+    client: anthropic.Anthropic | None,
+    paper: dict,
+    *,
+    use_gemini: bool = USE_GEMINI,
 ) -> dict:
     """Generate Japanese title, summary, and explanations for a paper."""
 
@@ -94,7 +159,9 @@ def generate_japanese_content(
         "}"
     )
 
-    result = _complete_json(client, _JP_SYSTEM, prompt, max_tokens=3072)
+    result = _complete_json(
+        client, _JP_SYSTEM, prompt, max_tokens=3072, use_gemini=use_gemini
+    )
     if isinstance(result, dict):
         return result
 

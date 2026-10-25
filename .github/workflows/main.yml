@@ -22,7 +22,9 @@ jobs:
 
       - name: Run Scholar → Notion pipeline
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          USE_GEMINI: ${{ secrets.USE_GEMINI }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}

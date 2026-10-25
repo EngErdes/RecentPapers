@@ -15,7 +15,14 @@ import anthropic
 from notion_client import Client as NotionClient
 
 from ai import extract_papers_with_claude, generate_japanese_content
-from config import DEBUG, DEBUG_THREAD_LIMIT, GMAIL_LABEL
+from config import (
+    CLAUDE_MODEL,
+    DEBUG,
+    DEBUG_THREAD_LIMIT,
+    GEMINI_MODEL,
+    GMAIL_LABEL,
+    USE_GEMINI,
+)
 from gmail import (
     extract_keyword_from_subject,
     fetch_recent_threads,
@@ -36,7 +43,8 @@ FETCH_HOURS = 72  # 取得対象とするスレッドの遡り時間
 
 def _require_env() -> None:
     """必須環境変数が無ければ終了する。"""
-    required = ("ANTHROPIC_API_KEY", "NOTION_TOKEN", "GMAIL_USER", "GMAIL_APP_PASSWORD")
+    ai_key = "GEMINI_API_KEY" if USE_GEMINI else "ANTHROPIC_API_KEY"
+    required = (ai_key, "NOTION_TOKEN", "GMAIL_USER", "GMAIL_APP_PASSWORD")
     missing = [k for k in required if not os.getenv(k)]
     if missing:
         sys.exit(f"Missing environment variables: {', '.join(missing)}")
@@ -93,7 +101,12 @@ def main() -> None:
     print(f"  [debug] NOTION_TOKEN={os.getenv('NOTION_TOKEN')}")
 
     # 各APIクライアントを初期化
-    anthropic_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    if USE_GEMINI:
+        print(f"  AI provider: Gemini ({GEMINI_MODEL})")
+        anthropic_client = None
+    else:
+        print(f"  AI provider: Claude ({CLAUDE_MODEL})")
+        anthropic_client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     notion_client = NotionClient(auth=os.environ["NOTION_TOKEN"])
     gmail_conn = get_gmail_connection()
 
