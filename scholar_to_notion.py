@@ -14,7 +14,11 @@ from datetime import datetime
 import anthropic
 from notion_client import Client as NotionClient
 
-from ai import extract_papers_with_claude, generate_japanese_content
+from ai import (
+    QuotaExhaustedError,
+    extract_papers_with_claude,
+    generate_japanese_content,
+)
 from config import (
     CLAUDE_MODEL,
     DEBUG,
@@ -144,53 +148,60 @@ def main() -> None:
         total = 0
         skipped = 0  # 登録済みでスキップした論文数
         pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
-        for mail_index, thread in enumerate(threads, 1):
-            # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
-            subject, html_body = get_thread_content(gmail_conn, thread["id"])
-            keyword = extract_keyword_from_subject(subject)
-            print(f"  Mail {mail_index}/{len(threads)}: {subject[:70]}")
+        try:
+            for mail_index, thread in enumerate(threads, 1):
+                # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
+                subject, html_body = get_thread_content(gmail_conn, thread["id"])
+                keyword = extract_keyword_from_subject(subject)
+                print(f"  Mail {mail_index}/{len(threads)}: {subject[:70]}")
 
-            if not html_body:
-                print("    ⚠ No HTML body found, skipping")
-                continue
-
-            # ClaudeでHTML本文を解析し、論文メタデータ（タイトル・著者・掲載誌・URLなど）を抽出
-            papers = extract_papers_with_claude(anthropic_client, html_body)
-            print(f"    Extracted {len(papers)} paper(s)")
-
-            # 処理を始める前に、このメールに含まれる論文タイトルを一覧で出す
-            for paper_index, paper in enumerate(papers, 1):
-                print(f"      {paper_index}. {paper.get('title') or '（タイトル不明）'}")
-
-            for paper in papers:
-                if not paper.get("title"):
+                if not html_body:
+                    print("    ⚠ No HTML body found, skipping")
                     continue
 
-                # 登録済みなら PDF 取得も Claude 呼び出しも行わずスキップする
-                key = normalize_title(paper["title"])
-                if registered is not None and key in registered:
-                    print(f"    ⏭ 登録済み: {paper['title'][:60]}")
-                    skipped += 1
-                    continue
+                # HTML本文を解析し、論文メタデータ（タイトル・著者・掲載誌・URLなど）を抽出
+                papers = extract_papers_with_claude(anthropic_client, html_body)
+                print(f"    Extracted {len(papers)} paper(s)")
 
-                print(f"    → {paper['title'][:70]}")
+                # 処理を始める前に、このメールに含まれる論文タイトルを一覧で出す
+                for paper_index, paper in enumerate(papers, 1):
+                    print(f"      {paper_index}. {paper.get('title') or '（タイトル不明）'}")
 
-                # 論文本文（PDF）を取得し、pdf_link / git_url を付与
-                pdf_index = _attach_pdf_and_git(paper, pdf_dir, pdf_index)
+                for paper in papers:
+                    if not paper.get("title"):
+                        continue
 
-                # Claudeで日本語タイトル・要約・解説などを生成
-                jp = generate_japanese_content(anthropic_client, paper)
+                    # 登録済みなら PDF 取得も AI 呼び出しも行わずスキップする
+                    key = normalize_title(paper["title"])
+                    if registered is not None and key in registered:
+                        print(f"    ⏭ 登録済み: {paper['title'][:60]}")
+                        skipped += 1
+                        continue
 
-                # Notionデータベースに論文レコードを作成
-                url = create_notion_page(
-                    notion_client, paper, jp, keyword, schema=notion_schema
-                )
-                print(f"      ✓ {url}")
-                total += 1
+                    print(f"    → {paper['title'][:70]}")
 
-                # 同一実行内でメールをまたいで重複するケースにも対応する
-                if registered is not None:
-                    registered.add(key)
+                    # 論文本文（PDF）を取得し、pdf_link / git_url を付与
+                    pdf_index = _attach_pdf_and_git(paper, pdf_dir, pdf_index)
+
+                    # AIで日本語タイトル・要約・解説などを生成
+                    jp = generate_japanese_content(anthropic_client, paper)
+
+                    # Notionデータベースに論文レコードを作成
+                    url = create_notion_page(
+                        notion_client, paper, jp, keyword, schema=notion_schema
+                    )
+                    print(f"      ✓ {url}")
+                    total += 1
+
+                    # 同一実行内でメールをまたいで重複するケースにも対応する
+                    if registered is not None:
+                        registered.add(key)
+        except QuotaExhaustedError as e:
+            print(
+                f"  ⚠ {e}\n"
+                "  ⚠ 本日の AI API 利用枠上限（または連続高負荷）に達したため処理を中断します。"
+                "残りの未登録論文は次回実行時に処理されます。"
+            )
     finally:
         gmail_conn.logout()
 

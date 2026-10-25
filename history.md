@@ -91,3 +91,25 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
   - 一時的エラー（`503` / `429` / `500` / `502` / `504`）が返された場合、即座に次の候補モデル（`gemini-3.1-flash-lite-preview` 等）へ切り替えて試行するよう改善。
   - 全候補が一時的に混雑していた場合も、指数バックオフ（3秒 → 6秒）で待機して最大3ラウンド自動リトライする処理を追加。
   - 一度 `404` を返したモデルは `_unavailable_gemini_models` に記録し、以降の呼び出しやリトライ時にスキップするよう最適化。
+
+---
+
+## 2026-10-26: Gemini 3 Flash 無料枠 1日上限（429 RPD）対策・ローカル HTML パース化
+
+### 原因
+1. **途中の `[pdf] 取得失敗 (418 / 403)`**:
+   - IEEE Xplore や ScienceDirect 等の出版社サイトによるボット対策・有料壁で PDF 直接取得が拒否されたログ。`PDF が見つからずスキップ` として正常にスキップされ、Notion 登録自体は成功している。
+2. **最後の `429 Client Error: Too Many Requests`**:
+   - `gemini-3-flash-preview` の無料枠（Free Tier）の1日あたりのリクエスト上限（20回/日: `Generate content requests per day limit exceeded on Free Tier`）に達したことが原因。
+   - メール HTML からの論文抽出（1通1回）と各論文の日本語解説生成（1論文1回）で API を消費していたため、メール数が多いと早期に 20回/日の上限に到達していた。
+
+### 修正内容（モデルは `gemini-3-flash-preview` のみを使用）
+1. **Google Scholar メール HTML のローカル解析（`ai.py`: `_extract_papers_from_html`）**
+   - Google Scholar アラート固有の HTML 構造（`gse_alrt_title`・`color:#006621`・`gse_alrt_sni`）からタイトル・著者・掲載誌・発行年・スニペット・PDF/DOI/Git URL をローカルで直接抽出。
+   - これによりメール HTML 抽出での API 呼び出しが **0回** となり、登録済み論文のスキップ判定まで API 枠を一切消費しない（ローカル抽出で 0 件だった場合のみ AI 抽出にフォールバック）。
+2. **使用モデルを `gemini-3-flash-preview` に一本化し、リトライと1日上限判定を改善（`ai.py`: `_complete_json_gemini`）**
+   - 別モデルへのフォールバックを廃止し、`GEMINI_MODEL`（`"gemini-3-flash-preview"`）のみを使用。
+   - 一時的な高負荷（`503`）や分間レート制限（`429 RPM`）に対しては `5秒 → 10秒 → 20秒 → 30秒` のバックオフでリトライ。
+   - `_is_daily_quota_exceeded` で1日あたりの無料枠上限（`429 RPD` / `free_tier_requests`）と判定された場合は無駄なリトライを行わず即座に `QuotaExhaustedError` を送出。
+3. **クォータ上限到達時の安全な途中終了（`scholar_to_notion.py`）**
+   - `QuotaExhaustedError` をキャッチしてそこまでの登録件数を出力し、エラー終了（exit code 1）ではなく正常終了（exit code 0）するよう変更。残りの未登録論文は次回実行時に続きから処理される。
