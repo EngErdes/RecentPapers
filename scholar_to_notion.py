@@ -120,12 +120,12 @@ def main() -> None:
         notion_schema = get_data_source_schema(notion_client)
         print(f"Notion columns: {', '.join(notion_schema)}")
 
-        # 登録済みの原題を読み込み、同じ論文を二重登録しないようにする
+        # 登録済みのタイトル（原題・タイトル列）を比較用に読み込み、同じ論文を二重登録しないようにする
         registered = fetch_registered_titles(notion_client, notion_schema)
         if registered is None:
-            print("  ⚠ 原題カラムが無いため重複チェックを行いません")
+            print("  ⚠ タイトル/原題カラムが無いため重複チェックを行いません")
         else:
-            print(f"  {len(registered)} paper(s) already registered")
+            print(f"  {len(registered)} title(s) already registered in Notion")
 
         # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得。
         # DEBUG 時は動作確認のため日付で絞らず、最新 DEBUG_THREAD_LIMIT 件だけを対象にする。
@@ -185,6 +185,12 @@ def main() -> None:
 
                     # AIで日本語タイトル・要約・解説などを生成
                     jp = generate_japanese_content(anthropic_client, paper)
+                    jp_key = normalize_title(jp.get("japanese_title", ""))
+                    if registered is not None and jp_key and jp_key in registered:
+                        print(f"      ⏭ 登録済み（日本語タイトル一致）: {jp.get('japanese_title', '')[:60]}")
+                        registered.add(key)
+                        skipped += 1
+                        continue
 
                     # Notionデータベースに論文レコードを作成
                     url = create_notion_page(
@@ -196,6 +202,8 @@ def main() -> None:
                     # 同一実行内でメールをまたいで重複するケースにも対応する
                     if registered is not None:
                         registered.add(key)
+                        if jp_key:
+                            registered.add(jp_key)
         except QuotaExhaustedError as e:
             print(
                 f"  ⚠ {e}\n"

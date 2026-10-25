@@ -113,3 +113,16 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - `_is_daily_quota_exceeded` で1日あたりの無料枠上限（`429 RPD` / `free_tier_requests`）と判定された場合は無駄なリトライを行わず即座に `QuotaExhaustedError` を送出。
 3. **クォータ上限到達時の安全な途中終了（`scholar_to_notion.py`）**
    - `QuotaExhaustedError` をキャッチしてそこまでの登録件数を出力し、エラー終了（exit code 1）ではなく正常終了（exit code 0）するよう変更。残りの未登録論文は次回実行時に続きから処理される。
+
+---
+
+## 2026-10-26: Notion 登録済み論文タイトルの重複スキップ判定の強化
+
+### 変更内容
+1. **`notion.py`**
+   - `fetch_registered_titles`: 従来の「原題」カラムだけでなく、「タイトル」（`title` 型）カラムの文字列も両方取得して重複チェック集合に含めるよう拡張。
+   - `normalize_title`: 空白・大文字小文字の正規化に加え、Google Scholar 特有の先頭バッジ（`[PDF]` / `[HTML]` 等）の除去およびダッシュ・ハイフン類（`–`, `—`, `−` 等 → `-`）の統一を行い、表記揺れによる重複登録を防止。
+2. **`ai.py`**
+   - `_extract_papers_from_html`: HTML から論文タイトルを抽出する際、先頭に `[PDF]` 等のバッジが含まれていれば除去してクリーンな原題として保持するよう改善。
+3. **`scholar_to_notion.py`**
+   - PDF 取得・AI 呼び出し前に原題で重複チェックを行い、さらに AI が生成した日本語タイトルでも重複チェックを実施。新規登録時には原題・日本語タイトルの両方を登録済み集合に追加して同一実行内の重複も防止。

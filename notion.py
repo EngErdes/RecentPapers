@@ -182,10 +182,15 @@ def _build_properties(
 def normalize_title(title: str) -> str:
     """比較用にタイトルを正規化する。
 
-    前後の空白、連続空白、大文字小文字の揺れを吸収する。判定キーには
-    Claude の訳に左右されない原題を使うため、この程度の正規化で足りる。
+    先頭の [PDF] / [HTML] 等のバッジ、ハイフン類の揺れ、前後・連続空白、
+    大文字小文字の揺れを吸収する。
     """
-    return re.sub(r"\s+", " ", (title or "").strip()).casefold()
+    text = (title or "").strip()
+    # Google Scholar の [PDF] [HTML] [BOOK] 等の先頭バッジを除去
+    text = re.sub(r"^(?:\[[A-Za-z0-9\s]+\]\s*)+", "", text)
+    # 各種ダッシュ・ハイフン（–, —, − など）を半角ハイフンに統一
+    text = re.sub(r"[\u2010-\u2015\u2212\uff0d]", "-", text)
+    return re.sub(r"\s+", " ", text).strip().casefold()
 
 
 def _plain_text(prop: dict) -> str:
@@ -201,15 +206,24 @@ def fetch_registered_titles(
     schema: dict,
     data_source_id: str = NOTION_DATA_SOURCE_ID,
 ) -> set[str] | None:
-    """登録済みレコードの原題を、正規化した集合として返す。
+    """登録済みレコードのタイトル（原題カラムおよび title 型カラム）を正規化した集合として返す。
 
-    原題カラムが無い DB では判定できないため None を返す。
-    呼び出し側はその場合に重複チェックを無効にする。
+    対象カラムがどちらも無い DB では None を返す。
     """
-    found = _find_property(schema, _ALIAS_ORIGINAL_TITLE)
-    if not found:
+    target_columns: list[str] = []
+
+    found_orig = _find_property(schema, _ALIAS_ORIGINAL_TITLE)
+    if found_orig:
+        target_columns.append(found_orig[0])
+
+    title_col = next(
+        (name for name, d in schema.items() if d.get("type") == "title"), None
+    )
+    if title_col and title_col not in target_columns:
+        target_columns.append(title_col)
+
+    if not target_columns:
         return None
-    name, _ = found
 
     titles: set[str] = set()
     cursor = None
@@ -220,12 +234,14 @@ def fetch_registered_titles(
         result = notion.data_sources.query(**params)
 
         for page in result.get("results", []):
-            prop = page.get("properties", {}).get(name)
-            if not prop:
-                continue
-            text = normalize_title(_plain_text(prop))
-            if text:
-                titles.add(text)
+            props = page.get("properties", {})
+            for col_name in target_columns:
+                prop = props.get(col_name)
+                if not prop:
+                    continue
+                text = normalize_title(_plain_text(prop))
+                if text:
+                    titles.add(text)
 
         if not result.get("has_more"):
             break

@@ -202,7 +202,9 @@ def _extract_papers_from_html(html_body: str) -> list[dict]:
             continue
 
         a_attrs, title_inner = title_link.group(1), title_link.group(2)
-        title = _strip_tags(title_inner)
+        title = re.sub(
+            r"^(?:\[[A-Za-z0-9\s]+\]\s*)+", "", _strip_tags(title_inner)
+        ).strip()
         if not title:
             continue
 
