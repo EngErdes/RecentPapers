@@ -76,3 +76,18 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - 候補がすべて `404` の場合は `_discover_gemini_model` で `GET /v1beta/models`（モデル一覧 API）を叩き、その API キーで `generateContent` が利用可能なモデルを自動検出して再試行する処理を追加。
    - 1度成功したモデル名はプロセス内でキャッシュし、2回目以降の呼び出しでは最初からそのモデルを使用。
    - エラー発生時にレスポンス本文もログへ出力するよう改善。
+
+---
+
+## 2026-10-26: Gemini API の一時的な高負荷（503 Service Unavailable）時のリトライ・フォールバック対応
+
+### 原因
+`gemini-3-flash-preview` へのリクエスト自体は到達していたが、Google 側の一時的なアクセス集中により `503 Service Unavailable`（`This model is currently experiencing high demand. Spikes in demand are usually temporary.`）が返された。
+
+従来の実装では `404` のときのみ別モデルへフォールバックしており、`503`（一時的な高負荷）や `429`（レート制限）では即座に例外終了していた。
+
+### 修正内容
+- **`ai.py`（`_complete_json_gemini`）**
+  - 一時的エラー（`503` / `429` / `500` / `502` / `504`）が返された場合、即座に次の候補モデル（`gemini-3.1-flash-lite-preview` 等）へ切り替えて試行するよう改善。
+  - 全候補が一時的に混雑していた場合も、指数バックオフ（3秒 → 6秒）で待機して最大3ラウンド自動リトライする処理を追加。
+  - 一度 `404` を返したモデルは `_unavailable_gemini_models` に記録し、以降の呼び出しやリトライ時にスキップするよう最適化。

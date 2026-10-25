@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import time
 
 import anthropic
 import requests
@@ -12,7 +13,7 @@ _GEMINI_API_URL = (
 )
 _GEMINI_MODELS_LIST_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
-# 新規 API キーで gemini-2.5-flash 等が 404 になる場合に備えたフォールバック候補
+# 新規 API キーでの 404 や特定モデルの一時的な高負荷（503/429）に備えたフォールバック候補
 _FALLBACK_GEMINI_MODELS = (
     "gemini-3-flash-preview",
     "gemini-3.1-flash-lite-preview",
@@ -20,7 +21,9 @@ _FALLBACK_GEMINI_MODELS = (
     "gemini-2.5-flash-lite",
     "gemini-2.0-flash",
 )
+_RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 _active_gemini_model: str | None = None
+_unavailable_gemini_models: set[str] = set()
 
 _EXTRACT_SYSTEM = (
     "You are a precise data extraction assistant. "
@@ -99,30 +102,50 @@ def _complete_json_gemini(
         "x-goog-api-key": api_key,
     }
 
-    # 指定モデルで 404 の場合はフォールバック候補・モデル一覧取得を順に試す
-    candidates_to_try = [model] + [
+    # 404（利用不可モデル）や 503/429（一時的な高負荷・レート制限）に対し、
+    # 別モデルへのフォールバックと指数バックオフによるリトライを行う。
+    base_candidates = [model] + [
         m for m in _FALLBACK_GEMINI_MODELS if m != model
     ]
     resp = None
-    for candidate in candidates_to_try:
-        url = _GEMINI_API_URL.format(model=candidate)
-        resp = requests.post(url, headers=headers, json=payload, timeout=120)
-        if resp.status_code == 404:
-            print(
-                f"  [gemini] model '{candidate}' returned 404: {resp.text[:200]}"
-            )
-            continue
-        _active_gemini_model = candidate
-        break
-    else:
-        # 候補がすべて 404 だった場合、models.list から利用可能モデルを自動検出
-        discovered = _discover_gemini_model(api_key)
-        if discovered and discovered not in candidates_to_try:
-            print(f"  [gemini] retrying with discovered model: {discovered}")
-            url = _GEMINI_API_URL.format(model=discovered)
+    for attempt in range(3):
+        if attempt > 0:
+            wait_sec = 3 * (2 ** (attempt - 1))
+            print(f"  [gemini] waiting {wait_sec}s before retry (attempt {attempt + 1}/3)...")
+            time.sleep(wait_sec)
+
+        candidates_to_try = [
+            m for m in base_candidates if m not in _unavailable_gemini_models
+        ]
+        if not candidates_to_try:
+            discovered = _discover_gemini_model(api_key)
+            if discovered:
+                candidates_to_try = [discovered]
+
+        for candidate in candidates_to_try:
+            url = _GEMINI_API_URL.format(model=candidate)
             resp = requests.post(url, headers=headers, json=payload, timeout=120)
+            if resp.status_code == 404:
+                print(
+                    f"  [gemini] model '{candidate}' returned 404 (not available), skipping"
+                )
+                _unavailable_gemini_models.add(candidate)
+                continue
+            if resp.status_code in _RETRYABLE_STATUS_CODES:
+                print(
+                    f"  [gemini] model '{candidate}' returned {resp.status_code} (temporary overload/rate limit), trying next..."
+                )
+                time.sleep(1)
+                continue
             if resp.ok:
-                _active_gemini_model = discovered
+                _active_gemini_model = candidate
+                break
+            # 400/401/403 等のリトライ不可エラーは即座に抜ける
+            break
+        else:
+            # このラウンドの全候補が 404 または 503/429 だった場合、次の attempt へ
+            continue
+        break
 
     assert resp is not None
     if not resp.ok:
