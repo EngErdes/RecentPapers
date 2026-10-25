@@ -20,12 +20,12 @@ GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 
 def _env_bool(name: str, default: bool) -> bool:
-    """repository secret（環境変数）を真偽値として読む。未設定なら default。
+    """repository secret（環境変数）を真偽値として読む。未設定・空文字なら default。
 
     "1" / "true" / "yes" / "on"（大文字小文字問わず）を True とみなす。
     """
     raw = os.getenv(name)
-    if raw is None:
+    if raw is None or not raw.strip():
         return default
     return raw.strip().lower() in ("1", "true", "yes", "on")
 

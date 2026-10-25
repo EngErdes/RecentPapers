@@ -42,3 +42,21 @@ Missing environment variables: GEMINI_API_KEY
 ```
 - **Gemini を使う場合**: GitHub リポジトリの Actions secrets に `GEMINI_API_KEY` を追加する。
 - **Claude を使う場合**: Actions secrets に `USE_GEMINI` = `false` を追加する。
+
+---
+
+## 2026-10-26: GitHub Actions で未設定の Secret が空文字になり Claude 側にフォールバックする問題の修正
+
+### 原因
+GitHub Actions では、`.github/workflows/main.yml` の `USE_GEMINI: ${{ secrets.USE_GEMINI }}` に対して Secret が未登録の場合、環境変数 `USE_GEMINI` が未定義（`None`）ではなく **空文字列（`""`）** として渡される。
+
+従来の `config.py` の `_env_bool` は `raw is None` のときだけ `default`（`True`）を返していたため、空文字列 `""` が `False` と判定されて Claude API 側に切り替わり、Anthropic のクレジット残高不足エラー（`Your credit balance is too low to access the Anthropic API`）が発生していた。
+（同様に `DEBUG` も GitHub Secrets 未設定時は空文字列となり `False` と判定されていた。）
+
+### 修正内容
+- `.github/workflows/main.yml` の警告解消:
+  - `runs-on`: `ubuntu-latest` → `ubuntu-24.04`（Ubuntu 26 移行通知を回避）
+  - `actions/checkout`: `v4` → `v6`（Node.js 24 対応版）
+  - `astral-sh/setup-uv`: `v5` → `v9.0.0`（Node.js 24 対応版）
+- `config.py` の `_env_bool` で、未設定（`None`）だけでなく **空文字列（`not raw.strip()`）の場合も `default` 値を返す**ように修正。
+  - これにより、GitHub Secrets に `USE_GEMINI` を設定しなくてもデフォルトの `True`（Gemini API）がそのまま使われる。
