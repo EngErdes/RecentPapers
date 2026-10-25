@@ -10,6 +10,17 @@ from config import CLAUDE_MODEL, GEMINI_MODEL, USE_GEMINI
 _GEMINI_API_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 )
+_GEMINI_MODELS_LIST_URL = "https://generativelanguage.googleapis.com/v1beta/models"
+
+# 新規 API キーで gemini-2.5-flash 等が 404 になる場合に備えたフォールバック候補
+_FALLBACK_GEMINI_MODELS = (
+    "gemini-3-flash-preview",
+    "gemini-3.1-flash-lite-preview",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.0-flash",
+)
+_active_gemini_model: str | None = None
 
 _EXTRACT_SYSTEM = (
     "You are a precise data extraction assistant. "
@@ -36,31 +47,87 @@ def _parse_json(text: str) -> dict | list | None:
     return None
 
 
+def _discover_gemini_model(api_key: str) -> str | None:
+    """API キーで利用可能な Gemini Flash 系モデル一覧を取得して返す。"""
+    try:
+        resp = requests.get(
+            _GEMINI_MODELS_LIST_URL,
+            headers={"x-goog-api-key": api_key},
+            timeout=30,
+        )
+        if not resp.ok:
+            print(f"  [gemini] models.list failed ({resp.status_code}): {resp.text[:300]}")
+            return None
+        models = resp.json().get("models") or []
+        available = [
+            m.get("name", "").removeprefix("models/")
+            for m in models
+            if "generateContent" in (m.get("supportedGenerationMethods") or [])
+        ]
+        print(f"  [gemini] available generateContent models: {', '.join(available[:10])}")
+        for candidate in _FALLBACK_GEMINI_MODELS:
+            if candidate in available:
+                return candidate
+        for name in available:
+            if "gemini" in name and "flash" in name and "tts" not in name and "image" not in name:
+                return name
+        return available[0] if available else None
+    except Exception as e:
+        print(f"  [gemini] model discovery error: {e}")
+        return None
+
+
 def _complete_json_gemini(
     system: str, prompt: str, max_tokens: int
 ) -> dict | list | None:
     """Gemini REST API に単発のユーザープロンプトを投げ、レスポンスを JSON として解釈する。"""
-    api_key = os.environ["GEMINI_API_KEY"]
-    url = _GEMINI_API_URL.format(model=GEMINI_MODEL)
+    global _active_gemini_model
+    api_key = os.environ["GEMINI_API_KEY"].strip()
+    model = _active_gemini_model or GEMINI_MODEL
+
     payload = {
         "system_instruction": {"parts": [{"text": system}]},
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {
-            # Gemini 2.5 系は思考トークンも出力上限に含まれるため余裕を持たせる
+            # 思考トークンも出力上限に含まれるため余裕を持たせる
             "maxOutputTokens": max(max_tokens, 8192),
             "responseMimeType": "application/json",
         },
     }
-    resp = requests.post(
-        url,
-        headers={
-            "Content-Type": "application/json",
-            "x-goog-api-key": api_key,
-        },
-        json=payload,
-        timeout=120,
-    )
-    resp.raise_for_status()
+    headers = {
+        "Content-Type": "application/json",
+        "x-goog-api-key": api_key,
+    }
+
+    # 指定モデルで 404 の場合はフォールバック候補・モデル一覧取得を順に試す
+    candidates_to_try = [model] + [
+        m for m in _FALLBACK_GEMINI_MODELS if m != model
+    ]
+    resp = None
+    for candidate in candidates_to_try:
+        url = _GEMINI_API_URL.format(model=candidate)
+        resp = requests.post(url, headers=headers, json=payload, timeout=120)
+        if resp.status_code == 404:
+            print(
+                f"  [gemini] model '{candidate}' returned 404: {resp.text[:200]}"
+            )
+            continue
+        _active_gemini_model = candidate
+        break
+    else:
+        # 候補がすべて 404 だった場合、models.list から利用可能モデルを自動検出
+        discovered = _discover_gemini_model(api_key)
+        if discovered and discovered not in candidates_to_try:
+            print(f"  [gemini] retrying with discovered model: {discovered}")
+            url = _GEMINI_API_URL.format(model=discovered)
+            resp = requests.post(url, headers=headers, json=payload, timeout=120)
+            if resp.ok:
+                _active_gemini_model = discovered
+
+    assert resp is not None
+    if not resp.ok:
+        print(f"  [gemini] HTTP {resp.status_code} error body: {resp.text[:500]}")
+        resp.raise_for_status()
     data = resp.json()
 
     candidates = data.get("candidates") or []

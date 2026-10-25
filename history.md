@@ -60,3 +60,19 @@ GitHub Actions では、`.github/workflows/main.yml` の `USE_GEMINI: ${{ secret
   - `astral-sh/setup-uv`: `v5` → `v9.0.0`（Node.js 24 対応版）
 - `config.py` の `_env_bool` で、未設定（`None`）だけでなく **空文字列（`not raw.strip()`）の場合も `default` 値を返す**ように修正。
   - これにより、GitHub Secrets に `USE_GEMINI` を設定しなくてもデフォルトの `True`（Gemini API）がそのまま使われる。
+
+---
+
+## 2026-10-26: Gemini API で `gemini-2.5-flash` が 404 Not Found になる問題の修正
+
+### 原因
+Google AI Studio / Gemini API では、新規作成されたプロジェクトや API キーに対して旧世代モデル（`gemini-2.5-flash` 等）へのアクセスが制限されており、`404 Not Found`（`This model models/gemini-2.5-flash is no longer available to new users`）が返される仕様になっている。
+
+### 修正内容
+1. **`config.py`**
+   - デフォルトの `GEMINI_MODEL` を最新世代の `"gemini-3-flash-preview"` に更新（環境変数 `GEMINI_MODEL` が空文字の場合もデフォルト値にフォールバック）。
+2. **`ai.py`**
+   - `_complete_json_gemini` で、指定モデルが `404` を返した場合に自動でフォールバック候補（`gemini-3-flash-preview` → `gemini-3.1-flash-lite-preview` → `gemini-2.5-flash` 等）を順に試行する処理を追加。
+   - 候補がすべて `404` の場合は `_discover_gemini_model` で `GET /v1beta/models`（モデル一覧 API）を叩き、その API キーで `generateContent` が利用可能なモデルを自動検出して再試行する処理を追加。
+   - 1度成功したモデル名はプロセス内でキャッシュし、2回目以降の呼び出しでは最初からそのモデルを使用。
+   - エラー発生時にレスポンス本文もログへ出力するよう改善。
