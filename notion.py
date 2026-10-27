@@ -182,15 +182,19 @@ def _build_properties(
 def normalize_title(title: str) -> str:
     """比較用にタイトルを正規化する。
 
-    先頭の [PDF] / [HTML] 等のバッジ、ハイフン類の揺れ、前後・連続空白、
-    大文字小文字の揺れを吸収する。
+    先頭の [PDF] / [HTML] 等のバッジ、不可視文字（ソフトハイフン等）、
+    記号・句読点・ハイフン・空白・大文字小文字の揺れをすべて吸収し、
+    文字と数字のみのキーに変換して比較する。
     """
     text = (title or "").strip()
+    # ソフトハイフン (\u00ad) やゼロ幅文字を除去
+    text = re.sub(r"[\u00ad\u200b-\u200f\ufeff]", "", text)
     # Google Scholar の [PDF] [HTML] [BOOK] 等の先頭バッジを除去
     text = re.sub(r"^(?:\[[A-Za-z0-9\s]+\]\s*)+", "", text)
-    # 各種ダッシュ・ハイフン（–, —, − など）を半角ハイフンに統一
-    text = re.sub(r"[\u2010-\u2015\u2212\uff0d]", "-", text)
-    return re.sub(r"\s+", " ", text).strip().casefold()
+    text = text.casefold()
+    # 記号・句読点・空白の違いで不一致にならないよう、文字・数字のみを連結
+    alnum = re.sub(r"[\W_]+", "", text)
+    return alnum if alnum else re.sub(r"\s+", " ", text).strip()
 
 
 def _plain_text(prop: dict) -> str:

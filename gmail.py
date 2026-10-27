@@ -6,6 +6,7 @@
 """
 
 import base64
+from collections.abc import Iterator
 import email
 import imaplib
 import os
@@ -291,6 +292,85 @@ def fetch_recent_threads(
     window = "全期間" if hours is None else f"直近 {hours}h"
     print(f"  [imap] {window} {len(candidates)} message(s) → {len(threads)} thread(s)")
     return threads
+
+
+def iter_threads_newest_first(
+    conn: imaplib.IMAP4_SSL,
+    mailbox: str,
+    limit: int | None = None,
+    batch_size: int = _NO_DATE_SCAN_LIMIT,
+) -> Iterator[dict]:
+    """ラベル内の全メッセージを新しいスレッドから順に過去へ遡って yield する。
+
+    全件を一括 FETCH すると重いため、新しい側の UID から batch_size 件ずつ
+    バッチで (X-GM-THRID INTERNALDATE) を取得し、呼び出し側が必要な件数に達したら
+    途中で打ち切れるようにする。
+    """
+    typ, select_data = conn.select(mailbox, readonly=True)
+    if typ != "OK":
+        raise RuntimeError(f"メールボックスを開けませんでした: {mailbox}")
+
+    total = (
+        int(select_data[0])
+        if select_data and select_data[0] and select_data[0].isdigit()
+        else 0
+    )
+
+    typ, data = conn.uid("SEARCH", None, "ALL")
+    if typ != "OK":
+        raise RuntimeError(f"IMAP SEARCH に失敗しました: {typ}")
+
+    uids = data[0].split() if data and data[0] else []
+    print(f"  [imap] SEARCH ALL → {len(uids)} message(s)")
+    if not uids:
+        _log_latest_messages(conn, total)
+        return
+
+    seen: set[str] = set()
+    yielded = 0
+
+    # UID は昇順（末尾が最新）なので、末尾から batch_size 件ずつ過去に遡る
+    for end in range(len(uids), 0, -batch_size):
+        start = max(0, end - batch_size)
+        batch_uids = uids[start:end]
+        uid_set = ",".join(uid.decode("ascii") for uid in batch_uids)
+        typ, fetch_data = conn.uid("FETCH", uid_set, "(X-GM-THRID INTERNALDATE)")
+        if typ != "OK":
+            raise RuntimeError(f"IMAP FETCH に失敗しました: {typ}")
+
+        candidates = []
+        for line in fetch_data:
+            if not isinstance(line, bytes):
+                continue
+
+            uid_match = _UID_RE.search(line)
+            if not uid_match:
+                continue
+
+            received = imaplib.Internaldate2tuple(line)
+            if received is None:
+                continue
+
+            thrid_match = _THRID_RE.search(line)
+            thread_id = (thrid_match or uid_match).group(1).decode("ascii")
+            candidates.append(
+                {
+                    "id": uid_match.group(1).decode("ascii"),
+                    "thread_id": thread_id,
+                    "received": time.mktime(received),
+                }
+            )
+
+        candidates.sort(key=lambda c: c["received"], reverse=True)
+
+        for candidate in candidates:
+            if candidate["thread_id"] in seen:
+                continue
+            seen.add(candidate["thread_id"])
+            yield candidate
+            yielded += 1
+            if limit is not None and yielded >= limit:
+                return
 
 
 def _decode_subject(raw: str) -> str:

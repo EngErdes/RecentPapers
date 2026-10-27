@@ -41,10 +41,14 @@ USE_GEMINI = _env_bool("USE_GEMINI", default=True)
 #   - 日付で絞らず、最新 DEBUG_THREAD_LIMIT スレッドだけを対象にする
 #   - スレッド一覧の JSON と取得した PDF を debug/ 配下に保存する
 # GitHub Actions では repository secret / variable の DEBUG で制御する（例: DEBUG=false）。
-DEBUG = _env_bool("DEBUG", default=True)
+DEBUG = _env_bool("DEBUG", default=False)
 
 # DEBUG 時に処理するスレッド数の上限（新しいものから）。
 # 動作確認のたびに全スレッドを処理しないよう件数を絞る。
 # なお DEBUG 時は日付でも絞らず、ラベル内の最新スレッドを対象にする。
 DEBUG_THREAD_LIMIT = int(os.getenv("DEBUG_THREAD_LIMIT", "1"))
+
+# 1回の実行で新規登録する未登録論文の上限数（Gemini 無料枠の 1日20回に合わせる）。
+# この件数に達するまで過去のメールを新しい順に遡って処理する。
+MAX_PAPERS_PER_RUN = int((os.getenv("MAX_PAPERS_PER_RUN") or "").strip() or "20")
 

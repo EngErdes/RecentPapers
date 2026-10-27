@@ -126,3 +126,17 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - `_extract_papers_from_html`: HTML から論文タイトルを抽出する際、先頭に `[PDF]` 等のバッジが含まれていれば除去してクリーンな原題として保持するよう改善。
 3. **`scholar_to_notion.py`**
    - PDF 取得・AI 呼び出し前に原題で重複チェックを行い、さらに AI が生成した日本語タイトルでも重複チェックを実施。新規登録時には原題・日本語タイトルの両方を登録済み集合に追加して同一実行内の重複も防止。
+
+---
+
+## 2026-10-28: 未登録の論文が 20 件取得できるまで過去のメールを遡る対応＆原題正規化の厳密化
+
+### 変更内容
+1. **未登録論文が 20 件に達するまで過去のメールを遡る処理（`config.py` / `gmail.py` / `scholar_to_notion.py`）**
+   - `config.py`: `MAX_PAPERS_PER_RUN`（デフォルト: `20`、環境変数で変更可）を追加。あわせて `DEBUG` のデフォルトを `False` に変更。
+   - `gmail.py`: 「直近 72 時間」の時間制限で打ち切らず、ラベル内の全メッセージを新しい側から 200 件ずつバッチ取得して過去へ遡るジェネレータ `iter_threads_newest_first` を追加。
+   - `scholar_to_notion.py`: 新しいメールから順にローカル HTML パース（API 消費 0）で論文を抽出し、登録済み論文はスキップ（API 消費 0）しながら、未登録論文が `MAX_PAPERS_PER_RUN`（20 件＝Gemini API 20 回分）登録できた時点で処理を完了するよう変更。
+
+2. **原題の重複判定・HTML 抽出の厳密化（`notion.py` / `ai.py`）**
+   - `notion.py`（`normalize_title`）: Google Scholar の HTML に含まれるソフトハイフン（`\u00ad`）やゼロ幅文字を除去したうえで、記号・句読点・空白を除いた文字＋数字列で比較するよう強化し、表記揺れによる重複登録や不要な API 消費を防止。
+   - `ai.py`（`_strip_tags` / `extract_papers_with_claude`）: テキスト抽出時にソフトハイフン・ゼロ幅文字を除去し、HTML 抽出時の AI フォールバックを廃止して HTML 解析での API 消費を完全に 0 回に固定。

@@ -168,6 +168,8 @@ def _strip_tags(html_fragment: str) -> str:
     text = re.sub(r"<br\s*/?>", " ", html_fragment, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", "", text)
     text = html.unescape(text).replace("\xa0", " ")
+    # Google Scholar が単語折り返し用に挿入するソフトハイフンやゼロ幅文字を除去
+    text = re.sub(r"[\u00ad\u200b-\u200f\ufeff]", "", text)
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -294,37 +296,9 @@ def extract_papers_with_claude(
     *,
     use_gemini: bool = USE_GEMINI,
 ) -> list[dict]:
-    """Parse Google Scholar alert HTML → list of paper dicts (local parser first, AI fallback)."""
-    # まずローカル HTML パーサーで抽出（API クォータを消費しない）
-    parsed = _extract_papers_from_html(html_body)
-    if parsed:
-        return parsed
-
-    # ローカルパースで 0 件だった場合のみ AI 抽出にフォールバック
-    # Trim to avoid excessive token usage; Scholar alerts are usually < 30 KB
-    body = html_body[:40000] if len(html_body) > 40000 else html_body
-
-    prompt = (
-        "Extract all academic papers from this Google Scholar alert HTML.\n\n"
-        "For each paper return a JSON object with:\n"
-        '- "title": original title (string)\n'
-        '- "authors": comma-separated author names (string)\n'
-        '- "journal": journal or conference name (string)\n'
-        '- "year": publication year as string, e.g. "2024" (string)\n'
-        '- "snippet": abstract snippet (string)\n'
-        '- "pdf_url": direct PDF URL if a [PDF] link exists (string)\n'
-        '- "doi_url": DOI URL starting with https://doi.org/ if present (string)\n'
-        '- "paper_url": link to the paper page (string)\n'
-        '- "git_url": code repository URL (GitHub/GitLab/Bitbucket) if the '
-        'snippet mentions one, otherwise "" (string)\n\n'
-        "Return ONLY a JSON array.\n\n"
-        f"HTML:\n{body}"
-    )
-
-    result = _complete_json(
-        client, _EXTRACT_SYSTEM, prompt, max_tokens=4096, use_gemini=use_gemini
-    )
-    return result if isinstance(result, list) else []
+    """Parse Google Scholar alert HTML → list of paper dicts using local HTML parser."""
+    # ローカル HTML パーサーで抽出（API クォータを一切消費しない）
+    return _extract_papers_from_html(html_body)
 
 
 def generate_japanese_content(

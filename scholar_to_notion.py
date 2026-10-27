@@ -25,13 +25,14 @@ from config import (
     DEBUG_THREAD_LIMIT,
     GEMINI_MODEL,
     GMAIL_LABEL,
+    MAX_PAPERS_PER_RUN,
     USE_GEMINI,
 )
 from gmail import (
     extract_keyword_from_subject,
-    fetch_recent_threads,
     get_gmail_connection,
     get_thread_content,
+    iter_threads_newest_first,
     resolve_label_mailbox,
 )
 from notion import (
@@ -127,33 +128,40 @@ def main() -> None:
         else:
             print(f"  {len(registered)} title(s) already registered in Notion")
 
-        # 対象ラベルのメールボックスを開き、直近 FETCH_HOURS 時間のスレッドを取得。
-        # DEBUG 時は動作確認のため日付で絞らず、最新 DEBUG_THREAD_LIMIT 件だけを対象にする。
+        # 対象ラベルのメールボックスを開き、未登録論文が MAX_PAPERS_PER_RUN 件に達するまで
+        # 新しいメールから過去へ順番に遡って処理する。
         mailbox = resolve_label_mailbox(gmail_conn, GMAIL_LABEL)
-        hours = None if DEBUG else FETCH_HOURS
         limit = DEBUG_THREAD_LIMIT if DEBUG else None
-        threads = fetch_recent_threads(gmail_conn, mailbox, hours=hours, limit=limit)
+        threads_iter = iter_threads_newest_first(gmail_conn, mailbox, limit=limit)
 
         if DEBUG:
             print(
-                f"Found {len(threads)} mail(s)"
-                f"（DEBUG: 日付フィルタなし・最新 {DEBUG_THREAD_LIMIT} 件に制限）"
+                f"Target: up to {MAX_PAPERS_PER_RUN} unregistered paper(s)"
+                f"（DEBUG: 最新 {DEBUG_THREAD_LIMIT} スレッドに制限）"
             )
         else:
-            print(f"Found {len(threads)} mail(s) in the past {FETCH_HOURS} hours")
+            print(
+                f"Target: {MAX_PAPERS_PER_RUN} unregistered paper(s) "
+                "(scanning past mails from newest to oldest)"
+            )
 
-        # DEBUG 時はスレッド一覧を JSON 出力し、PDF 保存先を用意する
-        pdf_dir = _prepare_debug_dir(threads) if DEBUG else None
+        # DEBUG 時は PDF 保存先を用意する
+        pdf_dir = _prepare_debug_dir([]) if DEBUG else None
 
         total = 0
         skipped = 0  # 登録済みでスキップした論文数
         pdf_index = 0  # PDF ファイル名の連番（スレッドをまたいで一意にする）
         try:
-            for mail_index, thread in enumerate(threads, 1):
+            for mail_index, thread in enumerate(threads_iter, 1):
+                if total >= MAX_PAPERS_PER_RUN:
+                    break
+
                 # スレッドの件名とHTML本文を取得し、検索キーワードを抽出
                 subject, html_body = get_thread_content(gmail_conn, thread["id"])
                 keyword = extract_keyword_from_subject(subject)
-                print(f"  Mail {mail_index}/{len(threads)}: {subject[:70]}")
+                print(
+                    f"  Mail {mail_index} (new: {total}/{MAX_PAPERS_PER_RUN}): {subject[:70]}"
+                )
 
                 if not html_body:
                     print("    ⚠ No HTML body found, skipping")
@@ -168,6 +176,8 @@ def main() -> None:
                     print(f"      {paper_index}. {paper.get('title') or '（タイトル不明）'}")
 
                 for paper in papers:
+                    if total >= MAX_PAPERS_PER_RUN:
+                        break
                     if not paper.get("title"):
                         continue
 
@@ -178,19 +188,13 @@ def main() -> None:
                         skipped += 1
                         continue
 
-                    print(f"    → {paper['title'][:70]}")
+                    print(f"    → [{total + 1}/{MAX_PAPERS_PER_RUN}] {paper['title'][:65]}")
 
                     # 論文本文（PDF）を取得し、pdf_link / git_url を付与
                     pdf_index = _attach_pdf_and_git(paper, pdf_dir, pdf_index)
 
                     # AIで日本語タイトル・要約・解説などを生成
                     jp = generate_japanese_content(anthropic_client, paper)
-                    jp_key = normalize_title(jp.get("japanese_title", ""))
-                    if registered is not None and jp_key and jp_key in registered:
-                        print(f"      ⏭ 登録済み（日本語タイトル一致）: {jp.get('japanese_title', '')[:60]}")
-                        registered.add(key)
-                        skipped += 1
-                        continue
 
                     # Notionデータベースに論文レコードを作成
                     url = create_notion_page(
@@ -202,8 +206,12 @@ def main() -> None:
                     # 同一実行内でメールをまたいで重複するケースにも対応する
                     if registered is not None:
                         registered.add(key)
-                        if jp_key:
-                            registered.add(jp_key)
+
+                if total >= MAX_PAPERS_PER_RUN:
+                    print(
+                        f"  ✓ 未登録論文を {MAX_PAPERS_PER_RUN} 件登録したため、本日の処理を完了します。"
+                    )
+                    break
         except QuotaExhaustedError as e:
             print(
                 f"  ⚠ {e}\n"
