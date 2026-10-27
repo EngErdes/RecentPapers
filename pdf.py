@@ -9,9 +9,17 @@ import io
 import os
 import re
 from urllib.parse import parse_qs, unquote, urlparse
+from xml.sax.saxutils import escape
 
 import requests
 from pypdf import PdfReader
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.lib.units import mm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
 
 # 論文本文からリポジトリ URL を検出するための正規表現。
 # 主要な git ホスト（GitHub / GitLab / Bitbucket / Codeberg）の owner/repo 形式を対象とする。
@@ -164,3 +172,118 @@ def extract_git_url_from_pdf(content: bytes) -> str | None:
         print(f"      [git] PDF 解析失敗: {e}")
         return None
     return find_git_url_in_text(text)
+
+
+def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> bytes:
+    """Gemini API 等で生成した論文の日本語要約・解説を整形した PDF バイト列として返す。"""
+    font_name = "HeiseiKakuGo-W5"
+    try:
+        pdfmetrics.getFont(font_name)
+    except KeyError:
+        pdfmetrics.registerFont(UnicodeCIDFont(font_name))
+
+    buf = io.BytesIO()
+    doc = SimpleDocTemplate(
+        buf,
+        pagesize=A4,
+        leftMargin=20 * mm,
+        rightMargin=20 * mm,
+        topMargin=20 * mm,
+        bottomMargin=20 * mm,
+    )
+
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle(
+        "JpTitle",
+        parent=styles["Title"],
+        fontName=font_name,
+        fontSize=16,
+        leading=22,
+        alignment=0,
+        spaceAfter=6,
+        wordWrap="CJK",
+    )
+    subtitle_style = ParagraphStyle(
+        "OrigTitle",
+        parent=styles["Normal"],
+        fontName=font_name,
+        fontSize=10,
+        leading=14,
+        textColor=colors.HexColor("#555555"),
+        spaceAfter=10,
+        wordWrap="CJK",
+    )
+    meta_style = ParagraphStyle(
+        "Meta",
+        parent=styles["Normal"],
+        fontName=font_name,
+        fontSize=9.5,
+        leading=14,
+        textColor=colors.HexColor("#333333"),
+        spaceAfter=4,
+        wordWrap="CJK",
+    )
+    heading_style = ParagraphStyle(
+        "SectionHeading",
+        parent=styles["Heading2"],
+        fontName=font_name,
+        fontSize=12,
+        leading=18,
+        textColor=colors.HexColor("#1a0dab"),
+        spaceBefore=12,
+        spaceAfter=4,
+        wordWrap="CJK",
+    )
+    body_style = ParagraphStyle(
+        "JpBody",
+        parent=styles["Normal"],
+        fontName=font_name,
+        fontSize=10.5,
+        leading=17,
+        spaceAfter=8,
+        wordWrap="CJK",
+    )
+
+    def _p(text: str, style: ParagraphStyle) -> Paragraph:
+        safe = escape(text or "").replace("\n", "<br/>")
+        return Paragraph(safe, style)
+
+    story = []
+
+    jp_title = jp.get("japanese_title") or paper.get("title", "（タイトル不明）")
+    orig_title = paper.get("title", "")
+    story.append(_p(jp_title, title_style))
+    if orig_title and orig_title != jp_title:
+        story.append(_p(f"原題: {orig_title}", subtitle_style))
+
+    journal_str = f"{paper.get('journal', '')} {paper.get('year', '')}".strip()
+    meta_items = [
+        ("著者", paper.get("authors", "")),
+        ("掲載誌", journal_str),
+        ("アラートキーワード", keyword),
+        ("PDF", paper.get("pdf_link") or paper.get("pdf_url", "")),
+        ("DOI", paper.get("doi_url", "")),
+        ("Git リポジトリ", paper.get("git_url", "")),
+        ("原文リンク", paper.get("paper_url", "")),
+    ]
+    for label, val in meta_items:
+        if val:
+            story.append(_p(f"{label}: {val}", meta_style))
+
+    story.append(Spacer(1, 4 * mm))
+    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.lightgrey))
+
+    sections = [
+        ("一言キャッチコピー", jp.get("one_liner", "")),
+        ("要約", jp.get("summary", "")),
+        ("どんな問題に取り組んだか", jp.get("problem", "")),
+        ("何が新しい？何がすごい？（新規性）", jp.get("novelty", "")),
+        ("大学1年生向けの解説", jp.get("for_freshmen", "")),
+    ]
+    for sec_title, sec_body in sections:
+        if sec_body:
+            story.append(_p(f"■ {sec_title}", heading_style))
+            story.append(_p(sec_body, body_style))
+
+    doc.build(story)
+    return buf.getvalue()

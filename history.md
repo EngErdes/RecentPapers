@@ -140,3 +140,16 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
 2. **原題の重複判定・HTML 抽出の厳密化（`notion.py` / `ai.py`）**
    - `notion.py`（`normalize_title`）: Google Scholar の HTML に含まれるソフトハイフン（`\u00ad`）やゼロ幅文字を除去したうえで、記号・句読点・空白を除いた文字＋数字列で比較するよう強化し、表記揺れによる重複登録や不要な API 消費を防止。
    - `ai.py`（`_strip_tags` / `extract_papers_with_claude`）: テキスト抽出時にソフトハイフン・ゼロ幅文字を除去し、HTML 抽出時の AI フォールバックを廃止して HTML 解析での API 消費を完全に 0 回に固定。
+
+---
+
+## 2026-10-28: 最初の 1 件の要約内容を PDF 化し新しい Git ブランチに `README.pdf` として登録する機能を追加
+
+### 変更内容
+1. **日本語要約 PDF 生成（`pdf.py`: `generate_summary_pdf_bytes` / `pyproject.toml`）**
+   - `reportlab` の内蔵日本語 CID フォント（`HeiseiKakuGo-W5`）を使用し、Gemini API で生成した日本語タイトル・原題・著者・掲載誌・各種リンク・一言キャッチコピー・要約・問題設定・新規性・大学 1 年生向け解説を A4 PDF として整形・出力する関数を追加。
+2. **Git 新規ブランチへの `README.pdf` 登録・push（`git_publish.py`: `publish_readme_pdf_to_branch`）**
+   - `paper/YYYYMMDD-論文タイトルスラグ` 形式のブランチを新規作成し、リポジトリ直下に `README.pdf` を配置してコミット＆`origin` へ push したのち、元のブランチ（`main`）へ自動で戻るモジュールを追加。
+3. **パイプラインおよび GitHub Actions 権限の連動（`scholar_to_notion.py` / `.github/workflows/main.yml`）**
+   - `scholar_to_notion.py`: 最初の 1 件の未登録論文（`total == 1`）を登録したタイミングで要約 PDF を生成し、新規 Git ブランチへ `README.pdf` として登録・push する処理を追加。
+   - `.github/workflows/main.yml`: GitHub Actions から新規ブランチを push できるよう `permissions: contents: write` を追加。

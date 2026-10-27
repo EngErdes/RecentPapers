@@ -28,6 +28,7 @@ from config import (
     MAX_PAPERS_PER_RUN,
     USE_GEMINI,
 )
+from git_publish import publish_readme_pdf_to_branch
 from gmail import (
     extract_keyword_from_subject,
     get_gmail_connection,
@@ -41,7 +42,12 @@ from notion import (
     get_data_source_schema,
     normalize_title,
 )
-from pdf import extract_git_url_from_pdf, fetch_pdf_bytes, save_pdf_bytes
+from pdf import (
+    extract_git_url_from_pdf,
+    fetch_pdf_bytes,
+    generate_summary_pdf_bytes,
+    save_pdf_bytes,
+)
 
 FETCH_HOURS = 72  # 取得対象とするスレッドの遡り時間
 
@@ -202,6 +208,16 @@ def main() -> None:
                     )
                     print(f"      ✓ {url}")
                     total += 1
+
+                    # 最初の1件のみ、要約内容を PDF 化して新しい Git ブランチに README.pdf として登録
+                    if total == 1:
+                        try:
+                            summary_pdf = generate_summary_pdf_bytes(paper, jp, keyword)
+                            publish_readme_pdf_to_branch(
+                                summary_pdf, paper.get("title", "paper")
+                            )
+                        except Exception as e:
+                            print(f"      ⚠ [summary-pdf] 生成・登録エラー: {e}")
 
                     # 同一実行内でメールをまたいで重複するケースにも対応する
                     if registered is not None:
