@@ -5,11 +5,14 @@
 主要情報はページ本文のブロックへ退避して情報欠落を防ぐ。
 """
 
+from datetime import datetime, timedelta, timezone
 import re
 
 from notion_client import Client as NotionClient
 
 from config import NOTION_DATA_SOURCE_ID
+
+_JST = timezone(timedelta(hours=9))
 
 # ---------------------------------------------------------------------------
 # カラム名エイリアス
@@ -28,6 +31,7 @@ _ALIAS_PDF = ["pdf", "PDF リンク", "PDFリンク", "PDF"]
 _ALIAS_DOI = ["DOI", "doi"]
 _ALIAS_GIT = ["gitリポジトリ", "gitレポジトリ", "Git", "GitHub", "Repository", "Code", "コード"]
 _ALIAS_PAPER_URL = ["原文リンク", "URL", "リンク", "Link"]
+_ALIAS_DATE = ["日付", "登録日", "追加日", "取得日", "Date", "date"]
 
 
 # ---------------------------------------------------------------------------
@@ -275,6 +279,7 @@ def create_notion_page(
     journal_str = f"{paper.get('journal', '')} {paper.get('year', '')}".strip()
     summary = jp.get("summary", paper.get("snippet", ""))
     one_liner = jp.get("one_liner", "")
+    today_str = datetime.now(_JST).strftime("%Y-%m-%d")
 
     # (候補カラム名リスト, 値) の並び。メモ列には一言キャッチコピーを入れる。
     # PDF は実取得できたリンクを優先し、無ければアラート記載の URL にフォールバック。
@@ -290,9 +295,20 @@ def create_notion_page(
         (_ALIAS_DOI, paper.get("doi_url", "")),
         (_ALIAS_GIT, paper.get("git_url", "")),
         (_ALIAS_PAPER_URL, paper.get("paper_url", "")),
+        (_ALIAS_DATE, today_str),
     ]
 
     properties = _build_properties(schema, title, field_values)
+
+    # エイリアス名に一致しなかった場合でも、schema 内に date 型カラムがあれば実行日をセットする
+    if not (set(_ALIAS_DATE) & set(properties)):
+        date_col = next(
+            (name for name, d in schema.items() if d.get("type") == "date"), None
+        )
+        if date_col and date_col not in properties:
+            formatted_date = _format_value("date", schema[date_col], today_str)
+            if formatted_date is not None:
+                properties[date_col] = formatted_date
     filled = set(properties)
 
     def placed(aliases: list[str]) -> bool:
