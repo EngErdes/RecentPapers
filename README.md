@@ -8,6 +8,6 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | 論文タイトル |
 |---|---|
+| 2026-10-29 | [広告およびデジタルマーケティングにおける連合学習：包括的サーベイ](https://github.com/EngErdes/RecentPapers/tree/paper/20261029-federated-learning-in-advertising-and-di) |
 
 ---
-
