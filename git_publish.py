@@ -5,12 +5,62 @@ import os
 import re
 import subprocess
 
+from pdf import extract_diagram_steps
+
 
 def _make_branch_slug(title: str, max_len: int = 40) -> str:
     """論文タイトルから Git ブランチ名に使える ASCII スラグを生成する。"""
     slug = re.sub(r"[^a-zA-Z0-9]+", "-", (title or "").lower()).strip("-")
     slug = re.sub(r"-{2,}", "-", slug)[:max_len].strip("-")
     return slug or "paper"
+
+
+def _sanitize_mermaid_label(text: str) -> str:
+    """Mermaid ノードラベル内で構文エラーを起こさないよう特殊文字を整形する。"""
+    cleaned = (text or "").replace('"', "'").replace("`", "'")
+    cleaned = re.sub(r"[\r\n]+", " ", cleaned).strip()
+    return cleaned
+
+
+def _build_mermaid_diagram(jp: dict) -> list[str]:
+    """要約ステップから GitHub 表示用の Mermaid フローチャートブロックを生成する。"""
+    steps = extract_diagram_steps(jp)
+    if not steps:
+        return []
+
+    lines = [
+        "## 📊 新規性の図解（先行研究との違いと本研究のブレークスルー）",
+        "",
+        "```mermaid",
+        "flowchart TD",
+    ]
+    node_ids = []
+    for idx, item in enumerate(steps, 1):
+        node_id = f"S{idx}"
+        node_ids.append(node_id)
+        step_label = _sanitize_mermaid_label(item.get("step") or f"Step {idx}")
+        title_label = _sanitize_mermaid_label(item.get("title") or "")
+        detail_label = _sanitize_mermaid_label(item.get("detail") or "")
+
+        header = f"【{step_label}】 {title_label}".strip()
+        label_body = f"{header}\\n{detail_label}" if detail_label else header
+        lines.append(f'    {node_id}["{label_body}"]')
+
+    for i in range(len(node_ids) - 1):
+        lines.append(f"    {node_ids[i]} --> {node_ids[i + 1]}")
+
+    style_defs = [
+        "fill:#EEF3FB,stroke:#2B579A,stroke-width:2px,color:#111",
+        "fill:#EBF7F2,stroke:#1E7E5A,stroke-width:2px,color:#111",
+        "fill:#F5EEF8,stroke:#8E44AD,stroke-width:2px,color:#111",
+        "fill:#FDF2E9,stroke:#C05621,stroke-width:2px,color:#111",
+    ]
+    for idx, node_id in enumerate(node_ids):
+        style_str = style_defs[idx % len(style_defs)]
+        lines.append(f"    style {node_id} {style_str}")
+
+    lines += ["```", ""]
+    return lines
 
 
 def generate_summary_markdown(paper: dict, jp: dict, keyword: str = "") -> str:
@@ -39,6 +89,8 @@ def generate_summary_markdown(paper: dict, jp: dict, keyword: str = "") -> str:
     lines.append("")
     lines.append("---")
     lines.append("")
+
+    lines.extend(_build_mermaid_diagram(jp))
 
     sections = [
         ("📌 一言キャッチコピー", jp.get("one_liner", "")),

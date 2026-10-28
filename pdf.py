@@ -19,7 +19,15 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
+from reportlab.platypus import (
+    HRFlowable,
+    KeepTogether,
+    Paragraph,
+    SimpleDocTemplate,
+    Spacer,
+    Table,
+    TableStyle,
+)
 
 # 論文本文からリポジトリ URL を検出するための正規表現。
 # 主要な git ホスト（GitHub / GitLab / Bitbucket / Codeberg）の owner/repo 形式を対象とする。
@@ -174,6 +182,138 @@ def extract_git_url_from_pdf(content: bytes) -> str | None:
     return find_git_url_in_text(text)
 
 
+def extract_diagram_steps(jp: dict) -> list[dict]:
+    """要約図解用のステップ一覧を取り出す。未設定時は他の要約フィールドから自動構成する。"""
+    raw = jp.get("diagram_steps")
+    steps: list[dict] = []
+    if isinstance(raw, list):
+        for item in raw:
+            if isinstance(item, dict) and (item.get("title") or item.get("detail")):
+                steps.append(
+                    {
+                        "step": str(item.get("step") or "").strip(),
+                        "title": str(item.get("title") or "").strip(),
+                        "detail": str(item.get("detail") or "").strip(),
+                    }
+                )
+    if steps:
+        return steps
+
+    # フォールバック: 新規性 (novelty) と課題 (problem) を文単位で分解して図解ステップを構成
+    novelty_text = (jp.get("novelty") or "").strip()
+    sentences = [s.strip() for s in re.split(r"(?<=[。．.!?])\s*", novelty_text) if s.strip()]
+    fallback_candidates = [
+        ("1. 先行研究の限界", "従来のボトルネック", (jp.get("problem") or "")[:90]),
+        ("2. 本研究の着眼点", "核心アイデア", jp.get("one_liner") or (sentences[0] if sentences else "")),
+        (
+            "3. 技術的な新規性",
+            "先行研究との違い・工夫",
+            sentences[1] if len(sentences) >= 2 else novelty_text[:90],
+        ),
+        (
+            "4. 新規性による優位性",
+            "主要な貢献・ブレークスルー",
+            " ".join(sentences[2:])[:90] if len(sentences) >= 3 else (jp.get("summary") or "")[:90],
+        ),
+    ]
+    return [
+        {"step": s, "title": t, "detail": d}
+        for s, t, d in fallback_candidates
+        if d
+    ]
+
+
+def _build_diagram_flowables(
+    jp: dict, font_name: str, heading_style: ParagraphStyle
+) -> list:
+    """PDF 内に描画する要約フローチャート図（ボックス＋矢印）の Flowable 群を生成する。"""
+    steps = extract_diagram_steps(jp)
+    if not steps:
+        return []
+
+    step_header_style = ParagraphStyle(
+        "DiagramHeader",
+        fontName=font_name,
+        fontSize=10,
+        leading=14,
+        textColor=colors.white,
+        wordWrap="CJK",
+    )
+    step_body_style = ParagraphStyle(
+        "DiagramBody",
+        fontName=font_name,
+        fontSize=9.5,
+        leading=15,
+        textColor=colors.HexColor("#222222"),
+        wordWrap="CJK",
+    )
+    arrow_style = ParagraphStyle(
+        "DiagramArrow",
+        fontName=font_name,
+        fontSize=12,
+        leading=14,
+        alignment=1,  # center
+        textColor=colors.HexColor("#4A6CF7"),
+    )
+
+    palette = [
+        ("#2B579A", "#EEF3FB"),
+        ("#1E7E5A", "#EBF7F2"),
+        ("#8E44AD", "#F5EEF8"),
+        ("#C05621", "#FDF2E9"),
+    ]
+
+    flowables = [
+        Paragraph(
+            escape("■ 新規性の図解（先行研究との違いと本研究のブレークスルー）"),
+            heading_style,
+        ),
+        Spacer(1, 2 * mm),
+    ]
+
+    box_width = 170 * mm
+    for idx, item in enumerate(steps):
+        header_bg, body_bg = palette[idx % len(palette)]
+        step_label = item.get("step") or f"Step {idx + 1}"
+        title_label = item.get("title") or ""
+        header_text = (
+            f"{step_label} ｜ {title_label}" if title_label else step_label
+        )
+        detail_text = item.get("detail") or title_label
+
+        card = Table(
+            [
+                [Paragraph(escape(header_text), step_header_style)],
+                [Paragraph(escape(detail_text), step_body_style)],
+            ],
+            colWidths=[box_width],
+        )
+        card.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor(header_bg)),
+                    ("BACKGROUND", (0, 1), (-1, 1), colors.HexColor(body_bg)),
+                    ("BOX", (0, 0), (-1, -1), 1, colors.HexColor(header_bg)),
+                    ("TOPPADDING", (0, 0), (-1, 0), 5),
+                    ("BOTTOMPADDING", (0, 0), (-1, 0), 5),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+                    ("TOPPADDING", (0, 1), (-1, 1), 7),
+                    ("BOTTOMPADDING", (0, 1), (-1, 1), 7),
+                ]
+            )
+        )
+        flowables.append(card)
+
+        if idx < len(steps) - 1:
+            flowables.append(Spacer(1, 1 * mm))
+            flowables.append(Paragraph("▼", arrow_style))
+            flowables.append(Spacer(1, 1 * mm))
+
+    flowables.append(Spacer(1, 4 * mm))
+    return [KeepTogether(flowables)]
+
+
 def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> bytes:
     """Gemini API 等で生成した論文の日本語要約・解説を整形した PDF バイト列として返す。"""
     font_name = "HeiseiKakuGo-W5"
@@ -272,6 +412,9 @@ def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> byte
 
     story.append(Spacer(1, 4 * mm))
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.lightgrey))
+
+    # 要約図解（フローチャート）を挿入
+    story.extend(_build_diagram_flowables(jp, font_name, heading_style))
 
     sections = [
         ("一言キャッチコピー", jp.get("one_liner", "")),

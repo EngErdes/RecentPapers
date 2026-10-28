@@ -164,3 +164,19 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - `publish_readme_pdf_to_branch`: 新しいブランチ（`paper/YYYYMMDD-論文タイトルスラグ`）のリポジトリ直下に `README.pdf` と `README.md` の両方を出力してコミット＆`origin` へ push し、元のブランチ（`main`）に戻るように拡張。
 2. **`scholar_to_notion.py`**
    - 最初の 1 件（`total == 1`）の処理時に `generate_summary_markdown` も呼び出し、`README.pdf` と `README.md` をセットで新ブランチに登録するよう更新。これにより GitHub 上で該当ブランチを開いた際、ページ下部に要約が自動展開されてすぐ閲覧できるようになった。
+
+---
+
+## 2026-10-28: 論文の新規性にフォーカスした図解（フローチャート）を `README.pdf`・`README.md` に追加
+
+### 変更内容
+1. **新規性に特化した図解ステップ生成（`ai.py`: `generate_japanese_content`）**
+   - 既存の日本語コンテンツ生成プロンプト（1 回の API 呼び出し）の返却 JSON に、新規性にフォーカスした 4 ステップの `diagram_steps` を追加（追加の API 呼び出し枠は消費しない）。
+     1. `1. 先行研究の限界`: 従来手法のボトルネック・未解決課題
+     2. `2. 本研究の着眼点`: 従来とは異なる新しい発想・アプローチ
+     3. `3. 技術的な新規性`: それを実現する具体的な仕組み・構造・アルゴリズムの工夫
+     4. `4. 新規性による優位性`: この新規性によって初めて達成できた性能・ブレークスルー
+2. **`README.pdf` への図解描画（`pdf.py`: `extract_diagram_steps` / `_build_diagram_flowables`）**
+   - 「■ 新規性の図解（先行研究との違いと本研究のブレークスルー）」セクションを追加し、色分けされたステップカードと矢印（`▼`）によるフローチャート図を PDF 内に描画。
+3. **`README.md` への Mermaid 図解追加（`git_publish.py`: `_build_mermaid_diagram`）**
+   - 「📊 新規性の図解（先行研究との違いと本研究のブレークスルー）」セクションを追加し、GitHub 上で自動レンダリングされる色付きの Mermaid フローチャート（`flowchart TD`）を出力。
