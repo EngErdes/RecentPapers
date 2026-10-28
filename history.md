@@ -153,3 +153,14 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
 3. **パイプラインおよび GitHub Actions 権限の連動（`scholar_to_notion.py` / `.github/workflows/main.yml`）**
    - `scholar_to_notion.py`: 最初の 1 件の未登録論文（`total == 1`）を登録したタイミングで要約 PDF を生成し、新規 Git ブランチへ `README.pdf` として登録・push する処理を追加。
    - `.github/workflows/main.yml`: GitHub Actions から新規ブランチを push できるよう `permissions: contents: write` を追加。
+
+---
+
+## 2026-10-28: 新規 Git ブランチに `README.pdf` とあわせて `README.md` も同時出力・登録する対応
+
+### 変更内容
+1. **`git_publish.py`**
+   - `generate_summary_markdown`: 日本語タイトル・原題・著者・掲載誌・各種 URL・`[README.pdf](./README.pdf)` へのリンク・一言キャッチコピー・要約・問題設定・新規性・大学 1 年生向け解説を GitHub 表示用の Markdown 形式に整形する関数を追加。
+   - `publish_readme_pdf_to_branch`: 新しいブランチ（`paper/YYYYMMDD-論文タイトルスラグ`）のリポジトリ直下に `README.pdf` と `README.md` の両方を出力してコミット＆`origin` へ push し、元のブランチ（`main`）に戻るように拡張。
+2. **`scholar_to_notion.py`**
+   - 最初の 1 件（`total == 1`）の処理時に `generate_summary_markdown` も呼び出し、`README.pdf` と `README.md` をセットで新ブランチに登録するよう更新。これにより GitHub 上で該当ブランチを開いた際、ページ下部に要約が自動展開されてすぐ閲覧できるようになった。

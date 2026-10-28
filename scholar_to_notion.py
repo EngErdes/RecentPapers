@@ -28,7 +28,7 @@ from config import (
     MAX_PAPERS_PER_RUN,
     USE_GEMINI,
 )
-from git_publish import publish_readme_pdf_to_branch
+from git_publish import generate_summary_markdown, publish_readme_pdf_to_branch
 from gmail import (
     extract_keyword_from_subject,
     get_gmail_connection,
@@ -209,12 +209,15 @@ def main() -> None:
                     print(f"      ✓ {url}")
                     total += 1
 
-                    # 最初の1件のみ、要約内容を PDF 化して新しい Git ブランチに README.pdf として登録
+                    # 最初の1件のみ、要約内容を PDF・Markdown 化して新しい Git ブランチに README.pdf / README.md として登録
                     if total == 1:
                         try:
                             summary_pdf = generate_summary_pdf_bytes(paper, jp, keyword)
+                            summary_md = generate_summary_markdown(paper, jp, keyword)
                             publish_readme_pdf_to_branch(
-                                summary_pdf, paper.get("title", "paper")
+                                summary_pdf,
+                                paper.get("title", "paper"),
+                                markdown_text=summary_md,
                             )
                         except Exception as e:
                             print(f"      ⚠ [summary-pdf] 生成・登録エラー: {e}")
