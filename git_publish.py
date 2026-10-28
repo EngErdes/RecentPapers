@@ -86,7 +86,11 @@ def generate_summary_markdown(paper: dict, jp: dict, keyword: str = "") -> str:
     ]
     for label, val in meta_items:
         if val:
-            lines.append(f"- **{label}**: {val}")
+            val_stripped = val.strip()
+            if val_stripped.lower().startswith(("http://", "https://")):
+                lines.append(f"- **{label}**: [{val_stripped}]({val_stripped})")
+            else:
+                lines.append(f"- **{label}**: {val_stripped}")
     lines.append("- **PDF版要約**: [README.pdf](./README.pdf)")
     lines.append("")
     lines.append("---")

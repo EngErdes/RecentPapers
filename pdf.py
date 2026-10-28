@@ -388,6 +388,18 @@ def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> byte
         safe = escape(text or "").replace("\n", "<br/>")
         return Paragraph(safe, style)
 
+    def _p_with_link(label: str, val: str, style: ParagraphStyle) -> Paragraph:
+        val_stripped = (val or "").strip()
+        if val_stripped.lower().startswith(("http://", "https://")):
+            safe_href = escape(val_stripped, {'"': "&quot;"})
+            safe_text = escape(val_stripped)
+            html_str = (
+                f'{escape(label)}: <a href="{safe_href}" color="#1a0dab">'
+                f"<u>{safe_text}</u></a>"
+            )
+            return Paragraph(html_str, style)
+        return _p(f"{label}: {val_stripped}", style)
+
     story = []
 
     jp_title = jp.get("japanese_title") or paper.get("title", "（タイトル不明）")
@@ -408,7 +420,7 @@ def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> byte
     ]
     for label, val in meta_items:
         if val:
-            story.append(_p(f"{label}: {val}", meta_style))
+            story.append(_p_with_link(label, val, meta_style))
 
     story.append(Spacer(1, 4 * mm))
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.lightgrey))

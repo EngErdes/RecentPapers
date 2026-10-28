@@ -202,3 +202,13 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - テーブル内の行は常に日付の降順（新しい日付ほど上、同日なら最新追加分が最上部）に整列される。
 3. **`scholar_to_notion.py`**
    - `publish_readme_pdf_to_branch` 呼び出し時に日本語タイトル（`japanese_title`）を渡すように更新。
+
+---
+
+## 2026-10-29: `README.pdf`・`README.md` に記載される各種 URL をクリック可能なリンクとして出力する対応
+
+### 変更内容
+1. **`pdf.py`（`generate_summary_pdf_bytes`）**
+   - PDF・DOI・Git リポジトリ・原文リンク等の URL（`http://` / `https://`）を ReportLab のハイパーリンクタグ（`<a href="..." color="#1a0dab"><u>URL</u></a>`）で出力し、PDF ビューア上でクリックして開けるよう更新。
+2. **`git_publish.py`（`generate_summary_markdown`）**
+   - `http://` / `https://` で始まる項目を明示的な Markdown リンク形式（`[URL](URL)`）で出力するよう更新。
