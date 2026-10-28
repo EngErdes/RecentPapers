@@ -1,11 +1,13 @@
 """要約 PDF と Markdown を新しい Git ブランチに README.pdf / README.md として登録・push するヘルパー。"""
 
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import os
 import re
 import subprocess
 
 from pdf import extract_diagram_steps
+
+_JST = timezone(timedelta(hours=9))
 
 
 def _make_branch_slug(title: str, max_len: int = 40) -> str:
@@ -116,20 +118,120 @@ def _run_git(args: list[str], repo_dir: str, check: bool = True) -> subprocess.C
     )
 
 
+def _get_github_repo_url(repo_dir: str) -> str:
+    """git remote origin から GitHub リポジトリの Web URL (https://github.com/owner/repo) を取得する。"""
+    res = _run_git(["remote", "get-url", "origin"], repo_dir, check=False)
+    raw = (res.stdout or "").strip()
+    m = re.search(r"github\.com[:/]([^/]+/[^/\s]+?)(?:\.git)?$", raw)
+    if m:
+        return f"https://github.com/{m.group(1)}"
+    return "../.."
+
+
+def _insert_row_into_readme(
+    readme_text: str, date_str: str, jp_title: str, branch_url: str
+) -> str:
+    """README.md の『要約済み論文一覧』テーブルに新しい行を日付の降順（新しい順）で追加する。"""
+    safe_title = (jp_title or "（タイトル不明）").replace("|", "｜").replace("\n", " ").strip()
+    new_row = f"| {date_str} | [{safe_title}]({branch_url}) |"
+
+    lines = readme_text.splitlines()
+    header_idx = None
+    for idx, line in enumerate(lines):
+        if line.strip().startswith("| 日付") and "論文タイトル" in line:
+            header_idx = idx
+            break
+
+    if header_idx is None:
+        table_block = [
+            "## 📚 要約済み論文一覧",
+            "",
+            "| 日付 | 論文タイトル |",
+            "|---|---|",
+            new_row,
+            "",
+        ]
+        return "\n".join(table_block + lines).rstrip() + "\n"
+
+    row_start = header_idx + 2
+    row_end = row_start
+    existing_rows: list[str] = []
+    while row_end < len(lines) and lines[row_end].strip().startswith("|"):
+        row_line = lines[row_end].strip()
+        if row_line != new_row:
+            existing_rows.append(row_line)
+        row_end += 1
+
+    # 新しい行を先頭に入れ、日付 (YYYY-MM-DD) の降順で安定ソート（同日なら最新が上）
+    all_rows = [new_row, *existing_rows]
+
+    def _extract_date_key(row: str) -> str:
+        cols = [c.strip() for c in row.strip("|").split("|")]
+        return cols[0] if cols else ""
+
+    all_rows.sort(key=_extract_date_key, reverse=True)
+
+    updated_lines = lines[:row_start] + all_rows + lines[row_end:]
+    return "\n".join(updated_lines).rstrip() + "\n"
+
+
+def _update_main_readme_index(
+    repo_dir: str,
+    main_branch: str,
+    date_display: str,
+    jp_title: str,
+    branch_name: str,
+) -> None:
+    """main ブランチの README.md に要約済み論文へのリンクを日付降順で追記して push する。"""
+    readme_md_path = os.path.join(repo_dir, "README.md")
+    existing_text = ""
+    if os.path.exists(readme_md_path):
+        with open(readme_md_path, "r", encoding="utf-8") as f:
+            existing_text = f.read()
+
+    repo_url = _get_github_repo_url(repo_dir)
+    branch_url = f"{repo_url}/tree/{branch_name}"
+    updated_text = _insert_row_into_readme(
+        existing_text, date_display, jp_title, branch_url
+    )
+
+    with open(readme_md_path, "w", encoding="utf-8") as f:
+        f.write(updated_text)
+
+    try:
+        _run_git(["add", "README.md"], repo_dir)
+        _run_git(
+            ["commit", "-m", f"Add {branch_name} to README.md paper list"],
+            repo_dir,
+        )
+        _run_git(["push", "origin", main_branch], repo_dir)
+        print(f"      [git-main] updated README.md on '{main_branch}' with link to '{branch_name}'")
+    except subprocess.CalledProcessError as e:
+        stderr = (e.stderr or "").strip()
+        stdout = (e.stdout or "").strip()
+        print(
+            f"      ⚠ [git-main] failed to update README.md on '{main_branch}' ({e.cmd}): {stderr or stdout}"
+        )
+
+
 def publish_readme_pdf_to_branch(
     pdf_bytes: bytes,
     title: str,
     markdown_text: str | None = None,
+    japanese_title: str = "",
     repo_dir: str | None = None,
 ) -> str | None:
     """要約 PDF（および README.md）を新しいブランチ (paper/YYYYMMDD-slug) にコミット＆push する。
 
-    処理完了後は元のブランチ（main 等）に戻る。成功時は作成したブランチ名を返す。
+    push 成功時は元のブランチ（main）に戻ったうえで、main ブランチの README.md の
+    論文一覧テーブル（日付降順）に該当ブランチへのリンクを追記して push する。
     """
     if repo_dir is None:
         repo_dir = os.path.dirname(os.path.abspath(__file__))
 
-    date_str = datetime.now().strftime("%Y%m%d")
+    now_jst = datetime.now(_JST)
+    date_str = now_jst.strftime("%Y%m%d")
+    date_display = now_jst.strftime("%Y-%m-%d")
     slug = _make_branch_slug(title)
     branch_name = f"paper/{date_str}-{slug}"
 
@@ -151,7 +253,7 @@ def publish_readme_pdf_to_branch(
         check=False,
     )
     if ref_check.returncode == 0 or remote_check.returncode == 0:
-        branch_name = f"{branch_name}-{datetime.now():%H%M%S}"
+        branch_name = f"{branch_name}-{now_jst:%H%M%S}"
 
     # GitHub Actions 等で git user.name / user.email が未設定の場合に備えてローカル設定を補完
     name_cfg = _run_git(["config", "user.name"], repo_dir, check=False)
@@ -167,6 +269,7 @@ def publish_readme_pdf_to_branch(
 
     readme_pdf_path = os.path.join(repo_dir, "README.pdf")
     readme_md_path = os.path.join(repo_dir, "README.md")
+    pushed_branch: str | None = None
     try:
         _run_git(["checkout", "-b", branch_name], repo_dir)
         with open(readme_pdf_path, "wb") as f:
@@ -185,14 +288,24 @@ def publish_readme_pdf_to_branch(
         print(
             f"      [git-branch] pushed {', '.join(files_to_add)} to branch '{branch_name}'"
         )
-        return branch_name
+        pushed_branch = branch_name
     except subprocess.CalledProcessError as e:
         stderr = (e.stderr or "").strip()
         stdout = (e.stdout or "").strip()
         print(
             f"      ⚠ [git-branch] failed to publish README ({e.cmd}): {stderr or stdout}"
         )
-        return None
     finally:
         # 作業ツリーをクリーンにして元のブランチへ戻る
         _run_git(["checkout", "-f", orig_branch], repo_dir, check=False)
+
+    if pushed_branch:
+        _update_main_readme_index(
+            repo_dir=repo_dir,
+            main_branch=orig_branch,
+            date_display=date_display,
+            jp_title=japanese_title or title,
+            branch_name=pushed_branch,
+        )
+
+    return pushed_branch

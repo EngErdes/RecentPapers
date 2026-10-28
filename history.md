@@ -189,3 +189,16 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
 - **`notion.py`**
   - `_ALIAS_DATE`（`"日付"`, `"登録日"`, `"追加日"`, `"取得日"`, `"Date"`, `"date"`）を追加。
   - `create_notion_page` でパイプライン実行時の日本時間（JST）の日付 `YYYY-MM-DD` を取得し、日付カラム（エイリアス名一致、または DB スキーマ内の `date` 型カラム）へ自動セットするよう更新（GitHub Actions の UTC 環境でも日本時間の日付が記録される）。
+
+---
+
+## 2026-10-29: `main` ブランチに `README.md` を追加し、要約論文ブランチへのリンクを日付降順の表形式で自動追記する対応
+
+### 変更内容
+1. **`README.md`（新規作成）**
+   - プロジェクトの概要・機能・実行方法・環境変数・モジュール構成をまとめた `README.md` を `main` ブランチに追加し、上部に「📚 要約済み論文一覧」テーブル（`| 日付 | 論文タイトル |`）を配置。
+2. **`git_publish.py`（`_insert_row_into_readme` / `_update_main_readme_index`）**
+   - 新規ブランチ（`paper/YYYYMMDD-slug`）への `README.pdf`・`README.md` の push 成功後、`main` ブランチに戻ったうえで `main` ブランチの `README.md` のテーブルに `| YYYY-MM-DD | [日本語タイトル](対応ブランチURL) |` を追記してコミット＆push する処理を追加。
+   - テーブル内の行は常に日付の降順（新しい日付ほど上、同日なら最新追加分が最上部）に整列される。
+3. **`scholar_to_notion.py`**
+   - `publish_readme_pdf_to_branch` 呼び出し時に日本語タイトル（`japanese_title`）を渡すように更新。
