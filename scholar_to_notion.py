@@ -209,19 +209,19 @@ def main() -> None:
                     print(f"      ✓ {url}")
                     total += 1
 
-                    # 最初の1件のみ、要約内容を PDF・Markdown 化して新しい Git ブランチに README.pdf / README.md として登録
-                    if total == 1:
-                        try:
-                            summary_pdf = generate_summary_pdf_bytes(paper, jp, keyword)
-                            summary_md = generate_summary_markdown(paper, jp, keyword)
-                            publish_readme_pdf_to_branch(
-                                summary_pdf,
-                                paper.get("title", "paper"),
-                                markdown_text=summary_md,
-                                japanese_title=jp.get("japanese_title") or paper.get("title", ""),
-                            )
-                        except Exception as e:
-                            print(f"      ⚠ [summary-pdf] 生成・登録エラー: {e}")
+                    # Notion に登録したすべての論文について、要約内容を PDF・Markdown 化して
+                    # 新しい Git ブランチに README.pdf / README.md として登録し、main の README.md に追記する
+                    try:
+                        summary_pdf = generate_summary_pdf_bytes(paper, jp, keyword)
+                        summary_md = generate_summary_markdown(paper, jp, keyword)
+                        publish_readme_pdf_to_branch(
+                            summary_pdf,
+                            paper.get("title", "paper"),
+                            markdown_text=summary_md,
+                            japanese_title=jp.get("japanese_title") or paper.get("title", ""),
+                        )
+                    except Exception as e:
+                        print(f"      ⚠ [summary-pdf] 生成・登録エラー: {e}")
 
                     # 同一実行内でメールをまたいで重複するケースにも対応する
                     if registered is not None:

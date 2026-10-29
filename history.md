@@ -225,3 +225,15 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
 2. **Markdown の横長 Mermaid 図解と全体レイアウト改善（`git_publish.py`: `_build_mermaid_diagram`, `generate_summary_markdown`）**
    - Mermaid の `flowchart` 設定（`wrappingWidth: 520`, `padding: 14`, `rankSpacing: 28`）と区切り線・`<br/>` 改行・角丸スタイル（`rx:8,ry:8`）により、左右に適切な余白を残した美しい縦横比の横長ボックスに改善。
    - 冒頭に `> **💡 一言要約**` のコールアウトと2カラムのメタデータ表を配置し、全体の可読性を向上。
+
+---
+
+## 2026-10-29: Notion に登録されたすべての論文を Git ブランチへ登録する対応
+
+### 変更内容
+1. **`scholar_to_notion.py`（`main`）**
+   - `if total == 1:` の制限を撤廃し、Notion に新規登録されたすべての論文について `README.pdf`・`README.md` を生成して `paper/YYYYMMDD-slug` ブランチへ push し、`main` ブランチの `README.md` 論文一覧テーブルにも全件追記するように変更。
+2. **`git_publish.py`（`publish_readme_pdf_to_branch`）**
+   - 連続実行時に元のブランチへ戻る際、万一未追跡の `README.pdf` が残っていた場合でも確実に削除するクリーンアップ処理を追加。
+3. **`how_to_use.md`**
+   - 機能説明を「最初の1件」から「Notion に登録した全論文」へ更新。

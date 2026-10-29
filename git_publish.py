@@ -321,6 +321,11 @@ def publish_readme_pdf_to_branch(
     finally:
         # 作業ツリーをクリーンにして元のブランチへ戻る
         _run_git(["checkout", "-f", orig_branch], repo_dir, check=False)
+        if os.path.exists(readme_pdf_path):
+            try:
+                os.remove(readme_pdf_path)
+            except OSError:
+                pass
 
     if pushed_branch:
         _update_main_readme_index(

@@ -12,8 +12,8 @@
    - 論文の PDF が取得可能な場合、本文テキストから著者の GitHub / GitLab / Bitbucket リポジトリ URL を自動抽出します。
 5. **Notion データベースへの登録**
    - 対象データベースのスキーマを動的に取得し、タイトル・原題・著者・掲載誌・日付（実行日・JST）・PDF/DOI/Git リンクおよび本文ブロックを登録します。
-6. **最初の1件の要約を新規 Git ブランチ（`README.pdf` / `README.md`）として出力**
-   - 各実行で最初に登録された論文について、新規性の図解を含む要約を `README.pdf` および `README.md`（Mermaid フローチャート付き）として生成し、`paper/YYYYMMDD-論文タイトルスラグ` ブランチへ自動でコミット＆push します。
+6. **Notion に登録した全論文の要約を新規 Git ブランチ（`README.pdf` / `README.md`）として出力**
+   - Notion に新規登録されたすべての論文について、新規性の図解を含む要約を `README.pdf` および `README.md`（Mermaid フローチャート付き）として生成し、`paper/YYYYMMDD-論文タイトルスラグ` ブランチへ自動でコミット＆push した上で、`main` ブランチの `README.md` 一覧表へ日付降順で追記します。
 
 ---
 
