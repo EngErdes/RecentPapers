@@ -1,13 +1,50 @@
-# RecentPapers (Google Scholar Alert → Notion Pipeline)
+# 筋萎縮性側索硬化症における皮質興奮性が神経化学プロファイルを層別化する
 
-Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gemini API（または Claude API）で日本語タイトル・要約・新規性解説・初学者向け解説を生成して Notion データベースに登録するパイプラインです。
+**Original Title**: *Cortical excitability stratifies neurochemical profiles in amyotrophic lateral sclerosis*
 
----
+> **💡 一言要約**: ALS患者の脳内興奮性が病態を映す鏡
 
-## 📚 要約済み論文一覧
-
-| 日付 | 論文タイトル |
+| 項目 | 内容 |
 |---|---|
-
+| **著者** | S Tu, CJ Mahoney, W Huynh, S Vucic, MC Kiernan |
+| **掲載誌** | Brain Communications 2026 |
+| **アラートキーワード** | ALS |
+| **PDF** | [https://academic.oup.com/braincomms/advance-article-pdf/doi/10.1093/braincomms/fcag292/70299079/fcag292.pdf](https://academic.oup.com/braincomms/advance-article-pdf/doi/10.1093/braincomms/fcag292/70299079/fcag292.pdf) |
+| **原文リンク** | [https://academic.oup.com/braincomms/advance-article-pdf/doi/10.1093/braincomms/fcag292/70299079/fcag292.pdf](https://academic.oup.com/braincomms/advance-article-pdf/doi/10.1093/braincomms/fcag292/70299079/fcag292.pdf) |
+| **PDF版要約** | [README.pdf](./README.pdf) |
 
 ---
+
+## 📊 新規性の図解（先行研究との違いと本研究のブレークスルー）
+
+```mermaid
+%%{init: {'flowchart': {'wrappingWidth': 520, 'nodeSpacing': 18, 'rankSpacing': 28, 'padding': 14, 'curve': 'basis'}, 'themeVariables': {'fontSize': '14px'}}}%%
+flowchart TD
+    S1["<b>【1. 先行研究の限界】 従来のボトルネック</b><br/>──────────────────────────────<br/>ALSは運動神経が進行性に変性・死滅する致死的な神経変性疾患ですが、その発症メカニズムはいまだ十分に解明されていません。特に、グルタミン酸による過剰な神経興奮（興奮毒性）がALS発"]
+    S2["<b>【2. 本研究の着眼点】 核心アイデア</b><br/>──────────────────────────────<br/>ALS患者の脳内興奮性が病態を映す鏡"]
+    S3["<b>【3. 技術的な新規性】 先行研究との違い・工夫</b><br/>──────────────────────────────<br/>従来研究では興奮毒性の存在が示唆されるにとどまっていましたが、本研究は生体内の磁気共鳴スペクトロスコピーなどを組み合わせることでグルタミン酸異常を客観的に可視化しました。"]
+    S4["<b>【4. 新規性による優位性】 主要な貢献・ブレークスルー</b><br/>──────────────────────────────<br/>これにより、ALSの病態の個人差を反映したバイオマーカーとしての皮質興奮性の有用性が示され、患者ごとの病態理解や個別化医療への道を開く重要な貢献です。"]
+    S1 --> S2
+    S2 --> S3
+    S3 --> S4
+    style S1 fill:#EFF6FF,stroke:#1E40AF,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S2 fill:#F0FDFA,stroke:#0F766E,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S3 fill:#F5F3FF,stroke:#6D28D9,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S4 fill:#FFF7ED,stroke:#C2410C,stroke-width:2px,color:#111827,rx:8,ry:8
+```
+
+## 📝 要約
+
+この研究は、筋萎縮性側索硬化症（ALS）患者において、皮質運動興奮性の変化がグルタミン酸を中心とした神経化学的プロファイルとどのように関連するかを生体内で検討したものです。ALS発症の主要メカニズムとされるグルタミン酸による興奮毒性について、皮質興奮性の指標を用いて患者を層別化することで、その異常を客観的に評価しました。本研究の知見は、ALSの病態解明や将来的な治療戦略の開発に貢献する可能性があります。
+
+## ❓ どんな問題に取り組んだか
+
+ALSは運動神経が進行性に変性・死滅する致死的な神経変性疾患ですが、その発症メカニズムはいまだ十分に解明されていません。特に、グルタミン酸による過剰な神経興奮（興奮毒性）がALS発症に関与すると考えられているものの、生体内でそれを定量的に評価・分類する手法が確立されていませんでした。
+
+## ✨ 何が新しい？何がすごい？（新規性）
+
+本研究は、皮質興奮性の電気生理学的指標を用いてALS患者を神経化学的プロファイルごとに層別化するという新しいアプローチを採用しています。従来研究では興奮毒性の存在が示唆されるにとどまっていましたが、本研究は生体内の磁気共鳴スペクトロスコピーなどを組み合わせることでグルタミン酸異常を客観的に可視化しました。これにより、ALSの病態の個人差を反映したバイオマーカーとしての皮質興奮性の有用性が示され、患者ごとの病態理解や個別化医療への道を開く重要な貢献です。
+
+## 🎓 大学1年生向けの解説
+
+ALS（筋萎縮性側索硬化症）とは、全身の筋肉を動かす神経が徐々に壊れていく怖い病気です。脳の神経細胞が「グルタミン酸」という物質によって過剰に興奮・疲弊してしまうことが原因の一つと考えられています。この研究では、脳の「興奮しやすさ」を測る方法を使って、ALS患者さんの脳内の化学的な異常パターンを分類しました。これにより、患者さんごとに病気の進み方が異なる理由が少しずつ明らかになってきています。将来的には、この知見をもとにALSに対するより個人に合った治療法が開発されることが期待されます。
