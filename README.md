@@ -1,13 +1,49 @@
-# RecentPapers (Google Scholar Alert → Notion Pipeline)
+# QARMフレームワークを用いた適応的多相表現学習による肝細胞癌の予測
 
-Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gemini API（または Claude API）で日本語タイトル・要約・新規性解説・初学者向け解説を生成して Notion データベースに登録するパイプラインです。
+**Original Title**: *Hepatocellular Carcinoma Disease Prediction Using Adaptive Multiphase Representation Learning with QARM Framework*
 
----
+> **💡 一言要約**: 多相画像の統合学習で肝がん予測をより高精度に
 
-## 📚 要約済み論文一覧
-
-| 日付 | 論文タイトル |
+| 項目 | 内容 |
 |---|---|
-
+| **著者** | R Govindaraj |
+| **掲載誌** | International Conference on Science Technology … 2026 |
+| **アラートキーワード** | representation learning |
+| **原文リンク** | [https://ieeexplore.ieee.org/abstract/document/11735628/](https://ieeexplore.ieee.org/abstract/document/11735628/) |
+| **PDF版要約** | [README.pdf](./README.pdf) |
 
 ---
+
+## 📊 新規性の図解（先行研究との違いと本研究のブレークスルー）
+
+```mermaid
+%%{init: {'flowchart': {'wrappingWidth': 520, 'nodeSpacing': 18, 'rankSpacing': 28, 'padding': 14, 'curve': 'basis'}, 'themeVariables': {'fontSize': '14px'}}}%%
+flowchart TD
+    S1["<b>【1. 先行研究の限界】 従来のボトルネック</b><br/>──────────────────────────────<br/>医療画像を用いた診断において、造影剤の経過時間に応じた複数のフェーズ（多相）から有用な特徴を抽出することは重要ですが、フェーズ間で一貫した特徴を維持することは困難でした。既存の表現"]
+    S2["<b>【2. 本研究の着眼点】 核心アイデア</b><br/>──────────────────────────────<br/>多相画像の統合学習で肝がん予測をより高精度に"]
+    S3["<b>【3. 技術的な新規性】 先行研究との違い・工夫</b><br/>──────────────────────────────<br/>従来の単一フェーズ解析や単純な結合手法とは異なり、各フェーズの重要度や品質を動的に評価して特徴を統合することで、ノイズに強く、かつ診断に重要な微細な変化を捉えることを可能にしました。"]
+    S4["<b>【4. 新規性による優位性】 主要な貢献・ブレークスルー</b><br/>──────────────────────────────<br/>本研究は、肝細胞癌（HCC）の診断精度を向上させるため、複数の画像診断フェーズから一貫した特徴を抽出するQARMフレームワークを提案しています。適応的な表現学習を導入することで、異"]
+    S1 --> S2
+    S2 --> S3
+    S3 --> S4
+    style S1 fill:#EFF6FF,stroke:#1E40AF,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S2 fill:#F0FDFA,stroke:#0F766E,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S3 fill:#F5F3FF,stroke:#6D28D9,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S4 fill:#FFF7ED,stroke:#C2410C,stroke-width:2px,color:#111827,rx:8,ry:8
+```
+
+## 📝 要約
+
+本研究は、肝細胞癌（HCC）の診断精度を向上させるため、複数の画像診断フェーズから一貫した特徴を抽出するQARMフレームワークを提案しています。適応的な表現学習を導入することで、異なる造影相間での特徴維持の難しさを克服し、信頼性の高い疾患予測を実現しています。
+
+## ❓ どんな問題に取り組んだか
+
+医療画像を用いた診断において、造影剤の経過時間に応じた複数のフェーズ（多相）から有用な特徴を抽出することは重要ですが、フェーズ間で一貫した特徴を維持することは困難でした。既存の表現学習手法では、多相間の情報の差異や品質のバラつきを十分に処理しきれないという課題がありました。
+
+## ✨ 何が新しい？何がすごい？（新規性）
+
+本論文の主な貢献は、QARM（Quality-Aware Representation Matching）フレームワークを用いた適応的多相表現学習を提案した点にあります。従来の単一フェーズ解析や単純な結合手法とは異なり、各フェーズの重要度や品質を動的に評価して特徴を統合することで、ノイズに強く、かつ診断に重要な微細な変化を捉えることを可能にしました。
+
+## 🎓 大学1年生向けの解説
+
+肝臓がんの診断では、時間の経過とともに見え方が変わる何枚ものCTやMRI画像を比較しますが、AIにとってこれらをセットで理解するのは難しい作業でした。この研究では、バラバラな画像から「がんの特徴」だけを賢く抜き出してまとめる新しい仕組み（QARM）を作りました。これにより、AIがより正確にがんを見つけられるようになり、お医者さんの診断を強力に助けることができるようになります。
