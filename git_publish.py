@@ -152,11 +152,16 @@ def _get_github_repo_url(repo_dir: str) -> str:
 
 
 def _insert_row_into_readme(
-    readme_text: str, date_str: str, jp_title: str, branch_url: str
+    readme_text: str,
+    date_str: str,
+    jp_title: str,
+    branch_url: str,
+    keyword: str = "",
 ) -> str:
     """README.md の『要約済み論文一覧』テーブルに新しい行を日付の降順（新しい順）で追加する。"""
     safe_title = (jp_title or "（タイトル不明）").replace("|", "｜").replace("\n", " ").strip()
-    new_row = f"| {date_str} | [{safe_title}]({branch_url}) |"
+    safe_kw = (keyword or "").replace("|", "｜").replace("\n", " ").strip() or "-"
+    new_row = f"| {date_str} | {safe_kw} | [{safe_title}]({branch_url}) |"
 
     lines = readme_text.splitlines()
     header_idx = None
@@ -169,19 +174,27 @@ def _insert_row_into_readme(
         table_block = [
             "## 📚 要約済み論文一覧",
             "",
-            "| 日付 | 論文タイトル |",
-            "|---|---|",
+            "| 日付 | キーワード | 論文タイトル |",
+            "|---|---|---|",
             new_row,
             "",
         ]
         return "\n".join(table_block + lines).rstrip() + "\n"
+
+    # ヘッダーと区切り線を3列形式（日付・キーワード・論文タイトル）に統一
+    lines[header_idx] = "| 日付 | キーワード | 論文タイトル |"
+    if header_idx + 1 < len(lines) and lines[header_idx + 1].strip().startswith("|"):
+        lines[header_idx + 1] = "|---|---|---|"
 
     row_start = header_idx + 2
     row_end = row_start
     existing_rows: list[str] = []
     while row_end < len(lines) and lines[row_end].strip().startswith("|"):
         row_line = lines[row_end].strip()
-        if row_line != new_row:
+        if f"]({branch_url})" not in row_line and row_line != new_row:
+            cols = [c.strip() for c in row_line.strip("|").split("|")]
+            if len(cols) == 2:
+                row_line = f"| {cols[0]} | - | {cols[1]} |"
             existing_rows.append(row_line)
         row_end += 1
 
@@ -204,6 +217,7 @@ def _update_main_readme_index(
     date_display: str,
     jp_title: str,
     branch_name: str,
+    keyword: str = "",
 ) -> None:
     """main ブランチの README.md に要約済み論文へのリンクを日付降順で追記して push する。"""
     readme_md_path = os.path.join(repo_dir, "README.md")
@@ -215,7 +229,7 @@ def _update_main_readme_index(
     repo_url = _get_github_repo_url(repo_dir)
     branch_url = f"{repo_url}/tree/{branch_name}"
     updated_text = _insert_row_into_readme(
-        existing_text, date_display, jp_title, branch_url
+        existing_text, date_display, jp_title, branch_url, keyword=keyword
     )
 
     with open(readme_md_path, "w", encoding="utf-8") as f:
@@ -242,6 +256,7 @@ def publish_readme_pdf_to_branch(
     title: str,
     markdown_text: str | None = None,
     japanese_title: str = "",
+    keyword: str = "",
     repo_dir: str | None = None,
 ) -> str | None:
     """要約 PDF（および README.md）を新しいブランチ (paper/YYYYMMDD-slug) にコミット＆push する。
@@ -334,6 +349,7 @@ def publish_readme_pdf_to_branch(
             date_display=date_display,
             jp_title=japanese_title or title,
             branch_name=pushed_branch,
+            keyword=keyword,
         )
 
     return pushed_branch

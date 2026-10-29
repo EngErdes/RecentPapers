@@ -219,6 +219,7 @@ def main() -> None:
                             paper.get("title", "paper"),
                             markdown_text=summary_md,
                             japanese_title=jp.get("japanese_title") or paper.get("title", ""),
+                            keyword=keyword,
                         )
                     except Exception as e:
                         print(f"      ⚠ [summary-pdf] 生成・登録エラー: {e}")

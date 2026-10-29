@@ -237,3 +237,14 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - 連続実行時に元のブランチへ戻る際、万一未追跡の `README.pdf` が残っていた場合でも確実に削除するクリーンアップ処理を追加。
 3. **`how_to_use.md`**
    - 機能説明を「最初の1件」から「Notion に登録した全論文」へ更新。
+
+---
+
+## 2026-10-30: Notion 登録済み論文の一括 Git 同期スクリプトの追加と、`main` ブランチ `README.md` へのキーワード列追加
+
+### 変更内容
+1. **`sync_notion_to_git.py`（新規作成）**
+   - Notion データベースに登録済みの全論文（453件）のプロパティと本文ブロックを取得し、各論文の `README.pdf`・`README.md` を生成して `paper/YYYYMMDD-slug` ブランチへ一括コミット＆push し、`main` ブランチの `README.md` 一覧表を更新するスクリプトを作成・実行。
+2. **`main` ブランチの `README.md` 一覧テーブルへのキーワード列追加（`git_publish.py`, `scholar_to_notion.py`, `sync_notion_to_git.py`, `README.md`）**
+   - `README.md` のテーブル形式を `| 日付 | キーワード | 論文タイトル |` の3列に拡張し、対応する Google Scholar アラートキーワードを表示するように変更。
+   - 既存 453 件すべての行にアラートキーワードを反映。
