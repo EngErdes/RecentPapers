@@ -1,13 +1,7 @@
-# RecentPapers (Google Scholar Alert → Notion Pipeline)
+# 学生の着座位置と講義中の心理状態に関する時空間統計解析
 
-Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gemini API（または Claude API）で日本語タイトル・要約・新規性解説・初学者向け解説を生成して Notion データベースに登録するパイプラインです。
-
----
-
-## 📚 要約済み論文一覧
-
-| 日付 | 論文タイトル |
+| 項目 | 内容 |
 |---|---|
-
+| **PDF版要約** | [README.pdf](./README.pdf) |
 
 ---
