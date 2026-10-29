@@ -1,13 +1,49 @@
-# RecentPapers (Google Scholar Alert → Notion Pipeline)
+# 建設業界におけるデータセキュリティフレームワーク：データリスク低減への一歩
 
-Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gemini API（または Claude API）で日本語タイトル・要約・新規性解説・初学者向け解説を生成して Notion データベースに登録するパイプラインです。
+**Original Title**: *A Data Security Framework: A Step Towards Reducing Data Risks in the Construction Industry*
 
----
+> **💡 一言要約**: 建設業のデジタル化を守る革新的なセキュリティ基盤
 
-## 📚 要約済み論文一覧
-
-| 日付 | 論文タイトル |
+| 項目 | 内容 |
 |---|---|
-
+| **著者** | O Tambwe, C Aigbavboa, T Ogunade, G Akanyawie… |
+| **掲載誌** | Applied Human Factors and … 2026 |
+| **アラートキーワード** | Secure Computing |
+| **原文リンク** | [https://pure.uj.ac.za/en/publications/a-data-security-framework-a-step-towards-reducing-data-risks-in-t/](https://pure.uj.ac.za/en/publications/a-data-security-framework-a-step-towards-reducing-data-risks-in-t/) |
+| **PDF版要約** | [README.pdf](./README.pdf) |
 
 ---
+
+## 📊 新規性の図解（先行研究との違いと本研究のブレークスルー）
+
+```mermaid
+%%{init: {'flowchart': {'wrappingWidth': 520, 'nodeSpacing': 18, 'rankSpacing': 28, 'padding': 14, 'curve': 'basis'}, 'themeVariables': {'fontSize': '14px'}}}%%
+flowchart TD
+    S1["<b>【1. 先行研究の限界】 従来のボトルネック</b><br/>──────────────────────────────<br/>建設業界ではDX化が進む一方で、サイバー攻撃やデータ流出のリスクが急増しています。しかし、業界特有の複雑なプロジェクト工程や複数の関係者が関わる環境に対応した、実用的なセキュリティ"]
+    S2["<b>【2. 本研究の着眼点】 核心アイデア</b><br/>──────────────────────────────<br/>建設業のデジタル化を守る革新的なセキュリティ基盤"]
+    S3["<b>【3. 技術的な新規性】 先行研究との違い・工夫</b><br/>──────────────────────────────<br/>従来の一般的なITセキュリティ対策とは異なり、4IR技術の導入と建設現場の実態を融合させた管理手法を提示しています。"]
+    S4["<b>【4. 新規性による優位性】 主要な貢献・ブレークスルー</b><br/>──────────────────────────────<br/>これにより、技術革新とリスク管理の両立を具体的な構造として示したことが、先行研究に対する主要な貢献です。"]
+    S1 --> S2
+    S2 --> S3
+    S3 --> S4
+    style S1 fill:#EFF6FF,stroke:#1E40AF,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S2 fill:#F0FDFA,stroke:#0F766E,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S3 fill:#F5F3FF,stroke:#6D28D9,stroke-width:2px,color:#111827,rx:8,ry:8
+    style S4 fill:#FFF7ED,stroke:#C2410C,stroke-width:2px,color:#111827,rx:8,ry:8
+```
+
+## 📝 要約
+
+第4次産業革命（4IR）の進展により建設業界で深刻化するデータセキュリティリスクを軽減するための、包括的なフレームワークを提案しています。プロジェクトの全ライフサイクルを通じて組織に安心感を提供し、サイバー攻撃やデータ漏洩から建設プロセスを守ることを目指しています。
+
+## ❓ どんな問題に取り組んだか
+
+建設業界ではDX化が進む一方で、サイバー攻撃やデータ流出のリスクが急増しています。しかし、業界特有の複雑なプロジェクト工程や複数の関係者が関わる環境に対応した、実用的なセキュリティ管理基準が不足していることが課題となっていました。
+
+## ✨ 何が新しい？何がすごい？（新規性）
+
+本研究は、建設プロジェクトの全ライフサイクルを一貫してカバーする業界特化型のデータセキュリティフレームワークを開発した点が極めて独創的です。従来の一般的なITセキュリティ対策とは異なり、4IR技術の導入と建設現場の実態を融合させた管理手法を提示しています。これにより、技術革新とリスク管理の両立を具体的な構造として示したことが、先行研究に対する主要な貢献です。
+
+## 🎓 大学1年生向けの解説
+
+最近の建設現場では、ドローンやAIなどの最新技術が使われていますが、その分だけ大切な設計図などが盗まれる危険も増えています。この研究は、建設会社がどうやってデータを守るべきかという「安全なルールのテンプレート」を作ったものです。建物を作る最初の段階から最後のアフターケアまで、すべての工程で情報を守る方法を提案しています。これによって、新しい技術を安心して使いこなせるようになります。
