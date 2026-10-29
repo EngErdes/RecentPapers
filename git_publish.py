@@ -25,7 +25,7 @@ def _sanitize_mermaid_label(text: str) -> str:
 
 
 def _build_mermaid_diagram(jp: dict) -> list[str]:
-    """要約ステップから GitHub 表示用の Mermaid フローチャートブロックを生成する。"""
+    """要約ステップから GitHub 表示用の横長 Mermaid フローチャートブロックを生成する。"""
     steps = extract_diagram_steps(jp)
     if not steps:
         return []
@@ -34,9 +34,11 @@ def _build_mermaid_diagram(jp: dict) -> list[str]:
         "## 📊 新規性の図解（先行研究との違いと本研究のブレークスルー）",
         "",
         "```mermaid",
+        "%%{init: {'flowchart': {'wrappingWidth': 520, 'nodeSpacing': 18, 'rankSpacing': 28, 'padding': 14, 'curve': 'basis'}, 'themeVariables': {'fontSize': '14px'}}}%%",
         "flowchart TD",
     ]
     node_ids = []
+    divider = "─" * 30
     for idx, item in enumerate(steps, 1):
         node_id = f"S{idx}"
         node_ids.append(node_id)
@@ -44,18 +46,21 @@ def _build_mermaid_diagram(jp: dict) -> list[str]:
         title_label = _sanitize_mermaid_label(item.get("title") or "")
         detail_label = _sanitize_mermaid_label(item.get("detail") or "")
 
-        header = f"【{step_label}】 {title_label}".strip()
-        label_body = f"{header}\\n{detail_label}" if detail_label else header
+        header = f"<b>【{step_label}】 {title_label}</b>".strip()
+        if detail_label:
+            label_body = f"{header}<br/>{divider}<br/>{detail_label}"
+        else:
+            label_body = header
         lines.append(f'    {node_id}["{label_body}"]')
 
     for i in range(len(node_ids) - 1):
         lines.append(f"    {node_ids[i]} --> {node_ids[i + 1]}")
 
     style_defs = [
-        "fill:#EEF3FB,stroke:#2B579A,stroke-width:2px,color:#111",
-        "fill:#EBF7F2,stroke:#1E7E5A,stroke-width:2px,color:#111",
-        "fill:#F5EEF8,stroke:#8E44AD,stroke-width:2px,color:#111",
-        "fill:#FDF2E9,stroke:#C05621,stroke-width:2px,color:#111",
+        "fill:#EFF6FF,stroke:#1E40AF,stroke-width:2px,color:#111827,rx:8,ry:8",
+        "fill:#F0FDFA,stroke:#0F766E,stroke-width:2px,color:#111827,rx:8,ry:8",
+        "fill:#F5F3FF,stroke:#6D28D9,stroke-width:2px,color:#111827,rx:8,ry:8",
+        "fill:#FFF7ED,stroke:#C2410C,stroke-width:2px,color:#111827,rx:8,ry:8",
     ]
     for idx, node_id in enumerate(node_ids):
         style_str = style_defs[idx % len(style_defs)]
@@ -63,6 +68,11 @@ def _build_mermaid_diagram(jp: dict) -> list[str]:
 
     lines += ["```", ""]
     return lines
+
+
+def _escape_md_table_cell(text: str) -> str:
+    """Markdown テーブルセル内で崩れないようパイプと改行を整形する。"""
+    return (text or "").replace("|", "｜").replace("\n", " ").strip()
 
 
 def generate_summary_markdown(paper: dict, jp: dict, keyword: str = "") -> str:
@@ -73,7 +83,14 @@ def generate_summary_markdown(paper: dict, jp: dict, keyword: str = "") -> str:
 
     lines = [f"# {jp_title}", ""]
     if orig_title and orig_title != jp_title:
-        lines += [f"**原題**: {orig_title}", ""]
+        lines += [f"**Original Title**: *{orig_title}*", ""]
+
+    one_liner = (jp.get("one_liner") or "").strip()
+    if one_liner:
+        lines += [
+            f"> **💡 一言要約**: {one_liner}",
+            "",
+        ]
 
     meta_items = [
         ("著者", paper.get("authors", "")),
@@ -84,22 +101,24 @@ def generate_summary_markdown(paper: dict, jp: dict, keyword: str = "") -> str:
         ("Git リポジトリ", paper.get("git_url", "")),
         ("原文リンク", paper.get("paper_url", "")),
     ]
+    lines += [
+        "| 項目 | 内容 |",
+        "|---|---|",
+    ]
     for label, val in meta_items:
         if val:
             val_stripped = val.strip()
             if val_stripped.lower().startswith(("http://", "https://")):
-                lines.append(f"- **{label}**: [{val_stripped}]({val_stripped})")
+                cell = f"[{val_stripped}]({val_stripped})"
             else:
-                lines.append(f"- **{label}**: {val_stripped}")
-    lines.append("- **PDF版要約**: [README.pdf](./README.pdf)")
-    lines.append("")
-    lines.append("---")
-    lines.append("")
+                cell = _escape_md_table_cell(val_stripped)
+            lines.append(f"| **{label}** | {cell} |")
+    lines.append("| **PDF版要約** | [README.pdf](./README.pdf) |")
+    lines += ["", "---", ""]
 
     lines.extend(_build_mermaid_diagram(jp))
 
     sections = [
-        ("📌 一言キャッチコピー", jp.get("one_liner", "")),
         ("📝 要約", jp.get("summary", "")),
         ("❓ どんな問題に取り組んだか", jp.get("problem", "")),
         ("✨ 何が新しい？何がすごい？（新規性）", jp.get("novelty", "")),

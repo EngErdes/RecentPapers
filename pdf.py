@@ -226,89 +226,111 @@ def extract_diagram_steps(jp: dict) -> list[dict]:
 def _build_diagram_flowables(
     jp: dict, font_name: str, heading_style: ParagraphStyle
 ) -> list:
-    """PDF 内に描画する要約フローチャート図（ボックス＋矢印）の Flowable 群を生成する。"""
+    """PDF 内に描画する新規性フローチャート図（横長2カラムカード＋矢印）の Flowable 群を生成する。"""
     steps = extract_diagram_steps(jp)
     if not steps:
         return []
 
-    step_header_style = ParagraphStyle(
-        "DiagramHeader",
+    badge_style = ParagraphStyle(
+        "DiagramBadge",
         fontName=font_name,
-        fontSize=10,
-        leading=14,
+        fontSize=9.5,
+        leading=13,
+        alignment=1,  # center
         textColor=colors.white,
         wordWrap="CJK",
     )
-    step_body_style = ParagraphStyle(
-        "DiagramBody",
+    card_title_style = ParagraphStyle(
+        "DiagramCardTitle",
         fontName=font_name,
-        fontSize=9.5,
-        leading=15,
-        textColor=colors.HexColor("#222222"),
+        fontSize=10,
+        leading=14,
+        textColor=colors.HexColor("#111827"),
+        spaceAfter=2,
+        wordWrap="CJK",
+    )
+    card_body_style = ParagraphStyle(
+        "DiagramCardBody",
+        fontName=font_name,
+        fontSize=9,
+        leading=13.5,
+        textColor=colors.HexColor("#374151"),
         wordWrap="CJK",
     )
     arrow_style = ParagraphStyle(
         "DiagramArrow",
         fontName=font_name,
-        fontSize=12,
-        leading=14,
+        fontSize=10,
+        leading=11,
         alignment=1,  # center
-        textColor=colors.HexColor("#4A6CF7"),
+        textColor=colors.HexColor("#64748B"),
     )
 
     palette = [
-        ("#2B579A", "#EEF3FB"),
-        ("#1E7E5A", "#EBF7F2"),
-        ("#8E44AD", "#F5EEF8"),
-        ("#C05621", "#FDF2E9"),
+        ("#1E40AF", "#EFF6FF", "#BFDBFE"),  # Blue: 先行研究の限界
+        ("#0F766E", "#F0FDFA", "#99F6E4"),  # Teal: 本研究の着眼点
+        ("#6D28D9", "#F5F3FF", "#DDD6FE"),  # Purple: 技術的な新規性
+        ("#C2410C", "#FFF7ED", "#FED7AA"),  # Orange: 新規性による優位性
     ]
 
     flowables = [
+        Spacer(1, 2 * mm),
         Paragraph(
             escape("■ 新規性の図解（先行研究との違いと本研究のブレークスルー）"),
             heading_style,
         ),
-        Spacer(1, 2 * mm),
+        Spacer(1, 3 * mm),
     ]
 
-    box_width = 170 * mm
+    # 左右に余白（各15mm）を持たせた中央配置の横長ボックス（幅 140mm = 左34mm + 右106mm）
+    left_col_w = 34 * mm
+    right_col_w = 106 * mm
+
     for idx, item in enumerate(steps):
-        header_bg, body_bg = palette[idx % len(palette)]
-        step_label = item.get("step") or f"Step {idx + 1}"
-        title_label = item.get("title") or ""
-        header_text = (
-            f"{step_label} ｜ {title_label}" if title_label else step_label
-        )
-        detail_text = item.get("detail") or title_label
+        accent_hex, bg_hex, border_hex = palette[idx % len(palette)]
+        step_label = (item.get("step") or f"Step {idx + 1}").strip()
+        title_label = (item.get("title") or "").strip()
+        detail_text = (item.get("detail") or "").strip()
+
+        badge_para = Paragraph(escape(step_label), badge_style)
+
+        right_cells = []
+        if title_label:
+            title_html = f'<font color="{accent_hex}"><b>{escape(title_label)}</b></font>'
+            right_cells.append(Paragraph(title_html, card_title_style))
+        if detail_text:
+            right_cells.append(Paragraph(escape(detail_text), card_body_style))
+        if not right_cells:
+            right_cells.append(Paragraph(escape(step_label), card_body_style))
 
         card = Table(
-            [
-                [Paragraph(escape(header_text), step_header_style)],
-                [Paragraph(escape(detail_text), step_body_style)],
-            ],
-            colWidths=[box_width],
+            [[badge_para, right_cells]],
+            colWidths=[left_col_w, right_col_w],
+            cornerRadii=[5, 5, 5, 5],
+            hAlign="CENTER",
         )
         card.setStyle(
             TableStyle(
                 [
-                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor(header_bg)),
-                    ("BACKGROUND", (0, 1), (-1, 1), colors.HexColor(body_bg)),
-                    ("BOX", (0, 0), (-1, -1), 1, colors.HexColor(header_bg)),
-                    ("TOPPADDING", (0, 0), (-1, 0), 5),
-                    ("BOTTOMPADDING", (0, 0), (-1, 0), 5),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 10),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 10),
-                    ("TOPPADDING", (0, 1), (-1, 1), 7),
-                    ("BOTTOMPADDING", (0, 1), (-1, 1), 7),
+                    ("BACKGROUND", (0, 0), (0, 0), colors.HexColor(accent_hex)),
+                    ("BACKGROUND", (1, 0), (1, 0), colors.HexColor(bg_hex)),
+                    ("BOX", (0, 0), (-1, -1), 1, colors.HexColor(border_hex)),
+                    ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                    ("TOPPADDING", (0, 0), (-1, -1), 6),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                    ("LEFTPADDING", (0, 0), (0, 0), 6),
+                    ("RIGHTPADDING", (0, 0), (0, 0), 6),
+                    ("LEFTPADDING", (1, 0), (1, 0), 10),
+                    ("RIGHTPADDING", (1, 0), (1, 0), 10),
                 ]
             )
         )
         flowables.append(card)
 
         if idx < len(steps) - 1:
-            flowables.append(Spacer(1, 1 * mm))
+            flowables.append(Spacer(1, 1.2 * mm))
             flowables.append(Paragraph("▼", arrow_style))
-            flowables.append(Spacer(1, 1 * mm))
+            flowables.append(Spacer(1, 1.2 * mm))
 
     flowables.append(Spacer(1, 4 * mm))
     return [KeepTogether(flowables)]
@@ -337,49 +359,68 @@ def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> byte
         "JpTitle",
         parent=styles["Title"],
         fontName=font_name,
-        fontSize=16,
+        fontSize=15.5,
         leading=22,
         alignment=0,
-        spaceAfter=6,
+        textColor=colors.HexColor("#0F172A"),
+        spaceAfter=4,
         wordWrap="CJK",
     )
     subtitle_style = ParagraphStyle(
         "OrigTitle",
         parent=styles["Normal"],
         fontName=font_name,
-        fontSize=10,
-        leading=14,
-        textColor=colors.HexColor("#555555"),
-        spaceAfter=10,
-        wordWrap="CJK",
-    )
-    meta_style = ParagraphStyle(
-        "Meta",
-        parent=styles["Normal"],
-        fontName=font_name,
         fontSize=9.5,
         leading=14,
-        textColor=colors.HexColor("#333333"),
-        spaceAfter=4,
+        textColor=colors.HexColor("#475569"),
+        spaceAfter=8,
+        wordWrap="CJK",
+    )
+    meta_key_style = ParagraphStyle(
+        "MetaKey",
+        parent=styles["Normal"],
+        fontName=font_name,
+        fontSize=9,
+        leading=13,
+        textColor=colors.HexColor("#334155"),
+        wordWrap="CJK",
+    )
+    meta_val_style = ParagraphStyle(
+        "MetaVal",
+        parent=styles["Normal"],
+        fontName=font_name,
+        fontSize=9,
+        leading=13,
+        textColor=colors.HexColor("#1E293B"),
+        wordWrap="CJK",
+    )
+    oneliner_style = ParagraphStyle(
+        "OneLiner",
+        parent=styles["Normal"],
+        fontName=font_name,
+        fontSize=11,
+        leading=16,
+        textColor=colors.HexColor("#1E3A8A"),
         wordWrap="CJK",
     )
     heading_style = ParagraphStyle(
         "SectionHeading",
         parent=styles["Heading2"],
         fontName=font_name,
-        fontSize=12,
-        leading=18,
-        textColor=colors.HexColor("#1a0dab"),
-        spaceBefore=12,
-        spaceAfter=4,
+        fontSize=11.5,
+        leading=17,
+        textColor=colors.HexColor("#1E40AF"),
+        spaceBefore=10,
+        spaceAfter=5,
         wordWrap="CJK",
     )
     body_style = ParagraphStyle(
         "JpBody",
         parent=styles["Normal"],
         fontName=font_name,
-        fontSize=10.5,
+        fontSize=10,
         leading=17,
+        textColor=colors.HexColor("#1F2937"),
         spaceAfter=8,
         wordWrap="CJK",
     )
@@ -388,48 +429,95 @@ def generate_summary_pdf_bytes(paper: dict, jp: dict, keyword: str = "") -> byte
         safe = escape(text or "").replace("\n", "<br/>")
         return Paragraph(safe, style)
 
-    def _p_with_link(label: str, val: str, style: ParagraphStyle) -> Paragraph:
+    def _val_paragraph(val: str) -> Paragraph:
         val_stripped = (val or "").strip()
         if val_stripped.lower().startswith(("http://", "https://")):
             safe_href = escape(val_stripped, {'"': "&quot;"})
             safe_text = escape(val_stripped)
             html_str = (
-                f'{escape(label)}: <a href="{safe_href}" color="#1a0dab">'
-                f"<u>{safe_text}</u></a>"
+                f'<a href="{safe_href}" color="#1D4ED8"><u>{safe_text}</u></a>'
             )
-            return Paragraph(html_str, style)
-        return _p(f"{label}: {val_stripped}", style)
+            return Paragraph(html_str, meta_val_style)
+        return _p(val_stripped, meta_val_style)
 
     story = []
+    full_width = 170 * mm
 
     jp_title = jp.get("japanese_title") or paper.get("title", "（タイトル不明）")
     orig_title = paper.get("title", "")
     story.append(_p(jp_title, title_style))
     if orig_title and orig_title != jp_title:
-        story.append(_p(f"原題: {orig_title}", subtitle_style))
+        story.append(_p(f"Original Title: {orig_title}", subtitle_style))
 
+    # 一言キャッチコピーがあれば上部にハイライトバナーとして配置
+    one_liner = (jp.get("one_liner") or "").strip()
+    if one_liner:
+        banner = Table(
+            [[_p(f"💡 一言要約: {one_liner}", oneliner_style)]],
+            colWidths=[full_width],
+            cornerRadii=[4, 4, 4, 4],
+        )
+        banner.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#EFF6FF")),
+                    ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#93C5FD")),
+                    ("TOPPADDING", (0, 0), (-1, -1), 7),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+                ]
+            )
+        )
+        story.append(banner)
+        story.append(Spacer(1, 3 * mm))
+
+    # メタデータ表（2カラム・横幅170mm）
     journal_str = f"{paper.get('journal', '')} {paper.get('year', '')}".strip()
     meta_items = [
         ("著者", paper.get("authors", "")),
         ("掲載誌", journal_str),
-        ("アラートキーワード", keyword),
+        ("キーワード", keyword),
         ("PDF", paper.get("pdf_link") or paper.get("pdf_url", "")),
         ("DOI", paper.get("doi_url", "")),
         ("Git リポジトリ", paper.get("git_url", "")),
         ("原文リンク", paper.get("paper_url", "")),
     ]
-    for label, val in meta_items:
-        if val:
-            story.append(_p_with_link(label, val, meta_style))
+    meta_rows = [
+        [_p(label, meta_key_style), _val_paragraph(val)]
+        for label, val in meta_items
+        if val
+    ]
+    if meta_rows:
+        meta_table = Table(
+            meta_rows,
+            colWidths=[32 * mm, 138 * mm],
+            cornerRadii=[4, 4, 4, 4],
+        )
+        meta_table.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#F1F5F9")),
+                    ("BACKGROUND", (1, 0), (1, -1), colors.HexColor("#F8FAFC")),
+                    ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#CBD5E1")),
+                    ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#E2E8F0")),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("TOPPADDING", (0, 0), (-1, -1), 4),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+                ]
+            )
+        )
+        story.append(meta_table)
 
     story.append(Spacer(1, 4 * mm))
-    story.append(HRFlowable(width="100%", thickness=0.5, color=colors.lightgrey))
+    story.append(HRFlowable(width="100%", thickness=0.6, color=colors.HexColor("#CBD5E1")))
 
-    # 要約図解（フローチャート）を挿入
+    # 新規性の図解（横長フローチャート）を挿入
     story.extend(_build_diagram_flowables(jp, font_name, heading_style))
 
     sections = [
-        ("一言キャッチコピー", jp.get("one_liner", "")),
         ("要約", jp.get("summary", "")),
         ("どんな問題に取り組んだか", jp.get("problem", "")),
         ("何が新しい？何がすごい？（新規性）", jp.get("novelty", "")),

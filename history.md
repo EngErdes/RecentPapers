@@ -212,3 +212,16 @@ Google AI Studio / Gemini API では、新規作成されたプロジェクト�
    - PDF・DOI・Git リポジトリ・原文リンク等の URL（`http://` / `https://`）を ReportLab のハイパーリンクタグ（`<a href="..." color="#1a0dab"><u>URL</u></a>`）で出力し、PDF ビューア上でクリックして開けるよう更新。
 2. **`git_publish.py`（`generate_summary_markdown`）**
    - `http://` / `https://` で始まる項目を明示的な Markdown リンク形式（`[URL](URL)`）で出力するよう更新。
+
+---
+
+## 2026-10-29: `README.pdf`・`README.md` の新規性図解を横長ボックスに刷新し、全体のマージン・レイアウトを美化する対応
+
+### 変更内容
+1. **PDF の横長カード図解と全体レイアウト改善（`pdf.py`: `_build_diagram_flowables`, `generate_summary_pdf_bytes`）**
+   - ページ余白を上下左右各 `20 mm`（本文幅 `170 mm`）に設定。
+   - 新規性図解の各ステップを、左右にさらに各 `15 mm` の余白を設けた中央揃えの横長2カラム角丸カード（幅 `140 mm` ＝ 左ステップバッジ列 `34 mm` ＋ 右テキスト列 `106 mm`）に刷新し、上下余白と矢印（`▼`）の間隔もバランスよく調整。
+   - タイトル直下に「💡 一言要約」のハイライトバナー、および2カラムのメタデータ表（クリック可能なリンク付き）を配置。
+2. **Markdown の横長 Mermaid 図解と全体レイアウト改善（`git_publish.py`: `_build_mermaid_diagram`, `generate_summary_markdown`）**
+   - Mermaid の `flowchart` 設定（`wrappingWidth: 520`, `padding: 14`, `rankSpacing: 28`）と区切り線・`<br/>` 改行・角丸スタイル（`rx:8,ry:8`）により、左右に適切な余白を残した美しい縦横比の横長ボックスに改善。
+   - 冒頭に `> **💡 一言要約**` のコールアウトと2カラムのメタデータ表を配置し、全体の可読性を向上。
