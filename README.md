@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-30 | differential privacy | [合成ウェアラブルヘルスモニタリングにおけるノイズ付加連合学習：再現可能なマルチシード評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-noise-perturbed-federated-learning-for-s) |
 | 2026-10-30 | differential privacy | [もつれたマージペア：観測境界原理](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-entangled-merged-pairs-the-observation-b) |
 | 2026-10-30 | differential privacy | [私立大学の侵入検知に向けたプライバシー保護と説明可能性を両立した連合学習：デザインサイエンス研究とベンチマーク評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-privacy-preserving-explainable-federated) |
 | 2026-10-30 | Markov random"  ﬁelds | [修正コレスキー分解による精度行列の収縮推定器に基づいたアンサンブル・カルマンフィルタの実装](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-an-ensemble-kalman-filter-implementation) |
