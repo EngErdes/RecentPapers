@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-30 | differential privacy | [IoTにおけるエッジベースの連合学習：アーキテクチャ、セキュリティ、および課題](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-edge-based-federated-learning-in-iot-arc) |
 | 2026-10-30 | differential privacy | [セキュリティリスク：プロンプト注入、データ漏洩、および敵対的攻撃](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-security-risks-prompt-injection-data-lea) |
 | 2026-10-30 | differential privacy | [合成ウェアラブルヘルスモニタリングにおけるノイズ付加連合学習：再現可能なマルチシード評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-noise-perturbed-federated-learning-for-s) |
 | 2026-10-30 | differential privacy | [もつれたマージペア：観測境界原理](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-entangled-merged-pairs-the-observation-b) |
