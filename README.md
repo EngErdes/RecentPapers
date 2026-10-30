@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-30 | reinforcement | [複数のシナリオに基づく高速道路の電気自動車充電インフラ計画と電力網強化：多目的最適化アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-integrated-electric-vehicle-highway-char) |
 | 2026-10-29 | reinforcement | [睡眠・覚醒調整のためのシミュレーション光スケジュール：強化学習導入の探求](https://github.com/EngErdes/RecentPapers/tree/paper/20261029-simulated-light-schedules-for-sleep-wake) |
 | 2026-10-29 | reinforcement | [On this page Planning and Model-based Reinforcement Learning DRAFT](https://github.com/EngErdes/RecentPapers/tree/paper/20261029-on-this-page-planning-and-model-based-re) |
 | 2026-10-29 | reinforcement | [需要分布の変動に強い多段階在庫管理のためのクープマン作用素を用いたオフライン強化学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261029-koopman-enhanced-offline-reinforcement-l) |
