@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-30 | kernel density estimation | [外れ値検出手法のレビュー：視覚的検査から高度なアルゴリズムまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-a-review-of-outlier-detection-methods-fr) |
 | 2026-10-30 | differential privacy | [AIによるネットワーク化されたマイクログリッドの調整と最適化：回復力と経済効率の向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-ai-driven-coordination-and-optimization) |
 | 2026-10-30 | differential privacy | [ローカル差分プライバシーを用いた社会グラフ合成における社会的接続の多様性保持](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-preserving-socio-connective-diversity-in) |
 | 2026-10-30 | differential privacy | [IoTにおけるエッジベースの連合学習：アーキテクチャ、セキュリティ、および課題](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-edge-based-federated-learning-in-iot-arc) |
