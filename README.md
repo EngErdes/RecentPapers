@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-30 | Markov random"  ﬁelds | [修正コレスキー分解による精度行列の収縮推定器に基づいたアンサンブル・カルマンフィルタの実装](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-an-ensemble-kalman-filter-implementation) |
 | 2026-10-30 | reinforcement | [高速道路における安全かつ効率的な車線変更：リスクを考慮した深層強化学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-autonomous-driving-in-highways-with-safe) |
 | 2026-10-30 | reinforcement | [強化学習のための自動機械学習（AutoRL）：効率、拡張性、および汎用性の向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-automated-machine-learning-for-reinforce) |
 | 2026-10-30 | reinforcement | [複数のシナリオに基づく高速道路の電気自動車充電インフラ計画と電力網強化：多目的最適化アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-integrated-electric-vehicle-highway-char) |
