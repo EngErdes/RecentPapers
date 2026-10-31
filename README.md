@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | kalman filter | [BMSベースの空調機デジタルモデル：MATLABシミュレーションとカルマンフィルタによるエネルギー解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-bms-based-air-handling-unit-digital-mode) |
 | 2026-10-31 | kalman filter | [拡張カルマンフィルタを用いた状態と環境インピーダンスの同時推定への統一的アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-unified-approach-to-simultaneous-estim) |
 | 2026-10-31 | kalman filter | [カルマンフィルタとニューラルネットワーク補正器を用いた、変動する環境条件下における太陽光パネルの状態推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-state-estimation-of-photovoltaic-panels) |
 | 2026-10-31 | kalman filter | [Dual-robust unscented Kalman filter for UAV state estimation under simultaneous model and measurement uncertainties](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-dual-robust-unscented-kalman-filter-for) |
