@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | distributed deep learning ... | [HyPAS: エッジ・クラウドシステムにおける分散深層学習のための効率的なハイブリッド並列化手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-hypas-efficient-hybrid-parallelism-for-d) |
 | 2026-10-30 | SMOTE | [乳がん再発予測のための機械学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-machine-learning-approaches-for-breast-c) |
 | 2026-10-30 | kernel density estimation | [砕屑性ジルコンの年代測定と形態学的特徴からみる渤海湾盆地・饒陽陥没の堆積物経路と水系進化の制約](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-constraints-from-detrital-zircon-geochro) |
 | 2026-10-30 | kernel density estimation | [海洋島は季節的な集結地：コビレゴンドウにおける限定的な滞在と広域的な移動](https://github.com/EngErdes/RecentPapers/tree/paper/20261030-oceanic-islands-as-seasonal-aggregation) |
