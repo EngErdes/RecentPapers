@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | Federated Learning | [コスト効率と公平性を両立するブロックチェーン連合学習のための適応的多指標集約](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-adaptive-multi-metric-aggregation-for-co) |
 | 2026-10-31 | Federated Learning | [ADPCS-FL：エッジコンピューティングに向けた適応型差分プライバシーと圧縮センシングに基づく効率的な連合学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-adpcs-fl-an-efficient-federated-learning) |
 | 2026-10-31 | Federated Learning | [フェデレーション学習のトレードオフ：アーキテクチャ、信頼、基盤モデルの批判的統合](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-the-trade-off-landscape-of-federated-lea) |
 | 2026-10-31 | Federated Learning | [Noise-aware quantum federated learning for NISQ IoT edge computing: Trainability, communication–accuracy trade-offs, and noise-reliability-weighted aggregation](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-noise-aware-quantum-federated-learning-f) |
