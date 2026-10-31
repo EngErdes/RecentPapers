@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | sparse coding | [異常検知の包括的レビュー：画像から動画、および圧縮ビデオストリームまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-comprehensive-review-of-anomaly-detect) |
 | 2026-10-31 | sparse coding | [齧歯類の空間移動軌跡における構造化された行動パターンを特定するためのフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-www-nature-com-scientificreports-open-a) |
 | 2026-10-31 | sparse coding | [パラメータ化バイラテラルウェーブレット辞書に基づく、故障の重篤度を跨ぐ診断のための解釈可能な展開型スパースコーディングネットワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-an-interpretable-unrolled-sparse-coding) |
 | 2026-10-31 | distributed deep learning ... | [HyPAS: エッジ・クラウドシステムにおける分散深層学習のための効率的なハイブリッド並列化手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-hypas-efficient-hybrid-parallelism-for-d) |
