@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | Federated Learning | [Takagi-Sugenoファジィモデルの連合学習におけるプライバシー保護のための3段階最適化フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-trilevel-optimization-framework-for-pr) |
 | 2026-10-31 | Federated Learning | [FedCDI：チャネルの差異を利用した連合学習の細粒度パーソナライズ手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-fedcdi-fine-grained-personalization-for) |
 | 2026-10-31 | Federated Learning | [自己充足的なデータ拡張による不均一な連合学習の精度とプライバシーの両立](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-balancing-accuracy-and-privacy-in-hetero) |
 | 2026-10-31 | MRFs Markov | [欠損領域を含む医用画像のための非対称MRFを用いた非剛体画像レジストレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-asymmetric-mrf-based-non-rigid-image-reg) |
