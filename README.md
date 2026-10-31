@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | Federated Learning | [Noise-aware quantum federated learning for NISQ IoT edge computing: Trainability, communication–accuracy trade-offs, and noise-reliability-weighted aggregation](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-noise-aware-quantum-federated-learning-f) |
 | 2026-10-31 | Federated Learning | [1型糖尿病の血糖値予測のためのパーソナライズされたハイブリッド連合学習フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-personalized-hybrid-federated-learning) |
 | 2026-10-31 | Federated Learning | [Takagi-Sugenoファジィモデルの連合学習におけるプライバシー保護のための3段階最適化フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-trilevel-optimization-framework-for-pr) |
 | 2026-10-31 | Federated Learning | [FedCDI：チャネルの差異を利用した連合学習の細粒度パーソナライズ手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-fedcdi-fine-grained-personalization-for) |
