@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | MRFs Markov | [欠損領域を含む医用画像のための非対称MRFを用いた非剛体画像レジストレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-asymmetric-mrf-based-non-rigid-image-reg) |
 | 2026-10-31 | generalized assignment ... | [2段階非対称ファジィ区間数を用いた期待値に基づく最適化：ファジィ広義割当問題への応用](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-expected-value-based-optimization-with-t) |
 | 2026-10-31 | sparse coding | [異常検知の包括的レビュー：画像から動画、および圧縮ビデオストリームまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-comprehensive-review-of-anomaly-detect) |
 | 2026-10-31 | sparse coding | [齧歯類の空間移動軌跡における構造化された行動パターンを特定するためのフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-www-nature-com-scientificreports-open-a) |
