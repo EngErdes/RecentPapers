@@ -8,6 +8,7 @@ Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gem
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-10-31 | kalman filter | [カルマンフィルタとニューラルネットワーク補正器を用いた、変動する環境条件下における太陽光パネルの状態推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-state-estimation-of-photovoltaic-panels) |
 | 2026-10-31 | kalman filter | [Dual-robust unscented Kalman filter for UAV state estimation under simultaneous model and measurement uncertainties](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-dual-robust-unscented-kalman-filter-for) |
 | 2026-10-31 | Federated Learning | [NeuroSono-Net：プライバシーを保護しつつ複数施設で連携する新生児脳超音波診断用連合学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-neurosono-net-federated-learning-for-pri) |
 | 2026-10-31 | Federated Learning | [高度に不均質なデータに対する堅牢な連合学習集約手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-robust-federated-learning-aggregation-fo) |
