@@ -1,6 +1,7 @@
 # RecentPapers (Google Scholar Alert → Notion Pipeline)
 
 Google Scholar アラートメールを Gmail (IMAP) から自動取得し、Gemini API（または Claude API）で日本語タイトル・要約・新規性解説・初学者向け解説を生成して Notion データベースに登録するパイプラインです。
+
 Notionテーブル : https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0a03616fa080cab998000c96d22728
 
 ---
