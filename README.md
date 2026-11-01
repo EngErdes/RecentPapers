@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-01 | Multi Camera Tracking | [Raqeeb：メガイベントにおける先端的セキュリティのためのプライバシー保護型AIビデオ解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-raqeeb-privacy-preserving-ai-video-analy) |
 | 2026-11-01 | Multi Camera Tracking | [AI、IoT、ウェアラブルセンサーを用いた農作業者向けAI搭載スマート安全帽：レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-artificial-intelligence-powered-smart-sa) |
 | 2026-11-01 | Multi Camera Tracking | [ディープラーニングと生体認証の融合によるマルチモーダルな人物再識別](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-multimodal-person-re-identification-usin) |
 | 2026-11-01 | Multi Camera Tracking | [船舶追跡のためのデータセットとベンチマーク：海域MOTおよびReIDにおける最新動向の概説](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-a-dataset-and-benchmark-for-maritime-ves) |
