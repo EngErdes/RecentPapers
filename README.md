@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-01 | Multi Camera Tracking | [SquashSight：単一カメラと深層学習によるスカッシュ試合の自動解析とコーチング支援パイプライン](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-squashsight-a-single-camera-deep-learnin) |
 | 2026-11-01 | Multi Camera Tracking | [リアルタイム3D人体動作追跡、生体力学的分析、および持続可能なパフォーマンスのためのAI駆動型マルチカメラステレオビジョンフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-an-ai-driven-multi-camera-stereo-vision) |
 | 2026-11-01 | representation learning | [多粒度コーシー・シュワルツ対照学習による電子健康記録（EHR）の表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-ehr-representation-learning-with-multi-g) |
 | 2026-11-01 | representation learning | [非標的分析におけるNORMAN予測保持指標を近似するための幾何学的情報を考慮した分子表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-geometry-aware-molecular-representation) |
