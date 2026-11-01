@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-01 | representation learning | [神経変性疾患の表現学習に向けた体系的な形態学的脳オートエンコーディング](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-systematic-morphometric-brain-autoencodi) |
 | 2026-11-01 | representation learning | [Dense Representation Learning and Differentiable Shape Modeling for Spine Landmark Detection](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-dense-representation-learning-and-differ) |
 | 2026-11-01 | representation learning | [ORR-Net：境界を意識したポリープ分割のための重複考慮型地域表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-orr-net-overlap-aware-regional-represent) |
 | 2026-11-01 | representation learning | [Autoencoder-Koopaによる劣化表現学習と適応的記号時系列モデリングを用いた転がり軸受の寿命予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-remaining-useful-life-prediction-of-roll) |
