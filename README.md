@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-01 | representation learning | [Autoencoder-Koopaによる劣化表現学習と適応的記号時系列モデリングを用いた転がり軸受の寿命予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-remaining-useful-life-prediction-of-roll) |
 | 2026-11-01 | representation learning | [自己教師あり学習を用いた細胞形態プロファイリングの高度化：細胞摂動の表現学習に関する比較分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-advancing-morphological-profiling-with-s) |
 | 2026-10-31 | kalman filter | [BMSベースの空調機デジタルモデル：MATLABシミュレーションとカルマンフィルタによるエネルギー解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-bms-based-air-handling-unit-digital-mode) |
 | 2026-10-31 | kalman filter | [拡張カルマンフィルタを用いた状態と環境インピーダンスの同時推定への統一的アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261031-a-unified-approach-to-simultaneous-estim) |
