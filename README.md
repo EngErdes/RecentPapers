@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-01 | representation learning | [多粒度コーシー・シュワルツ対照学習による電子健康記録（EHR）の表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-ehr-representation-learning-with-multi-g) |
 | 2026-11-01 | representation learning | [非標的分析におけるNORMAN予測保持指標を近似するための幾何学的情報を考慮した分子表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-geometry-aware-molecular-representation) |
 | 2026-11-01 | representation learning | [フィリピン保健省の監視データを用いた自己教師あり時系列表現学習による感染症流行予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-self-supervised-temporal-representation) |
 | 2026-11-01 | representation learning | [TFMamba：超音波溶接欠陥分類のためのMambaを用いた時間・周波数表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-tfmamba-time-frequency-representation-le) |
