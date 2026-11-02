@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | ALS | [TDP-43A315TマウスにおけるALS進行中の脂肪・肝臓の協調的代謝再編成と性差による末梢適応の解明](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-coordinated-adipose-liver-metabolic-remo) |
 | 2026-11-02 | ALS | [ALSに関連するFUS変異は、神経の後期エンドソームへのGEMIN5依存的なmRNAリクルートを阻害する](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-als-linked-fus-mutation-impairs-gemin5-d) |
 | 2026-11-02 | ALS | [NRF2発現の欠損はストレス顆粒の動態を変化させ、ALS関連タンパク質の凝集を促進する](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-lack-of-nrf2-expression-alters-the-dynam) |
 | 2026-11-02 | ALS | [メラトニンとエダラボンの併用療法は、GLP-1調節を介してメチル水銀誘発性筋萎縮性側索硬化症（ALS）様神経変性を緩和する](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-combined-melatonin-and-edaravone-therapy) |
