@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | Markov random"  ﬁelds | [画像モデリング：手作業による事前分布から画像基盤モデルまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-image-modeling-from-handcrafted-priors-t) |
 | 2026-11-02 | Markov random"  ﬁelds | [確率変数のシミュレーションとシミュレーションベースの推論](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-simulating-random-variables-and-simulati) |
 | 2026-11-01 | Multi Camera Tracking | [スマートシティ監視システムのための安全なリアルタイムデータ処理フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-secure-real-time-data-processing-framewo) |
 | 2026-11-01 | Multi Camera Tracking | [ベラ・C・ルービン天文台のためのマルチモーダル透過率予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261101-multi-modal-transmission-forecasting-for) |
