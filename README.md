@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | independent component ... | [特徴量削減表現を用いた乳がん検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-breast-cancer-detection-using-reduced-fe) |
 | 2026-11-02 | independent component ... | [コア・アウトリガー構造における共振誘発型損傷進展と側方倒壊：イベント誘導型モード追跡](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-resonance-induced-damage-evolution-and-l) |
 | 2026-11-02 | independent component ... | [振動円柱の後流における画像ベースの固有直交分解と独立成分分析を用いたコヒーレント構造の抽出](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-extracting-coherent-structures-in-oscill) |
 | 2026-11-02 | Markov random"  ﬁelds | [プロセスからプログラム可能な特性へ：金属加法製造における人工知能のレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-from-processing-to-programmable-properti) |
