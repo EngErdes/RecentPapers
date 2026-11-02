@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | ALS | [雑草イネにおける反復的な遺伝子流動の遺産とALS阻害剤抵抗性変異の独立した進化の証拠](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-legacy-of-recurrent-gene-flow-and-eviden) |
 | 2026-11-02 | ALS | [TDP-43A315TマウスにおけるALS進行中の脂肪・肝臓の協調的代謝再編成と性差による末梢適応の解明](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-coordinated-adipose-liver-metabolic-remo) |
 | 2026-11-02 | ALS | [ALSに関連するFUS変異は、神経の後期エンドソームへのGEMIN5依存的なmRNAリクルートを阻害する](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-als-linked-fus-mutation-impairs-gemin5-d) |
 | 2026-11-02 | ALS | [NRF2発現の欠損はストレス顆粒の動態を変化させ、ALS関連タンパク質の凝集を促進する](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-lack-of-nrf2-expression-alters-the-dynam) |
