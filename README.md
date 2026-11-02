@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | ALS | [メラトニンとエダラボンの併用療法は、GLP-1調節を介してメチル水銀誘発性筋萎縮性側索硬化症（ALS）様神経変性を緩和する](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-combined-melatonin-and-edaravone-therapy) |
 | 2026-11-02 | ALS | [種を超えた神経変性：イヌの変性性脊髄症とヒトの筋萎縮性側索硬化症の相違点の分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-neurodegeneration-across-species-analysi) |
 | 2026-11-02 | ALS | [筋萎縮性側索硬化症（ALS）における血漿中の異常構造SOD1タンパク質の特性評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-characterization-of-plasma-misfolded-sup) |
 | 2026-11-02 | ALS | [筋萎縮性側索硬化症における凝固・線溶動態の長期的変化と生存期間の関連：前向きコホート研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-longitudinal-coagulation-fibrinolysis-dy) |
