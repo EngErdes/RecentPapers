@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | independent component ... | [Planck衛星とunWISE銀河データを用いた運動学的スニャエフ・ゼルドビッチ効果による速度再構成](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-kinetic-sunyaev-zel-dovich-velocity-reco) |
 | 2026-11-02 | independent component ... | [食品分析におけるラマン分光法と機械学習を融合させた研究の進展、主要な課題、および将来の展望](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-research-progress-key-challenges-and-fut) |
 | 2026-11-02 | independent component ... | [距離相関と距離分散を用いた射影追跡：単位球面およびスティーフェル多様体上での閉形式リーマン勾配](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-projection-pursuit-with-distance-correla) |
 | 2026-11-02 | independent component ... | [発作前の頭皮脳波を用いたソースレベル多重スケール・グレンジャー因果性による、薬剤耐性局在性てんかんの発作開始領域の特定](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-source-level-multiscale-granger-causalit) |
