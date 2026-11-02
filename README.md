@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | independent component ... | [振動円柱の後流における画像ベースの固有直交分解と独立成分分析を用いたコヒーレント構造の抽出](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-extracting-coherent-structures-in-oscill) |
 | 2026-11-02 | Markov random"  ﬁelds | [プロセスからプログラム可能な特性へ：金属加法製造における人工知能のレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-from-processing-to-programmable-properti) |
 | 2026-11-02 | Markov random"  ﬁelds | [画像モデリング：手作業による事前分布から画像基盤モデルまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-image-modeling-from-handcrafted-priors-t) |
 | 2026-11-02 | Markov random"  ﬁelds | [確率変数のシミュレーションとシミュレーションベースの推論](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-simulating-random-variables-and-simulati) |
