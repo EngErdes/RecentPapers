@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-02 | ALS | [筋萎縮性側索硬化症における凝固・線溶動態の長期的変化と生存期間の関連：前向きコホート研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-longitudinal-coagulation-fibrinolysis-dy) |
 | 2026-11-02 | ALS | [ホウ素と神経のつながり：治癒不可能な筋萎縮性側索硬化症（ALS）治療におけるホウ素含有分子の可能性](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-the-boron-neuron-connection-the-potentia) |
 | 2026-11-02 | independent component ... | [Planck衛星とunWISE銀河データを用いた運動学的スニャエフ・ゼルドビッチ効果による速度再構成](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-kinetic-sunyaev-zel-dovich-velocity-reco) |
 | 2026-11-02 | independent component ... | [食品分析におけるラマン分光法と機械学習を融合させた研究の進展、主要な課題、および将来の展望](https://github.com/EngErdes/RecentPapers/tree/paper/20261102-research-progress-key-challenges-and-fut) |
