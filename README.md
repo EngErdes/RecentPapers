@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-03 | one shot | [ラマヌジャン・チャレンジの結果：マルチフォーマット証明のためのAI支援評価パイプライン](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-ramanujan-challenge-results-ai-assisted) |
 | 2026-11-03 | one shot | [GistRank: 大規模言語モデルを用いた要約圧縮によるリスト形式ランキング](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-gistrank-gist-compressed-listwise-rankin) |
 | 2026-11-03 | one shot | [ドメイン内調整から複数ドメインのオーケストレーションへ：エージェント型スライス認識リソース管理](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-from-intra-domain-coordination-to-multi) |
 | 2026-11-03 | one shot | [自己改善型コーディングエージェントは教科書的なベースラインを超えられるか？：Darwin Gödel Machine移植版と2つの既存システムによる検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-do-self-improving-coding-agents-beat-tex) |
