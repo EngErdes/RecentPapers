@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-03 | ICA | [イカリイン含有バイオアクティブガラスハイドロゲルを用いた乳がん骨転移の相乗的光熱・免疫・骨再生療法](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-synergistic-photothermal-immuno-osteogen) |
 | 2026-11-03 | ICA | [量子ドット微粒子を用いた免疫クロマトグラフィー法による動物組織中のアジスロマイシンの迅速・定量的な検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-rapid-quantitative-detection-of-azithrom) |
 | 2026-11-03 | ICA | [イカリインとカルトゲニンの併用による、Wnt/β-カテニン経路を介した骨髄由来間葉系幹細胞の軟骨分化誘導メカニズムの研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-icariin-and-kartogenin-research-on-the-m) |
 | 2026-11-03 | ICA | [イオンモビリティ質量分析法による乏突起膠腫および周辺組織のガングリオシドアトラスの構築](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-ion-mobility-mass-spectrometry-enables-t) |
