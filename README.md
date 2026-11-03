@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-03 | one shot | [量子コード変換のための大規模言語モデル：探索的研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-large-language-models-for-quantum-code-t) |
 | 2026-11-03 | one shot | [運動プリミティブ表現による模倣学習のための滑らかなアクションチャンキング](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-smooth-action-chunking-via-movement-prim) |
 | 2026-11-03 | one shot | [クアッドコプターにおける少数の故障診断のための階層型Sim2Realと拡散モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-hierarchical-sim2real-and-diffusion-for) |
 | 2026-11-03 | one shot | [ワンショット打楽器音の分類と類似性分析のための解釈可能な特徴量重要度とニューラル埋め込み](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-interpretable-feature-importance-and-neu) |
