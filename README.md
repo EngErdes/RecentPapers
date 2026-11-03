@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-03 | one shot | [運動プリミティブ表現による模倣学習のための滑らかなアクションチャンキング](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-smooth-action-chunking-via-movement-prim) |
 | 2026-11-03 | one shot | [クアッドコプターにおける少数の故障診断のための階層型Sim2Realと拡散モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-hierarchical-sim2real-and-diffusion-for) |
 | 2026-11-03 | one shot | [ワンショット打楽器音の分類と類似性分析のための解釈可能な特徴量重要度とニューラル埋め込み](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-interpretable-feature-importance-and-neu) |
 | 2026-11-03 | one shot | [MAS-Loop: ワンショット編成を超え、自己進化するマルチエージェントシステムへ](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-mas-loop-beyond-one-shot-orchestration-t) |
