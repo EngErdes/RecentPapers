@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-03 | ICA | [ICA解析とニューラルネットワークを用いた脳波記録の分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-classification-of-encephalographic-recor) |
 | 2026-11-03 | one shot | [ボルン則に基づく物理情報駆動型スパイキングニューラルネットワークによるショットノイズを考慮した量子状態トモグラフィー](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-born-rule-physics-informed-spiking-neura) |
 | 2026-11-03 | one shot | [ラマヌジャン・チャレンジの結果：マルチフォーマット証明のためのAI支援評価パイプライン](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-ramanujan-challenge-results-ai-assisted) |
 | 2026-11-03 | one shot | [GistRank: 大規模言語モデルを用いた要約圧縮によるリスト形式ランキング](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-gistrank-gist-compressed-listwise-rankin) |
