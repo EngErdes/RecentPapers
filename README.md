@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-03 | ICA | [1-(2-アミノエチル)ピペラジンを基盤とした5核水銀(II)クラスターの合成、結晶構造、ヒルシュフェルト表面解析、DFT計算および誘電特性の解明](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-synthesis-crystal-structure-hirshfeld-su) |
 | 2026-11-03 | ICA | [フェノチアジン配位子を用いたパラジウム(II)および白金(II)錯体：構造決定、細胞毒性およびDNA/BSA結合親和性](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-palladium-ii-and-platinum-ii-complexes-w) |
 | 2026-11-03 | ICA | [閉塞性冠動脈疾患に対する負荷SPECT心筋血流イメージングの侵襲的冠動脈造影と比較した診断精度](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-diagnostic-accuracy-of-stress-spect-myoc) |
 | 2026-11-03 | ICA | [イカリイン含有バイオアクティブガラスハイドロゲルを用いた乳がん骨転移の相乗的光熱・免疫・骨再生療法](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-synergistic-photothermal-immuno-osteogen) |
