@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-04 | kalman filter | [マルチレート計測を用いる電力系統状態推定のためのロバスト求積カルマンフィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-robust-cubature-kalman-filter-for-power) |
 | 2026-11-04 | Open-Vocabulary Object ... | [未知の物体を認識・生成する大規模深層モデルの構築に向けて](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-towards-large-scale-deep-models-for-out) |
 | 2026-11-04 | Open-Vocabulary Object ... | [OWL-ViTベースの歩行者検知を用いたスマート横断歩道制御](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-smart-crosswalk-control-using-owl-vit-ba) |
 | 2026-11-03 | ICA | [機能性下垂体腺腫における海綿静脈洞内側壁の選択的切除：内側から外側への海綿静脈洞への扉を開く](https://github.com/EngErdes/RecentPapers/tree/paper/20261103-selective-resection-of-the-cavernous-sin) |
