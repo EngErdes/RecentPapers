@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-04 | differential privacy | [信頼できる差分プライバシー：臨床意思決定支援における遅延バジェットの較正](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-trustworthy-differential-privacy-calibra) |
 | 2026-11-04 | differential privacy | [連合学習に向けた差分プライバシーを考慮した合成テーブルデータ生成](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-differential-privacy-synthetic-tabular-d) |
 | 2026-11-04 | kalman filter | [遅延を伴う離散マルチエージェントシステムのための後退ホライゾン・チーム最適分散フィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-receding-horizon-team-optimal-decentrali) |
 | 2026-11-04 | kalman filter | [拡張カルマンフィルタを用いた産業用PMSMのロータ永久磁石温度推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-rotor-permanent-magnet-temperature-estim) |
