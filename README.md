@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-04 | kalman filter | [拡張カルマンフィルタを用いた産業用PMSMのロータ永久磁石温度推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-rotor-permanent-magnet-temperature-estim) |
 | 2026-11-04 | kalman filter | [COVID-19による日次モビリティへの影響を推定するカルマンフィルタリング：チュニジアの事例研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-kalman-filtering-for-covid-19-daily-mobi) |
 | 2026-11-04 | kalman filter | [物理ノイズフロアに基づく組み込みLC計測用イノベーションゲート付きカルマンフィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-innovation-gated-kalman-filtering-based) |
 | 2026-11-04 | kalman filter | [拡張カルマンフィルタの拡張による蒸着金属膜コンデンサの界面劣化を考慮した適応型熱モニタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-adaptive-thermal-monitoring-of-metallize) |
