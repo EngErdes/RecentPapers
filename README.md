@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-04 | kalman filter | [物理ノイズフロアに基づく組み込みLC計測用イノベーションゲート付きカルマンフィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-innovation-gated-kalman-filtering-based) |
 | 2026-11-04 | kalman filter | [拡張カルマンフィルタの拡張による蒸着金属膜コンデンサの界面劣化を考慮した適応型熱モニタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-adaptive-thermal-monitoring-of-metallize) |
 | 2026-11-04 | kalman filter | [アンサンブルカルマンフィルタを用いたGIS温度上昇シミュレーションのための伝熱パラメータ同時補正手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-joint-correction-method-of-heat-transfer) |
 | 2026-11-04 | kalman filter | [リチウムイオン電池の充電状態とパラメータを同時推定するデュアル拡張カルマンフィルタ手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-dual-extended-kalman-filter-based-co-est) |
