@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-04 | kalman filter | [アンサンブルカルマンフィルタを用いたGIS温度上昇シミュレーションのための伝熱パラメータ同時補正手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-joint-correction-method-of-heat-transfer) |
 | 2026-11-04 | kalman filter | [リチウムイオン電池の充電状態とパラメータを同時推定するデュアル拡張カルマンフィルタ手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-dual-extended-kalman-filter-based-co-est) |
 | 2026-11-04 | kalman filter | [パーティクルフィルタとファジィカルマンフィルタを用いた位置推定による無人搬送車（AGV）の航法・誘導制御システム](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-navigation-and-guidance-control-system-o) |
 | 2026-11-04 | kalman filter | [チュニジアにおける非公式道路旅客輸送の測定をめぐる統計的課題：危機的状況下でのカルマンフィルタ解析からの知見](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-statistical-issues-in-measuring-informal) |
