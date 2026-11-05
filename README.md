@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | differential privacy | [分散環境における安全なデータ処理のための連合学習に基づいたプライバシー保護AIモデルの強化](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-enhanced-federated-learning-based-privac) |
 | 2026-11-04 | differential privacy | [ランサムウェア耐性を備えたプライバシー保護型の予測的クラウドバックアップ](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-privacy-preserving-predictive-cloud-back) |
 | 2026-11-04 | differential privacy | [知的デジタルヘルスケアマーケティングのためのAI統合型プライバシー保護・説明可能フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-ai-integrated-privacy-preserving-and-exp) |
 | 2026-11-04 | differential privacy | [セキュアなIoTアーキテクチャにおけるインテリジェントな侵入検知のためのプライバシー配慮型連合Tabnetフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-a-privacy-aware-federated-tabnet-framewo) |
