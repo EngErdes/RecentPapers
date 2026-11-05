@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | ICA | [ウィリス動脈輪の微小動脈描出における高解像度プロトン密度画像とTOF-MRAの比較：3D回転血管造影との対照研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-high-resolution-proton-density-mri-versu) |
 | 2026-11-05 | ICA | [インテリジェントな金融市場予測のためのハイブリッドTransformerアンサンブル学習フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-hybrid-transformer-ensemble-learning-fra) |
 | 2026-11-05 | ICA | [鉛(II)ジアリールジチオカルバマート錯体[Pb(S2CNAr2)2]とナノスケールPbSの単一源前駆体としての利用](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-lead-ii-diaryl-dithiocarbamate-complexes) |
 | 2026-11-05 | ICA | [急速心室ペーシングを併用した5つの複雑な未破裂前前方循環動脈瘤に対する一期的両側顕微鏡手術：症例報告](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-single-stage-bilateral-microsurgical-tre) |
