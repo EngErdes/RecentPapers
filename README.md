@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | differential privacy | [血糖値ベースのラベル付けを用いた糖尿病リスク分類のためのプライバシー保護連合学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-a-privacy-preserving-federated-learning) |
 | 2026-11-05 | differential privacy | [連合エッジ・クラウド分析：IoT駆動型スマートエコシステムのためのプライバシー保護型リアルタイム・ビッグデータ処理フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-federated-edge-to-cloud-analytics-a-priv) |
 | 2026-11-05 | differential privacy | [分散環境における安全なデータ処理のための連合学習に基づいたプライバシー保護AIモデルの強化](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-enhanced-federated-learning-based-privac) |
 | 2026-11-04 | differential privacy | [ランサムウェア耐性を備えたプライバシー保護型の予測的クラウドバックアップ](https://github.com/EngErdes/RecentPapers/tree/paper/20261104-privacy-preserving-predictive-cloud-back) |
