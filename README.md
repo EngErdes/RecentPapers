@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | multi agent | [符号化イベントトリガー方式によるマルチエージェントシステムの最適レジリエント二部包含制御](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-optimal-resilient-bipartite-containment) |
 | 2026-11-05 | independent component ... | [慢性的運動はマウス海馬において経路依存的な電気生理学的特徴を誘発する](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-chronic-exercise-induces-a-pathway-depen) |
 | 2026-11-05 | independent component ... | [マルト族の岩面画における顔料分析のための環境光VNIRハイパースペクトルイメージング](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-ambient-light-vnir-hyperspectral-imaging) |
 | 2026-11-05 | independent component ... | [Improving Epilepsy Diagnosis Outcomes in Diverse Populations Through an End-to-End Explainable EEG-Based AI System](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-improving-epilepsy-diagnosis-outcomes-in) |
