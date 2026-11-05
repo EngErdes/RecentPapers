@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | ICA | [非合焦型プレノプティックカメラのための光学系解析と設計](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-analysis-and-design-of-the-optical-syste) |
 | 2026-11-05 | ICA | [レミエール症候群の稀な神経血管合併症：頭蓋底硬膜炎と内頸動脈の可逆的炎症性狭窄](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-a-rare-neurovascular-complication-of-lem) |
 | 2026-11-05 | ICA | [急激に発症する1型糖尿病と糖尿病ケトアシドーシス：中国におけるPD-1阻害薬に関連した内分泌毒性の症例集](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-rapid-onset-type-1-diabetes-mellitus-and) |
 | 2026-11-05 | ICA | [ウィリス動脈輪の微小動脈描出における高解像度プロトン密度画像とTOF-MRAの比較：3D回転血管造影との対照研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-high-resolution-proton-density-mri-versu) |
