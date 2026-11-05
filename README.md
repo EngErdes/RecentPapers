@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | ICA | [CORINEに基づく第2次軍事測量地図の再分類によるアディジェ川流域の19世紀から21世紀にかけての土地被覆変化の検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-detection-of-land-cover-changes-between) |
 | 2026-11-05 | ICA | [hERG活性化薬ICA-105574はイソフルラン麻酔下のモルモットにおいてP波消失と心停止を誘発する](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-herg-activating-compound-ica-105574-indu) |
 | 2026-11-05 | differential privacy | [血糖値ベースのラベル付けを用いた糖尿病リスク分類のためのプライバシー保護連合学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-a-privacy-preserving-federated-learning) |
 | 2026-11-05 | differential privacy | [連合エッジ・クラウド分析：IoT駆動型スマートエコシステムのためのプライバシー保護型リアルタイム・ビッグデータ処理フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-federated-edge-to-cloud-analytics-a-priv) |
