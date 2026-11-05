@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-05 | multi agent | [Residual Replayを用いたマルチエージェントシステムにおけるコンパクトで損失のない潜在表現通信](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-compact-and-lossless-latent-communicatio) |
 | 2026-11-05 | multi agent | [Sustainable Multi-Zone Greenhouse Fertigation Through Reliability-Aware Sensing, Spatiotemporal Graph Learning, and Multi-Agent Reinforcement Learning](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-sustainable-multi-zone-greenhouse-fertig) |
 | 2026-11-05 | multi agent | [マルチエージェント強化学習を用いた持続可能な6Gエッジコンピューティングのためのニューロ・コグニティブ・アウェアな省電力リソース割り当て](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-neuro-cognitive-aware-energy-efficient-r) |
 | 2026-11-05 | multi agent | [符号化イベントトリガー方式によるマルチエージェントシステムの最適レジリエント二部包含制御](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-optimal-resilient-bipartite-containment) |
