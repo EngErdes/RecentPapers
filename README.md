@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-06 | logistics | [ヘルスケア物流におけるAIリテラシーの概念的フレームワークの設計](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-designing-a-conceptual-framework-for-ai) |
 | 2026-11-06 | logistics | [再生可能エネルギー輸出のロジスティクス：グリーン水素輸送とHVDC送電の評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-renewable-energy-exports-logistics-evalu) |
 | 2026-11-06 | logistics | [EUにおけるデジタル物流の準備状況と地域競争力：新たなハイブリッドSWARA–CRITIC–COBRA MCDMモデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-digital-logistics-readiness-and-regional) |
 | 2026-11-06 | logistics | [ネットゼロな都市のラストマイル配送に向けて：宅配ロッカーのガバナンスの役割](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-toward-net-zero-urban-last-mile-logistic) |
