@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-06 | logistics | [物流および供給網指標の相互依存関係の優先順位付けを通じたグローバル・ヘルス・セキュリティの強化](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-strengthening-global-health-security-thr) |
 | 2026-11-06 | logistics | [時空間的な外乱下における低高度物流ドローンのためのロバストな軌道追従：デカップリング表現強化学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-robust-trajectory-tracking-for-low-altit) |
 | 2026-11-06 | logistics | [道路と水路を組み合わせた都市物流のためのインセンティブ戦略：単一リーダー・複数フォロワーのゲーム理論的枠組み](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-incentive-based-strategies-for-road-wate) |
 | 2026-11-06 | logistics | [生鮮食品貿易における物流と製品品質の関係性](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-logistics-and-product-quality-in-perisha) |
