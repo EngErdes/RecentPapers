@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-06 | bayesian network | [複雑な冠動脈病変における画像ガイド下対血管造影ガイド下PCI：地理的メタ回帰を用いた最新のベイズ・ネットワーク・メタ解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-imaging-versus-angiography-guided-percut) |
 | 2026-11-06 | bayesian network | [ベイジアンネットワーク構造学習のための制約探索協調型遺伝的アルゴリズム](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-constraint-search-collaborative-genetic) |
 | 2026-11-06 | logistics | [ヘルスケア物流におけるAIリテラシーの概念的フレームワークの設計](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-designing-a-conceptual-framework-for-ai) |
 | 2026-11-06 | logistics | [再生可能エネルギー輸出のロジスティクス：グリーン水素輸送とHVDC送電の評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-renewable-energy-exports-logistics-evalu) |
