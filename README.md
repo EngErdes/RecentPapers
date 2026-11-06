@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-06 | logistics | [物流の脱炭素化：TCCM枠組みを通じたSDG 7達成におけるクリーンエネルギーの役割の解明](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-decarbonizing-logistics-unveiling-the-ro) |
 | 2026-11-06 | sparse coding | [二値スパース符号：エネルギー効率の高い表現の現状と展望](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-binary-sparse-codes-where-are-we-on-ener) |
 | 2026-11-05 | multi agent | [Secure Distributed Low-Carbon Dispatch of Multi-Agent Multi-Energy Systems with Energy Hubs](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-secure-distributed-low-carbon-dispatch-o) |
 | 2026-11-05 | multi agent | [Residual Replayを用いたマルチエージェントシステムにおけるコンパクトで損失のない潜在表現通信](https://github.com/EngErdes/RecentPapers/tree/paper/20261105-compact-and-lossless-latent-communicatio) |
