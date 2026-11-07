@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | logistics | [UrbanLogix-AI：スマートシティ貨物ネットワークに向けたAI強化型ラストワンマイル物流最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-urbanlogix-ai-ai-augmented-last-mile-log) |
 | 2026-11-07 | logistics | [モロッコ企業における物流革新を阻害する二次元的な主要障壁：複雑な回帰モデリングを用いた分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-key-bidimensional-barriers-to-logistics) |
 | 2026-11-07 | logistics | [持続可能な都市のためのスマート都市物流：10年間の技術革新と環境統合（2014–2024）](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-smart-urban-logistics-for-sustainable-ci) |
 | 2026-11-07 | MRFs Markov | [マルコフ確率場を用いた米国ホームレス問題の構造分析：順列検定による予測因子と潜在的因果関係の特定](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-a-structural-analysis-of-us-homelessness) |
