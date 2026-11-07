@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | gaussian process | [Bézier-GP: ベジェ曲面に基づくガウス過程を用いたチップ・オン・ウェハの反りモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-bezier-gp-bezier-surface-based-gaussian) |
 | 2026-11-07 | gaussian process | [電気化学インピーダンス分光法とガウス過程回帰を用いた、自立型直流マイクログリッドにおける不均一蓄電池群の周波数帯域別電流配分](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-electrochemical-impedance-spectroscopy-i) |
 | 2026-11-07 | logistics | [物流監査ベンチマークの比較分析：矛盾解決のためのTRIZ手法によるアプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-comparative-analysis-of-logistics-audit) |
 | 2026-11-07 | logistics | [ファジィシグネチャを用いた物流意思決定における認知バイアスの影響のモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-modeling-the-effects-of-cognitive-biases) |
