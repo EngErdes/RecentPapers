@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | logistics | [AIトレーニングの種類が物流従業員の革新的行動に及ぼす影響：認知・感情経路モデルの検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-how-different-types-of-artificial-intell) |
 | 2026-11-07 | logistics | [AIを活用した世界のLNG運搬船の温室効果ガス定量化と脱炭素化：クリーンな海上物流のためのサロゲートモデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-ai-enabled-greenhouse-gas-quantification) |
 | 2026-11-07 | logistics | [持続可能な物流連携におけるエネルギー節約とその帰属に関する研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-energy-savings-and-their-attribution-in) |
 | 2026-11-07 | logistics | [UrbanLogix-AI：スマートシティ貨物ネットワークに向けたAI強化型ラストワンマイル物流最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-urbanlogix-ai-ai-augmented-last-mile-log) |
