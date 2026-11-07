@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | gaussian process | [共形キャリブレーションを備えたインコンテキスト表形式基盤モデルによるノイズに強い能動学習型構造信頼性解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-noise-robust-active-learning-structural) |
 | 2026-11-07 | gaussian process | [ガウス過程を用いた漂流ブイ観測データからの回転運動のオイラー時空間統計](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-eulerian-space-time-statistics-of-rotati) |
 | 2026-11-07 | gaussian process | [疑似カラー心電図を用いたトルサード・ド・ポアンツ・リスクの不確実性定量化ガウス過程分類：UKバイオバンク乳がんコホートにおける外部検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-uncertainty-quantified-gaussian-process) |
 | 2026-11-07 | gaussian process | [Bézier-GP: ベジェ曲面に基づくガウス過程を用いたチップ・オン・ウェハの反りモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-bezier-gp-bezier-surface-based-gaussian) |
