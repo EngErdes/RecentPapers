@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | logistics | [スマート物流における人間と自律システムのチーム形成（HAT）](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-human-autonomy-teaming-in-smart-logistic) |
 | 2026-11-07 | logistics | [Eコマースシステムにおける物流最適化のためのインテリジェントなQFDベースのアプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-an-intelligent-qfd-based-approach-for-lo) |
 | 2026-11-07 | logistics | [AIトレーニングの種類が物流従業員の革新的行動に及ぼす影響：認知・感情経路モデルの検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-how-different-types-of-artificial-intell) |
 | 2026-11-07 | logistics | [AIを活用した世界のLNG運搬船の温室効果ガス定量化と脱炭素化：クリーンな海上物流のためのサロゲートモデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-ai-enabled-greenhouse-gas-quantification) |
