@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | logistics | [物流監査ベンチマークの比較分析：矛盾解決のためのTRIZ手法によるアプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-comparative-analysis-of-logistics-audit) |
 | 2026-11-07 | logistics | [ファジィシグネチャを用いた物流意思決定における認知バイアスの影響のモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-modeling-the-effects-of-cognitive-biases) |
 | 2026-11-07 | logistics | [スマート物流における人間と自律システムのチーム形成（HAT）](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-human-autonomy-teaming-in-smart-logistic) |
 | 2026-11-07 | logistics | [Eコマースシステムにおける物流最適化のためのインテリジェントなQFDベースのアプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-an-intelligent-qfd-based-approach-for-lo) |
