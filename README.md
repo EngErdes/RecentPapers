@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | MRFs Markov | [マルコフ確率場を用いた米国ホームレス問題の構造分析：順列検定による予測因子と潜在的因果関係の特定](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-a-structural-analysis-of-us-homelessness) |
 | 2026-11-07 | MRFs Markov | [Spatiotemporal consistency correction of multi-temporal GlobeLand30 land-cover products using a texture-informed MAP–MRF model](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-spatiotemporal-consistency-correction-of) |
 | 2026-11-07 | generalized assignment ... | [ボランティアの希望を考慮した割り当て問題への回答セットプログラミングとメタヒューリスティクスの適用](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-applying-answer-set-programming-and-meta) |
 | 2026-11-06 | bayesian network | [建築環境・サーキュラーエコノミー・環境負荷の連関探索：ベイジアンネットワークによるアプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261106-exploring-the-built-environment-circular) |
