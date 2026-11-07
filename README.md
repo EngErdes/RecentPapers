@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-07 | gaussian process | [疑似カラー心電図を用いたトルサード・ド・ポアンツ・リスクの不確実性定量化ガウス過程分類：UKバイオバンク乳がんコホートにおける外部検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-uncertainty-quantified-gaussian-process) |
 | 2026-11-07 | gaussian process | [Bézier-GP: ベジェ曲面に基づくガウス過程を用いたチップ・オン・ウェハの反りモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-bezier-gp-bezier-surface-based-gaussian) |
 | 2026-11-07 | gaussian process | [電気化学インピーダンス分光法とガウス過程回帰を用いた、自立型直流マイクログリッドにおける不均一蓄電池群の周波数帯域別電流配分](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-electrochemical-impedance-spectroscopy-i) |
 | 2026-11-07 | logistics | [物流監査ベンチマークの比較分析：矛盾解決のためのTRIZ手法によるアプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261107-comparative-analysis-of-logistics-audit) |
