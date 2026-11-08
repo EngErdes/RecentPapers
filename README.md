@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-08 | gaussian process | [能動学習支援ハイブリッドサロゲートモデルに基づく複数モータの始動間隔の最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-starting-interval-optimization-of-multip) |
 | 2026-11-08 | gaussian process | [未知の製造可能性下における徐放性ペレットのクローズドループ処方・プロセス最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-closed-loop-formulation-process-optimiza) |
 | 2026-11-08 | gaussian process | [実験的クローズドループ検証による、不確実性が校正された切削抵抗予測のための適応的GPR–EKF](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-adaptive-gpr-ekf-for-uncertainty-calibra) |
 | 2026-11-08 | gaussian process | [ベイズ項目反応理論と経路制御型サブスペース選択による効率的な大規模言語モデルのベンチマーク評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-efficient-llm-benchmark-evaluation-with) |
