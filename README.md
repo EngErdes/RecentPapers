@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-08 | Ontology | [SPE-ECG：LLMによるコード生成を強化するためのオントロジー誘導型知識表現フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-spe-ecg-an-ontology-guided-knowledge-rep) |
 | 2026-11-08 | Ontology | [OntoACD: 意味推論と外部知識統合によるオントロジー駆動型アスペクトカテゴリ検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-ontoacd-ontology-driven-aspect-category) |
 | 2026-11-08 | graph rag | [スーパーピクセルを用いたグラフ畳み込みネットワークによる画像キャプション生成：領域認識シーン符号化アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-superpixel-based-graph-convolutional-net) |
 | 2026-11-08 | graph rag | [異常気象イベントのためのハイブリッドKG-RAG質問回答システム](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-hybrid-kg-rag-question-answering-for-ext) |
