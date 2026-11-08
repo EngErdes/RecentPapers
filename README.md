@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-08 | graph rag | [GraFine: コーパスグラフ上の効率的なGraph RAGのための検索時リファインメント](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-grafine-retrieval-time-refinement-for-ef) |
 | 2026-11-08 | Markov random"  ﬁelds | [外生的共変量を伴う隠れマルコフ・イジングモデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-the-hidden-markov-ising-model-with-exoge) |
 | 2026-11-08 | gaussian process | [練習用グライダーの初期設計と機械学習による飛行性能分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-preliminary-design-and-machine-learning) |
 | 2026-11-08 | gaussian process | [能動学習支援ハイブリッドサロゲートモデルに基づく複数モータの始動間隔の最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-starting-interval-optimization-of-multip) |
