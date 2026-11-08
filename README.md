@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-08 | graph rag | [GMOR: 大規模コーパスにおける幾何学的マルチホップ・オフセット検索](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-gmor-geometric-multi-hop-offset-retrieva) |
 | 2026-11-08 | graph rag | [関連性だけでは不十分：信頼性の高いRAG推論のための最小限の証拠復元](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-when-relevance-is-not-enough-minimal-sup) |
 | 2026-11-08 | graph rag | [StarGraph：RAG、エージェント、ツール活用型LLMシステムのためのテキスト保持型メタパスインデックス](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-stargraph-text-preserving-meta-path-inde) |
 | 2026-11-08 | graph rag | [不正確なデータが存在する環境における知識グラフRAGアーキテクチャの堅牢性評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-assessing-the-robustness-of-knowledge-gr) |
