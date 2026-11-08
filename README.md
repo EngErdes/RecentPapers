@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-08 | Markov random"  ﬁelds | [外生的共変量を伴う隠れマルコフ・イジングモデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-the-hidden-markov-ising-model-with-exoge) |
 | 2026-11-08 | gaussian process | [練習用グライダーの初期設計と機械学習による飛行性能分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-preliminary-design-and-machine-learning) |
 | 2026-11-08 | gaussian process | [能動学習支援ハイブリッドサロゲートモデルに基づく複数モータの始動間隔の最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-starting-interval-optimization-of-multip) |
 | 2026-11-08 | gaussian process | [未知の製造可能性下における徐放性ペレットのクローズドループ処方・プロセス最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261108-closed-loop-formulation-process-optimiza) |
