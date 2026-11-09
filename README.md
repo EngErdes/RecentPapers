@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-09 | kalman filter  "anomaly ... | [OI-OGPR: SINS/WT-DVL航法のためのデータ駆動型かつ外れ値耐性を持つ潮流補正手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-oi-ogpr-a-data-driven-and-outlier-tolera) |
 | 2026-11-09 | kalman filter  "anomaly ... | [適応型重み融合に基づく飛行試験異常検知フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-a-flight-test-anomaly-detection-framewor) |
 | 2026-11-09 | manifold learning | [Protocode: プロトタイプ駆動によるLLMコード生成の解釈可能性向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-protocode-prototype-driven-interpretabil) |
 | 2026-11-09 | manifold learning | [DGAFT-R：ドメイン横断的なマルチモーダル感情・行動認識のための隠遁型拡散フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-dgaft-r-a-reclusive-diffusion-framework) |
