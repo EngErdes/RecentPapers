@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-09 | gaussian process | [ガウス過程回帰に基づく不確実性を考慮した舗装性能予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-uncertainty-aware-pavement-performance-p) |
 | 2026-11-09 | Open-Vocabulary Object ... | [Shareish連帯プラットフォームにおける動的な複数物体認識のためのディープラーニング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-deep-learning-for-dynamic-multiple-objec) |
 | 2026-11-09 | Open-Vocabulary Object ... | [基盤モデルの連携によるアノテータ不要の物体検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-annotator-free-object-detection-via-foun) |
 | 2026-11-09 | Open-Vocabulary Object ... | [省電力ロボット自律走行のためのエネルギー効率を考慮したオープン語彙検知スケジューリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-energy-aware-open-vocabulary-detection-s) |
