@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-09 | gaussian process | [ガウス過程回帰に基づく高調波潮流写像モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-harmonic-power-flow-mapping-model-based) |
 | 2026-11-09 | gaussian process | [船舶推進システムのガウス過程予測に向けたベイズ木構造カーネル学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-a-bayesian-tree-structured-kernel-learni) |
 | 2026-11-09 | gaussian process | [大規模な反復データおよび打ち切りデータを対象とした産業研究向け効率的ガウス過程モデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-efficient-gaussian-process-modeling-for) |
 | 2026-11-09 | gaussian process | [岩石-コンクリート界面の破壊靭性を小サンプルで予測する物理法則に基づいた非定常ガウス過程モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-physics-informed-non-stationary-gaussian) |
