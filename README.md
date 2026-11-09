@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-09 | Open-Vocabulary Object ... | [Shareish連帯プラットフォームにおける動的な複数物体認識のためのディープラーニング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-deep-learning-for-dynamic-multiple-objec) |
 | 2026-11-09 | Open-Vocabulary Object ... | [基盤モデルの連携によるアノテータ不要の物体検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-annotator-free-object-detection-via-foun) |
 | 2026-11-09 | Open-Vocabulary Object ... | [省電力ロボット自律走行のためのエネルギー効率を考慮したオープン語彙検知スケジューリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-energy-aware-open-vocabulary-detection-s) |
 | 2026-11-09 | Open-Vocabulary Object ... | [リモートセンシングにおけるオープン語彙物体検出のための学習不要な根拠に基づく視覚推論](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-training-free-evidence-grounded-visual-r) |
