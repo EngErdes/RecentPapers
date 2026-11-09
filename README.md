@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-09 | gaussian process | [大規模な反復データおよび打ち切りデータを対象とした産業研究向け効率的ガウス過程モデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-efficient-gaussian-process-modeling-for) |
 | 2026-11-09 | gaussian process | [岩石-コンクリート界面の破壊靭性を小サンプルで予測する物理法則に基づいた非定常ガウス過程モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-physics-informed-non-stationary-gaussian) |
 | 2026-11-09 | gaussian process | [ガウス過程回帰に基づく不確実性を考慮した舗装性能予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-uncertainty-aware-pavement-performance-p) |
 | 2026-11-09 | Open-Vocabulary Object ... | [Shareish連帯プラットフォームにおける動的な複数物体認識のためのディープラーニング](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-deep-learning-for-dynamic-multiple-objec) |
