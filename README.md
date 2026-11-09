@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-09 | manifold learning | [Protocode: プロトタイプ駆動によるLLMコード生成の解釈可能性向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-protocode-prototype-driven-interpretabil) |
 | 2026-11-09 | manifold learning | [DGAFT-R：ドメイン横断的なマルチモーダル感情・行動認識のための隠遁型拡散フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-dgaft-r-a-reclusive-diffusion-framework) |
 | 2026-11-09 | manifold learning | [グローバルネットワークにおける国際的な世論分析と伝播トレンド予測のためのビッグデータマイニングモデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-big-data-mining-model-for-international) |
 | 2026-11-09 | sparse coding | [GEPC: マルチモーダル事前知識と階層的概念制約を用いた生成・説明型害虫分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-gepc-generative-explanatory-pest-classif) |
