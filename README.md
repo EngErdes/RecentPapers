@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-10 | MCMC | [重い裾を持つターゲット分布に対する重要度重み付けアニーリングMCMCの一様エルゴード性とスペクトルギャップ](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-uniform-ergodicity-and-spectral-gap-of-i) |
 | 2026-11-10 | affective computing | [MUSE：意味論的音響アンカーを用いた学習不要な音楽感情認識](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-muse-training-free-music-emotion-recogni) |
 | 2026-11-10 | affective computing | [RemoPhysEmo：ビデオとレーダーによる遠隔計測生体信号を用いたマルチモーダル感情データセット](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-remophysemo-a-multimodal-emotion-dataset) |
 | 2026-11-10 | affective computing | [CMSFusion: 青少年のメンタルヘルス評価のためのクロスモーダル空間融合ネットワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-cmsfusion-a-cross-modal-spatial-fusion-n) |
