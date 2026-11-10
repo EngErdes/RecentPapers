@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-10 | manifold learning | [生成AI時代におけるバーチャルノックアウト：細胞内ネットワークから空間的・クロスモーダルな機能シミュレーションまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-virtual-knockout-in-the-era-of-generativ) |
 | 2026-11-10 | manifold learning | [RF信号データセットにおける堅牢な潜在構造発見のための適応型重み付きアンサンブルクラスタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-adaptive-weighted-ensemble-clustering-fo) |
 | 2026-11-10 | manifold learning | [自己教師ありECG表現学習のためのSPD幾何学による多様体制約付きデータ拡張](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-manifold-constrained-data-augmentation-v) |
 | 2026-11-10 | manifold learning | [堅牢な点群表現学習のための確率論的幾何学に基づく多様体キャリブレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-probabilistic-geometry-based-manifold-ca) |
