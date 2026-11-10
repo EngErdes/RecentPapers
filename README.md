@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-10 | manifold learning | [堅牢な点群表現学習のための確率論的幾何学に基づく多様体キャリブレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-probabilistic-geometry-based-manifold-ca) |
 | 2026-11-09 | gaussian process | [非ダルシー多孔質媒体中における熱放射MHDダスティ・マックスウェル・ナノ流体の流れに対する物理学に基づいた機械学習アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-physics-informed-machine-learning-approa) |
 | 2026-11-09 | gaussian process | [SiC MOSFETにおけるゲート酸化膜劣化の接合温度に依存しない診断手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-a-junction-temperature-independent-diagn) |
 | 2026-11-09 | gaussian process | [変分スプラインと一般化ガウス過程](https://github.com/EngErdes/RecentPapers/tree/paper/20261109-variational-splines-and-generalized-gaus) |
