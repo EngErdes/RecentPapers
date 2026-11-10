@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-10 | affective computing | [Signal Garden: 学会への情緒的参加に関する長期的な脳波インスタレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-signal-garden-a-longitudinal-eeg-install) |
 | 2026-11-10 | affective computing | [MRAC 2026：第4回 マルチモーダル・生成型・責任ある感情コンピューティング国際ワークショップ](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-mrac-2026-4th-international-workshop-on) |
 | 2026-11-10 | affective computing | [AREMamba: 脳波のノイズ除去と感情計算を統合したアーティファクトに強いEmotion Mamba](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-aremamba-artifact-robust-emotion-mamba-f) |
 | 2026-11-10 | manifold learning | [生成AI時代におけるバーチャルノックアウト：細胞内ネットワークから空間的・クロスモーダルな機能シミュレーションまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-virtual-knockout-in-the-era-of-generativ) |
