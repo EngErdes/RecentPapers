@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-10 | affective computing | [言語中心の堅牢なマルチモーダル感情分析に向けた情報の分離と段階的融合の橋渡し](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-bridging-disentanglement-and-progressive) |
 | 2026-11-10 | affective computing | [多源的な知識を用いた応答戦略の適応的調整による感情サポート対話の強化](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-adaptive-adjustments-of-response-strateg) |
 | 2026-11-10 | affective computing | [ワルシャワ・マルチモーダル・ヘイトスピーチ・データベース（WMHS）：音声とテキストを用いた初期検証とベースライン自動検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-the-warsaw-multimodal-hate-speech-databa) |
 | 2026-11-10 | affective computing | [Signal Garden: 学会への情緒的参加に関する長期的な脳波インスタレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-signal-garden-a-longitudinal-eeg-install) |
