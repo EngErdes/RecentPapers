@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-10 | affective computing | [RemoPhysEmo：ビデオとレーダーによる遠隔計測生体信号を用いたマルチモーダル感情データセット](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-remophysemo-a-multimodal-emotion-dataset) |
 | 2026-11-10 | affective computing | [CMSFusion: 青少年のメンタルヘルス評価のためのクロスモーダル空間融合ネットワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-cmsfusion-a-cross-modal-spatial-fusion-n) |
 | 2026-11-10 | affective computing | [多段階データ拡張を用いた双極性障害評価のためのパーソナライズされた対話ベースシステム](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-a-personalized-dialogue-based-system-for) |
 | 2026-11-10 | affective computing | [言語中心の堅牢なマルチモーダル感情分析に向けた情報の分離と段階的融合の橋渡し](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-bridging-disentanglement-and-progressive) |
