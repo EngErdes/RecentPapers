@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-11 | MCMC | [テキサス州における綿花生産の気候リスク評価と適応政策のための空間明示的AIフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-spatially-explicit-artificial-intelligen) |
 | 2026-11-11 | MCMC | [PM2.5濃度プロファイルの空間補間のためのベイズ関数型クリギング・フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-a-bayesian-functional-kriging-framework) |
 | 2026-11-10 | MCMC | [κ変形された非可換時空における修正ムカノフ・ササキ方程式と原始ゆらぎ](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-modified-mukhanov-sasaki-equation-and-pr) |
 | 2026-11-10 | MCMC | [不確実性下における倫理的自律システムの統計モデル検査](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-statistical-model-checking-of-ethical-au) |
