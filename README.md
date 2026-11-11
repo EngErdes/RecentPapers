@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-11 | MCMC | [PM2.5濃度プロファイルの空間補間のためのベイズ関数型クリギング・フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-a-bayesian-functional-kriging-framework) |
 | 2026-11-10 | MCMC | [κ変形された非可換時空における修正ムカノフ・ササキ方程式と原始ゆらぎ](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-modified-mukhanov-sasaki-equation-and-pr) |
 | 2026-11-10 | MCMC | [不確実性下における倫理的自律システムの統計モデル検査](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-statistical-model-checking-of-ethical-au) |
 | 2026-11-10 | MCMC | [ベイズMCMC推論を用いたダンス競技における潜在的なファン投票分布の復元](https://github.com/EngErdes/RecentPapers/tree/paper/20261110-reconstruction-of-latent-fan-vote-distri) |
