@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-11 | Semi supervise | [ChangeMix：半教師ありリモートセンシング建物変化検出のための変化を考慮したカット＆ペースト拡張](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-changemix-change-aware-cut-and-paste-aug) |
 | 2026-11-11 | Semi supervise | [ハイブリッド偏差補正と不確実性評価を伴う半教師ありダウンスケーリングによるCMIP6日降水量予測の高度化](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-advancing-cmip6-daily-precipitation-proj) |
 | 2026-11-11 | Semi supervise | [AISデータに基づいた船舶種類識別のための半教師あり深層学習手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-a-semi-supervised-method-for-vessel-type) |
 | 2026-11-11 | Semi supervise | [グローバルサウス諸都市における高解像度な非公式居住地マッピングのためのラベル効率的な半教師あり学習フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-a-label-efficient-semi-supervised-framew) |
