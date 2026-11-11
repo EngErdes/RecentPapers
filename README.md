@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-11 | Open-Vocabulary Object ... | [前景汎用化RPNと言語誘導型視覚拡張によるオープン語彙物体検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-foreground-generalized-rpn-and-language) |
 | 2026-11-11 | Semi supervise | [ForeMatch：効率的な半教師あり3D医学画像セグメンテーションのための前景の一貫性の再考](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-forematch-rethinking-foreground-consiste) |
 | 2026-11-11 | Semi supervise | [S3OD：航空画像における顕著物体検出のためのSegment Anything Modelと半教師あり学習の統合](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-s3od-bridging-segment-anything-model-and) |
 | 2026-11-11 | Semi supervise | [マルチブランチ空間・分光エンコーディングと適応的クラス認識疑似ラベルを用いた半教師ありハイパースペクトル画像分類フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-framework-with-multi-branch-spatial-spec) |
