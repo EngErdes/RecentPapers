@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-11 | MCMC | [階段の上と下：気候変動と新興感染症に対する低地と高地の両生類コミュニティの対照的な反応](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-upstairs-downstairs-contrasting-response) |
 | 2026-11-11 | MCMC | [Rパッケージ「psBayesborrow」：共変量を考慮したベイズ的外部データ借用の実装](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-package-psbayesborrow) |
 | 2026-11-11 | MCMC | [粒子群最適化とデュアルチャネルXGBoostに基づく多源意思決定インテリジェントアルゴリズムの枠組みとシステム](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-a-multisource-decision-intelligent-algor) |
 | 2026-11-11 | MCMC | [高シンクロトロン・ピーク型BL Lac型天体Mrk 421における磁場強度と放射領域サイズの相関関係](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-the-relation-between-magnetic-field-inte) |
