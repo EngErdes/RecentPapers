@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-11 | Open-Vocabulary Object ... | [視覚的な曖昧さ解消のための根拠に基づいた推論](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-grounded-reasoning-for-visual-ambiguity) |
 | 2026-11-11 | Open-Vocabulary Object ... | [CSG-Nav：ロバストな探索と高精度なゼロショット物体目標ナビゲーションのための確信度を考慮した意味・幾何融合](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-csg-nav-confidence-aware-semantic-geomet) |
 | 2026-11-11 | Open-Vocabulary Object ... | [前景汎用化RPNと言語誘導型視覚拡張によるオープン語彙物体検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-foreground-generalized-rpn-and-language) |
 | 2026-11-11 | Semi supervise | [ForeMatch：効率的な半教師あり3D医学画像セグメンテーションのための前景の一貫性の再考](https://github.com/EngErdes/RecentPapers/tree/paper/20261111-forematch-rethinking-foreground-consiste) |
