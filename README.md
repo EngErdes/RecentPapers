@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-12 | differential privacy | [再構成攻撃に対するリスク調整型防御を用いた適応的プライバシー配慮型スプリット学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-adaptive-privacy-aware-split-learning-wi) |
 | 2026-11-12 | differential privacy | [6Gネットワークにおけるプライバシー保護エッジインテリジェンスのための信頼性の高い連合基盤モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-trustworthy-federated-foundation-models) |
 | 2026-11-12 | differential privacy | [遠隔患者モニタリングにおけるデータセキュリティ、プライバシー、および倫理的課題](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-data-security-privacy-and-ethical-challe) |
 | 2026-11-12 | differential privacy | [ゼロトラスト原則を用いたプライバシー保護型モバイルヘルスケアアプリケーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-privacy-preserving-mobile-healthcare-app) |
