@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-12 | optimization | [改良型q-勾配降下法による機械学習の最適化性能の向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-enhancing-machine-learning-optimization) |
 | 2026-11-12 | optimization | [機械的・動的性能向上のための多孔質傾斜機能材料薄板の多目的構造最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-multi-objective-structural-optimization) |
 | 2026-11-12 | optimization | [AgenticPD：クローズドループ物理設計最適化のためのステージ認識型エージェントフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-agenticpd-a-stage-aware-agentic-framewor) |
 | 2026-11-12 | differential privacy | [多施設医療データを用いたプライバシー保護型がん診断のための連合学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-federated-ml-for-privacy-preserving-canc) |
