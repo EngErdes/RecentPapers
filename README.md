@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-12 | differential privacy | [遠隔患者モニタリングにおけるデータセキュリティ、プライバシー、および倫理的課題](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-data-security-privacy-and-ethical-challe) |
 | 2026-11-12 | differential privacy | [ゼロトラスト原則を用いたプライバシー保護型モバイルヘルスケアアプリケーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-privacy-preserving-mobile-healthcare-app) |
 | 2026-11-12 | differential privacy | [DAGハイブリッドブロックチェーンに基づく金融不正検知のためのデータシフトを考慮したプライバシー保護連合学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-data-shift-aware-privacy-preserving-fede) |
 | 2026-11-12 | differential privacy | [ポスト量子時代のクラウドにおけるプライバシーを保護するAI駆動型ヘルスケア分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-privacy-preserving-ai-driven-healthcare) |
