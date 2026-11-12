@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-12 | differential privacy | [差分プライバシー技術を用いたプライバシー保護型機械学習フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-privacy-preserving-machine-learning-fram) |
 | 2026-11-12 | differential privacy | [シャッフル型差分プライバシーを用いたデータストリーム上の信頼性考慮型プライバシー保護真値発見](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-credibility-aware-privacy-preserving-tru) |
 | 2026-11-12 | sparse coding | [キャッシュレスTransformerとエビデンス誘導型AIのための「ボキャブキャピラリ」メモリ](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-vocabucapillary-memory-for-cacheless-tra) |
 | 2026-11-12 | sparse coding | [BRACE：境界誘導およびルール制約を用いた反事実的データ拡張による事故深刻度予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-brace-boundary-guided-rule-constrained-c) |
