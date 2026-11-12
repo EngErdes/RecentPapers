@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-12 | optimization | [教育予測のための構成可能なリスク証明：アンチチェイン最適化と制御シミュレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-composable-risk-certificates-for-educati) |
 | 2026-11-12 | optimization | [深部地下の半密閉空間における現地調査と数値シミュレーションに基づいた局所環境制御の評価と最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-assessment-and-optimization-of-local-env) |
 | 2026-11-12 | optimization | [改良型q-勾配降下法による機械学習の最適化性能の向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-enhancing-machine-learning-optimization) |
 | 2026-11-12 | optimization | [機械的・動的性能向上のための多孔質傾斜機能材料薄板の多目的構造最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-multi-objective-structural-optimization) |
