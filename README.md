@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-13 | kalman filter | [拡張状態ベクトルの無香変換に基づく航空物体の角旋回速度の推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-estimation-of-the-angular-turn-rate-of-a) |
 | 2026-11-13 | kalman filter | [二足歩行楕円拘束と適応的UWB融合による歩行者自己位置推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-pedestrian-localization-via-bipedal-elli) |
 | 2026-11-13 | kalman filter | [連結車両における乗員の挙動および車両状態の推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-state-estimation-of-articulated-passenge) |
 | 2026-11-13 | kalman filter | [NLOS環境下でのハイブリッド・コレントロピーに基づくロバストなUWB/SINS位置推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-hybrid-correntropy-based-robust-uwb-sins) |
