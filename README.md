@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-13 | affective computing | [文脈を考慮した皮肉検出のためのエージェントAIフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-an-agentic-artificial-intelligence-frame) |
 | 2026-11-13 | affective computing | [最新のマルチモーダル感情認識：包括的な調査と分類体系](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-state-of-the-art-multimodal-emotion-reco) |
 | 2026-11-13 | affective computing | [大規模言語モデルの社会生活：擬似的関係の破綻とGPT-4oの引退](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-the-social-life-of-large-language-models) |
 | 2026-11-13 | optimization | [SDNにおけるコントローラ配置：最適化モデル、ネットワーク性能、および今後の研究方向に関する包括的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-controller-placement-in-sdn-a-comprehens) |
