@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-13 | kalman filter | [カルマンフィルタのための新しい適応的パラメータ選択手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-novel-adaptive-parameter-selection) |
 | 2026-11-13 | kalman filter | [データ駆動型微分可能適応アンサンブルカルマンフィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-data-driven-differentiable-adaptive) |
 | 2026-11-13 | kalman filter | [リチウムイオン電池管理のためのデジタルツイン・フレームワーク：電気自動車向け拡張カルマンフィルタを用いた充電状態推定と能動的セルバランス](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-digital-twin-framework-for-lithium-ion-b) |
 | 2026-11-13 | kalman filter | [YOLOv5とカルマンフィルタを用いたCCTV映像における移動方向分析機能付き車両追跡システムの最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-optimization-of-a-yolov5-and-kalman-filt) |
