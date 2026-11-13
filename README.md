@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-13 | optimization | [永久磁石DCモータ駆動のための高度な制御・最適化手法に関する系統的かつ比較的なレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-systematic-and-comparative-review-of-adv) |
 | 2026-11-12 | optimization | [大型燃料電池車両におけるエネルギーと熱管理の予測的同時最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-predictive-co-optimization-of-energy-and) |
 | 2026-11-12 | optimization | [高嫩度な青磚茶の堆積発酵プロセスの最適化と品質分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-optimization-of-pile-fermentation-proces) |
 | 2026-11-12 | optimization | [超楕円体密度サンプリング：高次元数値最適化を加速する探索的シーケンス](https://github.com/EngErdes/RecentPapers/tree/paper/20261112-hyperellipsoid-density-sampling-exploita) |
