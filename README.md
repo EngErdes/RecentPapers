@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-13 | kalman filter | [連結車両における乗員の挙動および車両状態の推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-state-estimation-of-articulated-passenge) |
 | 2026-11-13 | kalman filter | [NLOS環境下でのハイブリッド・コレントロピーに基づくロバストなUWB/SINS位置推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-hybrid-correntropy-based-robust-uwb-sins) |
 | 2026-11-13 | kalman filter | [カルマンフィルタのための新しい適応的パラメータ選択手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-novel-adaptive-parameter-selection) |
 | 2026-11-13 | kalman filter | [データ駆動型微分可能適応アンサンブルカルマンフィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-data-driven-differentiable-adaptive) |
