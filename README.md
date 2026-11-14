@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-14 | Secure Computing | [AI駆動の知能システムと予測分析：ビッグデータ、深層学習、自動化、新興技術の統合による現実世界の課題解決](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-ai-driven-intelligent-systems-and-predic) |
 | 2026-11-14 | Secure Computing | [RBFカーネルを用いたSVMの効率的な秘密計算による2者間学習に向けて](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-toward-efficient-privacy-preserving-two) |
 | 2026-11-14 | Secure Computing | [LPN問題における体（フィールド）の切り替え技術](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-field-switching-in-learning-parity-with) |
 | 2026-11-14 | Secure Computing | [共同的な自閉スペクトラム症検知のためのプライバシー保護機械学習：連合学習とセキュアデータ分析に関する系統的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-privacy-preserving-machine-learning-for) |
