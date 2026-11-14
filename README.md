@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-14 | kalman filter | [環状道路における交通状態推定のための観測可能性に基づくセンサ配置と遅延耐性カルマンフィルタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-observability-driven-sensor-placement-an) |
 | 2026-11-14 | kalman filter | [拡張カルマンフィルタを用いた慣性航法システムおよびINS/GPS統合における最適パラメータ推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-optimal-parameter-estimation-in-inertial) |
 | 2026-11-14 | kalman filter | [GNSS環境およびGNSS障害環境における無人航空機の統合航法のためのスイッチング拡張カルマンフィルタ](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-switching-extended-kalman-filter-for-unm) |
 | 2026-11-14 | kalman filter | [ACバッテリ応用における3相4線式インバータのための、等価入力外乱推定とオブザーバ・カルマンフィルタ同定の統合手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-equivalent-input-disturbance-estimation) |
