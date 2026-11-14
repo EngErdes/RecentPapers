@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-14 | Secure Computing | [DPFuzz: スマートコントラクトのための動的・静的分岐距離と分岐優先度を用いたファジング](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-dpfuzz-dynamic-static-branch-distance-an) |
 | 2026-11-14 | Secure Computing | [匿名性と分散型責任追及を両立したオープンデータ共有](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-open-data-sharing-with-anonymity-and-dec) |
 | 2026-11-14 | Secure Computing | [完全準同型暗号に基づくUAV支援型のプライバシー保護・セキュア無線通信・計算システム](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-a-privacy-preserving-uav-assisted-secure) |
 | 2026-11-14 | kalman filter | [CNN-BiLSTM-Attentionと最大コーレントロピー・キュバチュア・カルマンフィルタの観測レベル融合による車両横滑り角推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-vehicle-sideslip-angle-estimation-via-me) |
