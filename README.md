@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-14 | Secure Computing | [LPN問題における体（フィールド）の切り替え技術](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-field-switching-in-learning-parity-with) |
 | 2026-11-14 | Secure Computing | [共同的な自閉スペクトラム症検知のためのプライバシー保護機械学習：連合学習とセキュアデータ分析に関する系統的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-privacy-preserving-machine-learning-for) |
 | 2026-11-14 | Secure Computing | [多項式時間計算量を持つラウンド最適な統計的検証可能秘密分散法](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-round-optimal-statistical-verifiable-sec) |
 | 2026-11-14 | Secure Computing | [VeilTune: 公開済み事前学習モデルを用いたプライベートLoRAアダプタの安全なファインチューニング](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-veiltune-secure-fine-tuning-of-private-l) |
