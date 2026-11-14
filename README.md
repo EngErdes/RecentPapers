@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-14 | kalman filter | [動的忘却係数を用いた適応拡張カルマンフィルタによる漂流無人水上艇のリアルタイム軌道予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-real-time-trajectory-prediction-of-drift) |
 | 2026-11-14 | kalman filter | [SiamDUKF：微分可能なアンセンテッド・カルマンフィルタを用いたRGBEシャム追跡](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-siamdukf-rgbe-siamese-tracking-with-a-di) |
 | 2026-11-13 | kernel density estimation | [2型糖尿病患者における冷覚閾値の低下と血清カルシウム濃度の関連性](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-association-between-impaired-cold-percep) |
 | 2026-11-13 | kernel density estimation | [GISと機械学習を用いた特定地域における交通事故ホットスポットの分析：死亡事故のバイナリ評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261113-analysis-of-road-traffic-accident-hotspo) |
