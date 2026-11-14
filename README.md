@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-14 | Secure Computing | [VeilTune: 公開済み事前学習モデルを用いたプライベートLoRAアダプタの安全なファインチューニング](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-veiltune-secure-fine-tuning-of-private-l) |
 | 2026-11-14 | Secure Computing | [強いトークン・プライバシーを備えた暗号化ストリーミングデータの検索：応用と構成法](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-encrypted-streaming-data-search-with-str) |
 | 2026-11-14 | Secure Computing | [DPFuzz: スマートコントラクトのための動的・静的分岐距離と分岐優先度を用いたファジング](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-dpfuzz-dynamic-static-branch-distance-an) |
 | 2026-11-14 | Secure Computing | [匿名性と分散型責任追及を両立したオープンデータ共有](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-open-data-sharing-with-anonymity-and-dec) |
