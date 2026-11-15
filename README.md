@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-15 | ガウス過程 | [事前学習を必要としないニューラルネットワークによる2次元含水比分布補間と不確実性評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-2) |
 | 2026-11-15 | MRFs Markov | [マルコフ確率場と分数ブラウン運動を用いた3次元地盤物性の推定モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-3d-stratigraphic-based-geo-property-rand) |
 | 2026-11-15 | generalized assignment ... | [Straddleと基数インデックス付きナップサック定式化のDantzig–Wolfe下界](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-straddles-and-the-dantzig-wolfe-bound-of) |
 | 2026-11-15 | one shot | [低リソース環境の読書クラブ向け検索拡張型エージェントアシスタント：モザンビークにおける実装と比較評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-retrieval-augmented-agentic-assistant-fo) |
