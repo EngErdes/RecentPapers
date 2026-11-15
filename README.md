@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-15 | one shot | [sHAIL-Causal：不変な因果予測因子発見のための逐次的階段手順](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-shail-causal-a-sequential-staircase-proc) |
 | 2026-11-15 | one shot | [カスケード型符号化分散計算のためのMap–Shuffle–Reduce配列：境界と構成法](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-map-shuffle-reduce-arrays-for-cascaded-c) |
 | 2026-11-15 | one shot | [1回限りの通信路シミュレーションにおける最適定数と強力な関数表現補題](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-the-optimal-constant-for-one-shot-channe) |
 | 2026-11-15 | one shot | [キャリブレーションされたプロトタイプ学習によるUAVのワンショット故障診断](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-one-shot-uav-fault-diagnosis-via-calibra) |
