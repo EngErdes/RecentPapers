@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-15 | one shot | [低リソース環境の読書クラブ向け検索拡張型エージェントアシスタント：モザンビークにおける実装と比較評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-retrieval-augmented-agentic-assistant-fo) |
 | 2026-11-15 | one shot | [効率的な秘密分散を用いた連合学習向けの実用的機密クラスタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-practical-confidential-clustering-for-fe) |
 | 2026-11-15 | one shot | [時間とともに変化するデータからの学習：リアルタイムデータマイニングの個人的ビジョン](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-learning-from-time-evolving-data-a-perso) |
 | 2026-11-15 | one shot | [指をさせる音楽：人間とAIの反復的な共同制作のためのアドレス指定可能な表現](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-music-you-can-point-at-addressable-repre) |
