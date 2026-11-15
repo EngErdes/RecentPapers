@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-15 | one shot | [AI時代のサイエンスコミュニケーション：好奇心、マルチメディア、物語の力](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-science-communication-in-the-age-of-ai-c) |
 | 2026-11-15 | one shot | [DialInstruct-TTS: 多対話と微細な時間制御によるインタラクティブな表現力豊かな音声生成](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-dialinstruct-tts-interactive-expressive) |
 | 2026-11-15 | one shot | [sHAIL-Causal：不変な因果予測因子発見のための逐次的階段手順](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-shail-causal-a-sequential-staircase-proc) |
 | 2026-11-15 | one shot | [カスケード型符号化分散計算のためのMap–Shuffle–Reduce配列：境界と構成法](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-map-shuffle-reduce-arrays-for-cascaded-c) |
