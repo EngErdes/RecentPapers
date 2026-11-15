@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-15 | one shot | [キャリブレーションされたプロトタイプ学習によるUAVのワンショット故障診断](https://github.com/EngErdes/RecentPapers/tree/paper/20261115-one-shot-uav-fault-diagnosis-via-calibra) |
 | 2026-11-14 | Secure Computing | [AI駆動の知能システムと予測分析：ビッグデータ、深層学習、自動化、新興技術の統合による現実世界の課題解決](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-ai-driven-intelligent-systems-and-predic) |
 | 2026-11-14 | Secure Computing | [RBFカーネルを用いたSVMの効率的な秘密計算による2者間学習に向けて](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-toward-efficient-privacy-preserving-two) |
 | 2026-11-14 | Secure Computing | [LPN問題における体（フィールド）の切り替え技術](https://github.com/EngErdes/RecentPapers/tree/paper/20261114-field-switching-in-learning-parity-with) |
