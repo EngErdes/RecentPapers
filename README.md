@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-16 | Ontology | [関係洗練に基づく中医学オントロジー指向診断システム](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-research-article-ontology-oriented-diagn) |
 | 2026-11-16 | Ontology | [スペイン語における音楽の語彙集とオントロジー（LexiMus）](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-a-spanish-lexicon-and-ontology-for-music) |
 | 2026-11-16 | Ontology | [マナド州立大学電気工学教育課程におけるMBKMカリキュラムの解釈学的分析：存在論・認識論・価値論の観点から](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-negeri-manado-ontologi-epistemologi-dan) |
 | 2026-11-16 | Ontology | [オントロジーベースの知識グラフを用いたLLMによる法的推論の向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-legal-reasoning-in-llms-through-ontology) |
