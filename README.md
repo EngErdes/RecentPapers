@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-16 | Ontology | [ONITH：3Rにおけるデータ再利用のためのオントロジーに基づく非臨床統合および用語調和パイプライン](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-onith-an-ontology-based-non-clinical-int) |
 | 2026-11-16 | manifold learning | [EPG-SD：脳波と行動表現型から教師なしで神経行動学的サブタイプを発見するためのマルチモーダル・スペクトラル・グラフ・フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-epg-sd-a-multimodal-spectral-graph-frame) |
 | 2026-11-16 | manifold learning | [画素差分ハッシングによる動的テクスチャ認識のための時空間表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-spatiotemporal-representation-learning-v) |
 | 2026-11-16 | manifold learning | [VAFTD：ビッグデータ環境における未知のランサムウェア分類のための多様性を考慮したフォレンジック変換検知](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-vaftd-variety-aware-forensic-transformat) |
