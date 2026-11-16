@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-16 | manifold learning | [画素差分ハッシングによる動的テクスチャ認識のための時空間表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-spatiotemporal-representation-learning-v) |
 | 2026-11-16 | manifold learning | [VAFTD：ビッグデータ環境における未知のランサムウェア分類のための多様性を考慮したフォレンジック変換検知](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-vaftd-variety-aware-forensic-transformat) |
 | 2026-11-16 | manifold learning | [適応的距離エントロピーを用いた回転機械の一般化ゼロショット複合故障診断](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-adaptive-distance-entropy-informed-gener) |
 | 2026-11-16 | manifold learning | [ベイズ分類器に基づくビーム予測：解釈可能かつ低計算量のアルゴリズム](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-bayesian-classifier-based-beam-predictio) |
