@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-16 | Ontology | [マナド州立大学電気工学教育課程におけるMBKMカリキュラムの解釈学的分析：存在論・認識論・価値論の観点から](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-negeri-manado-ontologi-epistemologi-dan) |
 | 2026-11-16 | Ontology | [オントロジーベースの知識グラフを用いたLLMによる法的推論の向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-legal-reasoning-in-llms-through-ontology) |
 | 2026-11-16 | Ontology | [アフリカの関係論的存在論の具体化：共同体・関係的「人への生成」理論の概念導出](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-operationalizing-african-relational-onto) |
 | 2026-11-16 | Ontology | [AutoOntic: 知識グラフ構築のためのテキストからの自動オントロジー誘導](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-autoontic-automatic-ontology-induction-f) |
