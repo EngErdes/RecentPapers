@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-16 | manifold learning | [ベイズ分類器に基づくビーム予測：解釈可能かつ低計算量のアルゴリズム](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-bayesian-classifier-based-beam-predictio) |
 | 2026-11-16 | manifold learning | [局所線形領域SMOTE：不均衡データ分類のための多様体構造を維持する改良型オーバーサンプリング手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-local-linear-region-smote-an-improved-ov) |
 | 2026-11-16 | manifold learning | [航空画像における物体検出のための多様体制約付きニューラル微分方程式ネットワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-manifold-constrained-neural-differential) |
 | 2026-11-16 | manifold learning | [ハイパースペクトル画像分類のための意味的に精緻化されたテンソル判別多様体学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-semantic-purified-tensor-discriminant-ma) |
