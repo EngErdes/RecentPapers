@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | logistics | [産業界におけるサーキュラーエコノミー実装のためのリバース・ロジスティクス：系統的文献計量学的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-reverse-logistics-in-circular-economy-im) |
 | 2026-11-17 | one shot | [EdgeLLM-Nano: 33.6 MBのオンデバイス言語モデルにおける極座標誘導型キーキャッシュ圧縮と整合性固定プルーニングの検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-edgellm-nano-auditing-polar-guided-key-c) |
 | 2026-11-17 | one shot | [LLMのKVキャッシュ圧縮における高スループットなバイナリ類似度検索に向けた、デュアルチャネル共有OFA-p-SOT-MRAM CIMマクロ](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-dual-channel-shared-ofa-p-sot-mram-cim-m) |
 | 2026-11-17 | one shot | [量子モデルにおけるデータ・エンコーディングの非線形性とそのコスト](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-quantum-models-pay-for-non-linearity-in) |
