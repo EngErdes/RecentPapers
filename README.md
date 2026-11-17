@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | one shot | [最適輸送の最小化：ワンショット物体検出のための潜在的な分布不変性の学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-optimal-transport-minimization-learning) |
 | 2026-11-17 | Ontology | [2つのAI間における「もつれ」のシミュレーション：オントロジー・マッチングのための概念実証](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-simulation-of-entanglement-between-two-a) |
 | 2026-11-17 | Ontology | [Hivemind: ドキュメントメモリにおけるコーパス特化型軽量オントロジー構築のための最小2段階プロトコル](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-hivemind-a-minimal-two-stage-protocol-fo) |
 | 2026-11-16 | Ontology | [科学論文におけるオントロジーに基づいた実験データ抽出手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261116-methods-for-ontology-guided-extraction-o) |
