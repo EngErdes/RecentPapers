@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | one shot | [量子モデルにおけるデータ・エンコーディングの非線形性とそのコスト](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-quantum-models-pay-for-non-linearity-in) |
 | 2026-11-17 | one shot | [リアルタイムRFスペクトル計測と整合フィルタリングに向けた集積回折スラブ光プロセッサ](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-integrated-diffractive-slab-photonic-pro) |
 | 2026-11-17 | one shot | [1つの階層、多くのスポーツ：次打予測のための階層整合型マルチタスク学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-one-hierarchy-many-sports-hierarchy-alig) |
 | 2026-11-17 | one shot | [説明可能なAI（XAI）を悪用したワンショット・メンバーシップ推論攻撃](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-exploiting-explainable-artificial-intell) |
