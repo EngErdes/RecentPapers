@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | logistics | [SAE-MOGWO-PRS：時空間適応型共同物流ネットワーク最適化のための確率ランキング戦略に基づくグレーウルフ最適化手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-sae-mogwo-prs-a-probability-ranking-stra) |
 | 2026-11-17 | logistics | [デジタル技術が物流システムの持続可能な発展と効率性に与える影響の評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-assessing-the-impact-of-digital-technolo) |
 | 2026-11-17 | logistics | [儒教思想と海運・物流の概念的融合の解明：二重コーパスによる計量書誌学的・主題的分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-mapping-the-conceptual-convergence-betwe) |
 | 2026-11-17 | logistics | [無線プロトコルと多基準意思決定を用いたUAVによる救急医療物流の性能最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-performance-optimization-of-uav-based-em) |
