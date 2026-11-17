@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | logistics | [儒教思想と海運・物流の概念的融合の解明：二重コーパスによる計量書誌学的・主題的分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-mapping-the-conceptual-convergence-betwe) |
 | 2026-11-17 | logistics | [無線プロトコルと多基準意思決定を用いたUAVによる救急医療物流の性能最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-performance-optimization-of-uav-based-em) |
 | 2026-11-17 | logistics | [物流用電気自動車の物理学に基づくエネルギー消費予測と充電需要ギャップの特定](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-physics-informed-energy-consumption-pred) |
 | 2026-11-17 | logistics | [物流アプリケーション向けニューラル推定を用いたバックステッピング制御によるスキッドステア型移動ロボットの軌道追従](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-trajectory-tracking-of-ssmr-using-backst) |
