@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | one shot | [LLMのKVキャッシュ圧縮における高スループットなバイナリ類似度検索に向けた、デュアルチャネル共有OFA-p-SOT-MRAM CIMマクロ](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-dual-channel-shared-ofa-p-sot-mram-cim-m) |
 | 2026-11-17 | one shot | [量子モデルにおけるデータ・エンコーディングの非線形性とそのコスト](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-quantum-models-pay-for-non-linearity-in) |
 | 2026-11-17 | one shot | [リアルタイムRFスペクトル計測と整合フィルタリングに向けた集積回折スラブ光プロセッサ](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-integrated-diffractive-slab-photonic-pro) |
 | 2026-11-17 | one shot | [1つの階層、多くのスポーツ：次打予測のための階層整合型マルチタスク学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-one-hierarchy-many-sports-hierarchy-alig) |
