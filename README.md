@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-17 | one shot | [説明可能なAI（XAI）を悪用したワンショット・メンバーシップ推論攻撃](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-exploiting-explainable-artificial-intell) |
 | 2026-11-17 | one shot | [Fed-RCPA: 代表クラスプロトタイプ集約に基づくワンショット連合学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-fed-rcpa-representative-class-prototype) |
 | 2026-11-17 | one shot | [動的な環境におけるワンショット適応のためのポパー的予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-popperian-expectations-for-one-shot-adap) |
 | 2026-11-17 | one shot | [キーリレーと秘密ネットワークコーディング：無向ネットワークにおけるワンショット等価性と分離](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-key-relay-and-secure-network-coding-one) |
