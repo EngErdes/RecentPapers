@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-18 | representation learning | [不確実な欠損モダリティを伴うクロスシーン・リモートセンシング画像分類のための言語認識型統合表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-language-aware-modal-integrated-represen) |
 | 2026-11-18 | representation learning | [時空間軌跡表現学習による、安全性重視の教師なし船舶交通パターンマイニング](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-safety-oriented-unsupervised-ship-traffi) |
 | 2026-11-18 | representation learning | [株式リターンの予測における時間的変化に対応した動的な価値・需要グラフ表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-dynamic-value-demand-graph-representatio) |
 | 2026-11-18 | MRFs Markov | [超大規模アンテナアレイにおける可視領域検出を強化した近傍界チャネル推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-visibility-region-detection-enhanced-nea) |
