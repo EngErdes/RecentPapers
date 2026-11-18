@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-18 | kalman filter | [ハイブリッド拡張カルマンフィルタとデータ駆動型深層学習を用いた電気自動車用リチウムイオン電池の充電状態（SoC）推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-state-of-charge-estimation-of-lithium-io) |
 | 2026-11-18 | kalman filter | [LVDCマイクログリッドにおけるPV駆動DCモータの動的性能と安定性向上のためのカルマンフィルタを用いた予測状態推定MPPT](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-predictive-state-estimation-mppt-using-a) |
 | 2026-11-18 | kalman filter | [2次ブーストコンバータへの拡張カルマンフィルタとIDA-PBCの適用：MATLAB/Simulinkによる実装](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-application-of-the-extended-kalman-filte) |
 | 2026-11-18 | kalman filter | [カルマンフィルタの混乱を解き明かし、太陽系インターネット時計を構築する](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-unscrambling-the-kalman-filter-traffic-j) |
