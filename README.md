@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-18 | kalman filter | [SINDy支援型無香料カルマンフィルタを用いた、GNSS遮断下でのMEMS-IMU航法のための解釈可能なマルチソース融合](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-interpretable-multi-source-fusion-for-gn) |
 | 2026-11-18 | representation learning | [WAAM低炭素鋼におけるアコースティック・エミッションの対照的・敵対的学習を用いたき裂先端微視組織のゼロショット識別](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-zero-shot-identification-of-crack-tip-mi) |
 | 2026-11-18 | representation learning | [マルチビュークラスタリングのための強化されたテンソルt-積表現](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-enhanced-tensorial-t-product-representat) |
 | 2026-11-18 | representation learning | [マルチビュークラスタリングのための意味的一貫性を備えた双方向対照学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-bidirectional-contrastive-learning-with) |
