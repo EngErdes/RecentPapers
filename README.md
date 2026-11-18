@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-18 | representation learning | [株式リターンの予測における時間的変化に対応した動的な価値・需要グラフ表現学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-dynamic-value-demand-graph-representatio) |
 | 2026-11-18 | MRFs Markov | [超大規模アンテナアレイにおける可視領域検出を強化した近傍界チャネル推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-visibility-region-detection-enhanced-nea) |
 | 2026-11-18 | kalman filter  "anomaly ... | [IoTとエッジコンピューティングを活用したインテリジェントなヘルスケア物流プラットフォームの開発](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-development-of-an-intelligent-healthcare) |
 | 2026-11-17 | logistics | [不整合情報の浄化に基づくラフ・ロジスティック回帰モデル](https://github.com/EngErdes/RecentPapers/tree/paper/20261117-rough-logistics-regression-model-based-o) |
