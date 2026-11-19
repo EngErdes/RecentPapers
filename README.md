@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | kalman filter | [Enhanced PyroScan: ドローンを活用した山火事移動予測システムの高度化](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-enhanced-pyroscan-a-uav-based-wildfire-m) |
 | 2026-11-19 | kalman filter | [CFDと現地観測を用いた大気境界層における光学乱流予測：インド半島を対象としたケーススタディ](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-optical-turbulence-forecasting-in-the-at) |
 | 2026-11-18 | kalman filter | [ガウス過程を用いた監視レーダーのためのデータ対応付けと追跡の統合手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-joint-data-association-and-tracking-for) |
 | 2026-11-18 | kalman filter | [ハイブリッド拡張カルマンフィルタとデータ駆動型深層学習を用いた電気自動車用リチウムイオン電池の充電状態（SoC）推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261118-state-of-charge-estimation-of-lithium-io) |
