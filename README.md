@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | logistics | [中国とASEAN諸国間の農産物貿易サプライチェーンのパフォーマンス：物流・通関・保護条件との関連性](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-agricultural-trade-supply-chain-performa) |
 | 2026-11-19 | logistics | [マルコフ決定過程とDouble Deep Q-Networkを用いたリバースロジスティクスにおける携帯電話回収管理の逐次意思決定最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-markov-decision-process-and-double-deep) |
 | 2026-11-19 | logistics | [公平で強靭な人道支援ロジスティクスに向けて：統合的な多期間・マルチモーダル災害応急対応システムの分類法と成熟度フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-toward-equity-robust-humanitarian-logist) |
 | 2026-11-19 | kalman filter | [動的環境における自動運転車両ナビゲーションのための経路計画を統合したマルチセンサ融合フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-an-integrated-multi-sensor-fusion-framew) |
