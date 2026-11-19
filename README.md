@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | ICA | [1,3,4-オキサジアゾール誘導体で修飾されたフタロシアニン：音響/光力学的療法、抗菌、抗がん、抗酸化活性を統合した多機能バイオアクティブ剤](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-1-3-4-oxadiazole-derivative-modified-pht) |
 | 2026-11-19 | ICA | [アクティブソナーの残響抑制のための新しいハイブリッドPCA-ICAモデルを用いた信号分解技術の比較分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-a-comparative-analysis-of-signal-decompo) |
 | 2026-11-19 | logistics | [マディウン県における国家物流エコシステム統合型倉庫区域の取引自動化と商品追跡のためのブロックチェーン活用](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-blockchain-untuk-otomatisasi-transaksi-d) |
 | 2026-11-19 | logistics | [分散配置を超えて：敏捷な戦闘展開（ACE）と代替ロジスティクス支援モデルの批判的評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-beyond-dispersal-a-critical-evaluation-o) |
