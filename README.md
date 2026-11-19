@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | logistics | [分散配置を超えて：敏捷な戦闘展開（ACE）と代替ロジスティクス支援モデルの批判的評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-beyond-dispersal-a-critical-evaluation-o) |
 | 2026-11-19 | logistics | [ルワンダのKabisa Electricにおけるグリーンロジスティクス実践と組織の持続可能性の認識](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-green-logistics-practices-and-perceived) |
 | 2026-11-19 | logistics | [優先度制約を考慮した都市物流ルート最適化のための量子・古典ハイブリッドフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-a-hybrid-quantum-classical-framework-for) |
 | 2026-11-19 | logistics | [持続可能な開発の文脈における物流クラスター形成の戦略的会計と経済的安全性の分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-strategic-accounting-and-analysis-of-eco) |
