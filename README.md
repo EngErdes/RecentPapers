@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | ICA | [合成データ拡張を用いた脳波駆動型適応認知療法](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-eeg-driven-adaptive-cognitive-therapy-wi) |
 | 2026-11-19 | ICA | [シマントレンカルボキシラートおよびフェロセンホスフィンオキシド配位子を用いた新規d-f異種金属錯体：4種の異なる金属を含む化合物](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-novel-df-heterometallic-complexes-based) |
 | 2026-11-19 | ICA | [1,3,4-オキサジアゾール誘導体で修飾されたフタロシアニン：音響/光力学的療法、抗菌、抗がん、抗酸化活性を統合した多機能バイオアクティブ剤](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-1-3-4-oxadiazole-derivative-modified-pht) |
 | 2026-11-19 | ICA | [アクティブソナーの残響抑制のための新しいハイブリッドPCA-ICAモデルを用いた信号分解技術の比較分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-a-comparative-analysis-of-signal-decompo) |
