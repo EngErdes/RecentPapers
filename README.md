@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | logistics | [公平で強靭な人道支援ロジスティクスに向けて：統合的な多期間・マルチモーダル災害応急対応システムの分類法と成熟度フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-toward-equity-robust-humanitarian-logist) |
 | 2026-11-19 | kalman filter | [動的環境における自動運転車両ナビゲーションのための経路計画を統合したマルチセンサ融合フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-an-integrated-multi-sensor-fusion-framew) |
 | 2026-11-19 | kalman filter | [Enhanced PyroScan: ドローンを活用した山火事移動予測システムの高度化](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-enhanced-pyroscan-a-uav-based-wildfire-m) |
 | 2026-11-19 | kalman filter | [CFDと現地観測を用いた大気境界層における光学乱流予測：インド半島を対象としたケーススタディ](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-optical-turbulence-forecasting-in-the-at) |
