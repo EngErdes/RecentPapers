@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | ICA | [SE-MDTCN: 脳波信号を用いた想起発話分類のための空間強化型時系列畳み込みネットワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-se-mdtcn-a-spatially-enhanced-temporal-c) |
 | 2026-11-19 | ICA | [動脈解離に起因する頸部内頸動脈閉塞に対する血管内治療：多施設共同解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-endovascular-treatment-for-cervical-inte) |
 | 2026-11-19 | ICA | [合成データ拡張を用いた脳波駆動型適応認知療法](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-eeg-driven-adaptive-cognitive-therapy-wi) |
 | 2026-11-19 | ICA | [シマントレンカルボキシラートおよびフェロセンホスフィンオキシド配位子を用いた新規d-f異種金属錯体：4種の異なる金属を含む化合物](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-novel-df-heterometallic-complexes-based) |
