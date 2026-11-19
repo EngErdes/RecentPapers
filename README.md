@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-19 | logistics | [持続可能な開発の文脈における物流クラスター形成の戦略的会計と経済的安全性の分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-strategic-accounting-and-analysis-of-eco) |
 | 2026-11-19 | logistics | [ひずみ検知とバーコード処理を統合したスマート物流監視システム](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-smart-logistics-monitoring-system-with-s) |
 | 2026-11-19 | logistics | [トルコの物流業界におけるジェンダー・ナラティブと女性リーダーシップ](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-gender-narratives-and-female-leadership) |
 | 2026-11-19 | logistics | [中国とASEAN諸国間の農産物貿易サプライチェーンのパフォーマンス：物流・通関・保護条件との関連性](https://github.com/EngErdes/RecentPapers/tree/paper/20261119-agricultural-trade-supply-chain-performa) |
