@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-20 | kalman filter | [リチウムイオン電池の残量推定における拡張カルマンフィルタと順伝播型ニューラルネットワークによるハイブリッド補正手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-hybrid-extended-kalman-filtering-and-fee) |
 | 2026-11-20 | kalman filter | [dVRKに触発された手術タスクにおける安全な軌道生成のためのイノベーション・ゲート付き適応カルマン・機械学習融合](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-innovation-gated-adaptive-kalman-ml-fusi) |
 | 2026-11-20 | kalman filter | [温度場と熱流束の同時推定のためのファジィ適応戦略を用いた改良型最適二段階カルマンフィルタ：比較性能評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-improving-optimal-two-stage-kalman-filte) |
 | 2026-11-20 | kalman filter | [車追従モデル統合型無香料カルマンフィルタによる、待ち行列ダイナミクスと到着時間のリアルタイム同時推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-real-time-joint-estimation-of-queue-dyna) |
