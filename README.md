@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-20 | kalman filter | [アンサンブルカルマンフィルタを用いた不均質なハイドレート飽和度分布の逆解析に関する実現可能性研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-feasibility-study-on-the-inversion-of-he) |
 | 2026-11-20 | multi agent | [再生可能エネルギーを統合した電力系統における堅牢な周波数調整のための協調型マルチエージェント深層強化学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-cooperative-multi-agent-deep-reinforceme) |
 | 2026-11-20 | multi agent | [模倣によるブートストラップを用いたマルチエージェント強化学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-imitation-bootstrapped-multi-agent-reinf) |
 | 2026-11-20 | multi agent | [設計によるマルチエージェントシステムの保護：SecMASの提案](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-securing-multi-agent-systems-by-design) |
