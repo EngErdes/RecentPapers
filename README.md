@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-20 | kalman filter | [強力なヒステリシスを持つリチウムイオン電池の堅牢なSOC推定に向けた、平方根中心差分カルマンフィルタを用いた二重時間スケールヒステリシスモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-dual-timescale-hysteresis-modeling-with) |
 | 2026-11-20 | kalman filter | [バッチ冷却晶析における測定変数選択の影響分析を伴う、適応型無香料カルマンフィルタに基づく堅牢な状態観測器の設計](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-robust-state-observer-design-based-on-ad) |
 | 2026-11-20 | kalman filter | [非ガウス型共振強制複合荷重下の構造物に対するカルマンフィルタ強化型LQR：陸上風力発電機への応用](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-kalman-filter-enhanced-lqr-for-structure) |
 | 2026-11-20 | kalman filter | [アンサンブルカルマンフィルタを用いた不均質なハイドレート飽和度分布の逆解析に関する実現可能性研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-feasibility-study-on-the-inversion-of-he) |
