@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-20 | multi agent | [マルチエージェントシステムにおける固定時間制御のレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-a-review-of-fixed-time-control-for-multi) |
 | 2026-11-20 | multi agent | [サイバー攻撃下におけるマルチエージェントシステムのセキュア制御：包括的サーベイ](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-secure-control-of-multi-agent-systems-un) |
 | 2026-11-20 | multi agent | [ドローン群ネットワークの自律化に向けた生成AI統合型マルチエージェント深層強化学習フレームワーク：最新動向、ケーススタディ、および課題](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-generative-ai-integrated-multi-agent-drl) |
 | 2026-11-20 | MRFs Markov | [脳マッピングにおけるマルコフ確率場事前分布を用いた構造解析手法の進展](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-within-the-past-few-decades-advances-in) |
