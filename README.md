@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-20 | multi agent | [MV*: 非構造化環境におけるキネダイナミクスを考慮したマルチエージェント経路計画アルゴリズム](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-mv-a-kinodynamic-multi-agent-path-planni) |
 | 2026-11-20 | multi agent | [構造化コンテキストエンジニアリングによる授業計画生成のためのマルチエージェントフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-a-multi-agent-framework-for-lesson-plan) |
 | 2026-11-20 | multi agent | [マルチエージェントシステムにおける固定時間制御のレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-a-review-of-fixed-time-control-for-multi) |
 | 2026-11-20 | multi agent | [サイバー攻撃下におけるマルチエージェントシステムのセキュア制御：包括的サーベイ](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-secure-control-of-multi-agent-systems-un) |
