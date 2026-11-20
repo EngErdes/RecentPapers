@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-20 | kalman filter | [温度場と熱流束の同時推定のためのファジィ適応戦略を用いた改良型最適二段階カルマンフィルタ：比較性能評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-improving-optimal-two-stage-kalman-filte) |
 | 2026-11-20 | kalman filter | [車追従モデル統合型無香料カルマンフィルタによる、待ち行列ダイナミクスと到着時間のリアルタイム同時推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-real-time-joint-estimation-of-queue-dyna) |
 | 2026-11-20 | kalman filter | [強力なヒステリシスを持つリチウムイオン電池の堅牢なSOC推定に向けた、平方根中心差分カルマンフィルタを用いた二重時間スケールヒステリシスモデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-dual-timescale-hysteresis-modeling-with) |
 | 2026-11-20 | kalman filter | [バッチ冷却晶析における測定変数選択の影響分析を伴う、適応型無香料カルマンフィルタに基づく堅牢な状態観測器の設計](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-robust-state-observer-design-based-on-ad) |
