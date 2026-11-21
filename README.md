@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | optimization | [10Wマイクロフリーピストン・スターリング発電機のパラメータ影響分析と最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-parameter-effect-analysis-and-optimizati) |
 | 2026-11-21 | optimization | [リーマン最適化を用いた剛体リー群上の軌道最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-trajectory-optimization-on-rigid-body-li) |
 | 2026-11-21 | optimization | [ANN駆動型カバ最適化アルゴリズムを用いたネット・ゼロ・エネルギー・ビルのためのサロゲート補助型多目的性能最適化：複数気候下での分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-assisted-simulation-based-multi-objectiv) |
 | 2026-11-21 | optimization | [太陽光発電の予測および最適化技術に関する批判的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-a-critical-review-of-photovoltaic-power) |
