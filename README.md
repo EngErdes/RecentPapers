@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | logistics | [デジタル技術と物流効率：ナイジェリア・ラゴス州の物流企業における実証的証拠](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-digital-technologies-and-logistics-effic) |
 | 2026-11-21 | logistics | [公衆衛生ロジスティクスにおける必須医薬品（パラセタモールと鉄剤）の定量化・予測・調達に関するエビデンスに基づいた実践レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-review-evidence-based-practices-of-quant) |
 | 2026-11-21 | logistics | [港湾運営におけるサプライチェーンのデジタルトランスフォーメーションと物流パフォーマンスを結ぶ動的な仲介メカニズムとしてのデジタルツイン機能](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-digital-twin-capabilities-as-a-dynamic-m) |
 | 2026-11-21 | logistics | [ブラジル・バイーア州における包装容器の逆物流：S-LCAのマテリアリティ評価に資する参加型重要度格付け](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-packaging-reverse-logistics-in-bahia-bra) |
