@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | optimization | [ANN駆動型カバ最適化アルゴリズムを用いたネット・ゼロ・エネルギー・ビルのためのサロゲート補助型多目的性能最適化：複数気候下での分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-assisted-simulation-based-multi-objectiv) |
 | 2026-11-21 | optimization | [太陽光発電の予測および最適化技術に関する批判的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-a-critical-review-of-photovoltaic-power) |
 | 2026-11-21 | optimization | [抵抗膜式一酸化炭素センサ：検知材料から性能最適化までのレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-resistive-carbon-monoxide-sensors-a-revi) |
 | 2026-11-21 | optimization | [AI駆動型蓄電池システム（BESS）のメカニズム特性評価と知的運用最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-artificial-intelligence-driven-besss-mec) |
