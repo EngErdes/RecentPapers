@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | optimization | [AI駆動型蓄電池システム（BESS）のメカニズム特性評価と知的運用最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-artificial-intelligence-driven-besss-mec) |
 | 2026-11-21 | logistics | [防空部隊の後方支援における無人地上車両（UGV）の役割](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-the-role-of-unmanned-ground-vehicles-in) |
 | 2026-11-21 | logistics | [JGAロジスティクスにおけるデジタル・サプライチェーン変革の有効性に対するプロジェクトマネジメントの役割](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-the-role-of-project-management-on-the-ef) |
 | 2026-11-21 | logistics | [監査におけるデータ駆動型キャッシュフロー・モデリングと物流の不確実性要因](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-logistics-uncertainty-factors-in-data-dr) |
