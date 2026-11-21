@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | logistics | [JGAロジスティクスにおけるデジタル・サプライチェーン変革の有効性に対するプロジェクトマネジメントの役割](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-the-role-of-project-management-on-the-ef) |
 | 2026-11-21 | logistics | [監査におけるデータ駆動型キャッシュフロー・モデリングと物流の不確実性要因](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-logistics-uncertainty-factors-in-data-dr) |
 | 2026-11-21 | logistics | [COVID-19パンデミック下におけるネットワーク型中小企業の物流パフォーマンス指標の評価：ポーランド・トマシュフ郡の事例](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-assessment-of-logistics-performance-indi) |
 | 2026-11-21 | logistics | [デジタル技術と物流効率：ナイジェリア・ラゴス州の物流企業における実証的証拠](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-digital-technologies-and-logistics-effic) |
