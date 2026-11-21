@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | optimization | [変異型同調質量ダンパー・イナーターのエネルギー流メカニズムとエネルギーに基づく最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-energy-flow-mechanisms-and-energy-based) |
 | 2026-11-21 | optimization | [分枝ベンダーズカット法を用いた実世界の送電網におけるトポロジーと再配分の統合最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-integrated-topology-and-redispatch-optim) |
 | 2026-11-21 | optimization | [分解型多目的進化最適化における局所ミニアーカイブを用いた選択と生殖の効率向上](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-improving-selection-and-reproduction-eff) |
 | 2026-11-21 | optimization | [10Wマイクロフリーピストン・スターリング発電機のパラメータ影響分析と最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-parameter-effect-analysis-and-optimizati) |
