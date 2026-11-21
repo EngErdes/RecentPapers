@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-21 | logistics | [持続可能な都市物流における多次元的な柔軟性：e-カーゴ配送の消費者受容性と市場存続可能性](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-multidimensional-flexibility-in-sustaina) |
 | 2026-11-21 | kalman filter | [PMUを用いた発電機動的状態推定における、測定値の重み付けがGPSホールドオーバー耐性を決定する](https://github.com/EngErdes/RecentPapers/tree/paper/20261121-measurement-weighting-sets-the-gps-holdo) |
 | 2026-11-20 | kalman filter | [SE(3)に基づく適応的ロバストフィルタリングとSINS/DVL航法への応用](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-adaptive-robust-filtering-based-on-se-3) |
 | 2026-11-20 | kalman filter | [リチウムイオン電池の残量推定における拡張カルマンフィルタと順伝播型ニューラルネットワークによるハイブリッド補正手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261120-hybrid-extended-kalman-filtering-and-fee) |
