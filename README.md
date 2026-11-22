@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-22 | Ontology | [オントロジーに基づくLLMにおける矛盾認識：認識論的視点](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-contradiction-awareness-in-ontology-grou) |
 | 2026-11-22 | Ontology | [注意機構とオントロジー拡張を用いたシリア語・英語ニューラル機械翻訳](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-syrian-english-neural-machine-translatio) |
 | 2026-11-22 | Ontology | [クラウド環境における一貫した知識表現を実現するためのオントロジーマッピング戦略](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-strategies-for-ontology-mapping-to-achie) |
 | 2026-11-22 | Ontology | [異種ロボットチームのためのオントロジー構築による制御バリア関数](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-ontology-compiled-control-barrier-functi) |
