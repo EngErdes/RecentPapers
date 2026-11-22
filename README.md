@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-22 | MCMC | [制約されたサンプルサイズを考慮した確率的速度・密度関係推定のためのバイアス・バリアンス・フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-a-bias-variance-framework-for-estimating) |
 | 2026-11-22 | MCMC | [混合データ混合モデルに対するベイズ変分推論](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-bayesian-variational-inference-for-mixed) |
 | 2026-11-22 | MCMC | [レベル1で測定されたクラスターレベル予測変数のベイズ推定：バイアス、区間被覆率、および最大尤度法との比較](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-bayesian-estimation-of-cluster-level-pre) |
 | 2026-11-22 | MCMC | [Diffusion Restore：拡散モデルを用いたインタラクティブなMCMC光輸送シミュレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-diffusion-restore-interactive-markov-cha) |
