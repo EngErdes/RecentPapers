@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-22 | Ontology | [セマンティック・サイバーセキュリティ：オントロジー駆動の攻撃パス推論とグラフベースの脅威インテリジェンス](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-semantic-cybersecurity-ontology-driven-a) |
 | 2026-11-22 | Ontology | [遠近法的存在論と次元論理学](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-perspective-ontology-and-dimensional-log) |
 | 2026-11-22 | Ontology | [オントロジーに基づくLLMにおける矛盾認識：認識論的視点](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-contradiction-awareness-in-ontology-grou) |
 | 2026-11-22 | Ontology | [注意機構とオントロジー拡張を用いたシリア語・英語ニューラル機械翻訳](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-syrian-english-neural-machine-translatio) |
