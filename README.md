@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-22 | Ontology | [確定的現在主義：量子力学における単一履歴の実在論](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-committed-presentism-a-single-history-on) |
 | 2026-11-22 | Ontology | [セマンティック・サイバーセキュリティ：オントロジー駆動の攻撃パス推論とグラフベースの脅威インテリジェンス](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-semantic-cybersecurity-ontology-driven-a) |
 | 2026-11-22 | Ontology | [遠近法的存在論と次元論理学](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-perspective-ontology-and-dimensional-log) |
 | 2026-11-22 | Ontology | [オントロジーに基づくLLMにおける矛盾認識：認識論的視点](https://github.com/EngErdes/RecentPapers/tree/paper/20261122-contradiction-awareness-in-ontology-grou) |
