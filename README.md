@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | affective computing | [リスクの状態：マルコフ連鎖と深層言語モデルを用いたギャンブル依存症者の心理状態とペルソナの予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-state-of-risk-predicting-the-mental-stat) |
 | 2026-11-23 | affective computing | [Social Signal Bench: 映像と音声における同時発生ソーシャルシグナルの証拠重み付け評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-social-signal-bench-evidence-weighted-ev) |
 | 2026-11-23 | affective computing | [EEGとEDA信号を用いたマルチモーダル・デュアルストリーム・アテンション・ネットワークによる人間の感情認識](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-human-emotion-recognition-using-multimod) |
 | 2026-11-23 | affective computing | [SelectKBest (ANOVA F統計量, k=20) 特徴量重み付けを用いた音声・顔・脳波ベースの感情認識ディープラーニングパイプラインのベンチマーク評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-benchmarking-deep-learning-pipelines-for) |
