@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | optimization | [トポロジー最適化におけるディープラーニング手法：系統的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-deep-learning-methods-in-topology-optimi) |
 | 2026-11-23 | optimization | [試行錯誤からデータ駆動型のプロセス最適化へ：植物精油抽出における人工知能の活用](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-from-trial-and-error-to-data-driven-proc) |
 | 2026-11-23 | affective computing | [多次元学習者ペルソナのためのマハラノビス距離強化型K-Means++クラスタリング：Canvas MOOCデータセットによる検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-mahalanobis-enhanced-k-means-clustering) |
 | 2026-11-23 | affective computing | [視線インタラクションを通じた非接触型ニューロモルフィック感情推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-noncontact-neuromorphic-emotion-inferenc) |
