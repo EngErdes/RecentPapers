@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | affective computing | [多次元学習者ペルソナのためのマハラノビス距離強化型K-Means++クラスタリング：Canvas MOOCデータセットによる検証](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-mahalanobis-enhanced-k-means-clustering) |
 | 2026-11-23 | affective computing | [視線インタラクションを通じた非接触型ニューロモルフィック感情推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-noncontact-neuromorphic-emotion-inferenc) |
 | 2026-11-23 | affective computing | [リスクの状態：マルコフ連鎖と深層言語モデルを用いたギャンブル依存症者の心理状態とペルソナの予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-state-of-risk-predicting-the-mental-stat) |
 | 2026-11-23 | affective computing | [Social Signal Bench: 映像と音声における同時発生ソーシャルシグナルの証拠重み付け評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-social-signal-bench-evidence-weighted-ev) |
