@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | optimization | [創薬の初期段階における脳内移行性向上のための物理化学的性質の戦略的最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-strategic-optimization-of-physicochemica) |
 | 2026-11-23 | optimization | [再生可能エネルギー導入拡大のための拡張型フェルマー・ウェーバー配置粒子群最適化法](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-enhanced-fermat-weber-location-particle) |
 | 2026-11-23 | optimization | [宇宙機の空力熱力学的最適化に向けた概念的フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-conceptual-framework-for-aerothermodynam) |
 | 2026-11-23 | optimization | [進化的逐次転移最適化のための効果的な解転移に向けて](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-toward-effective-solution-transfer-for-e) |
