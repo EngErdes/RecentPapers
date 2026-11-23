@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | affective computing | [EEGとEDA信号を用いたマルチモーダル・デュアルストリーム・アテンション・ネットワークによる人間の感情認識](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-human-emotion-recognition-using-multimod) |
 | 2026-11-23 | affective computing | [SelectKBest (ANOVA F統計量, k=20) 特徴量重み付けを用いた音声・顔・脳波ベースの感情認識ディープラーニングパイプラインのベンチマーク評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-benchmarking-deep-learning-pipelines-for) |
 | 2026-11-23 | affective computing | [意味的矛盾に基づくマルチモーダル感情分析と抑うつ診断](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-multimodal-sentiment-analysis-and-depres) |
 | 2026-11-23 | affective computing | [マルチモーダル融合型感性コンピューティングを用いた視覚コミュニケーション要素の分類と認識](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-classification-and-recognition-of-visual) |
