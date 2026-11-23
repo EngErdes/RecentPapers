@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | MCMC | [MATOPIBA地域における水資源管理と食料安全保障のための確率論的モデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-probabilistic-modeling-for-water-resourc) |
 | 2026-11-23 | MCMC | [能動学習ガウス過程回帰に基づく構造信頼性解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-structural-reliability-analysis-based-on) |
 | 2026-11-23 | MCMC | [タイムディレイ・コスモグラフィーにおけるH0減少傾向検証の将来予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-a-forecast-for-testing-the-decreasing-h) |
 | 2026-11-23 | MCMC | [統計学の誕生と歴史的発展：古代の国家記録からデータサイエンスまで](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-the-emergence-and-historical-development) |
