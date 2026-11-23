@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-23 | rcpsp | [リソース制約付きプロジェクトスケジューリング問題のための遺伝的プログラミング支援型2段階深層強化学習フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-a-two-stage-genetic-programming-assisted) |
 | 2026-11-23 | MCMC | [MATOPIBA地域における水資源管理と食料安全保障のための確率論的モデリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-probabilistic-modeling-for-water-resourc) |
 | 2026-11-23 | MCMC | [能動学習ガウス過程回帰に基づく構造信頼性解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-structural-reliability-analysis-based-on) |
 | 2026-11-23 | MCMC | [タイムディレイ・コスモグラフィーにおけるH0減少傾向検証の将来予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-a-forecast-for-testing-the-decreasing-h) |
