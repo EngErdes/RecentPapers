@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-24 | Semi supervise | [ExiST：半教師あり複数臓器セグメンテーションのための存在を考慮した自己学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-exist-existence-aware-self-training-for) |
 | 2026-11-24 | Semi supervise | [拡散モデルを用いた車載ネットワーク向け分散型半教師あり連合学習：DecFLDiff](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-decfldiff-decentralized-semi-supervised) |
 | 2026-11-24 | Semi supervise | [地理空間的相関を考慮した半教師あり海底底質分類のための疑似ラベル取得](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-pseudo-labels-acquisition-for-semi-super) |
 | 2026-11-24 | Semi supervise | [クラスターレベルの意味的一貫性を備えた半教師あり対称非負値行列因子分解](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-semi-supervised-symmetric-nonnegative-ma) |
