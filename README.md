@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-24 | rcpsp | [ET-RCPSP：早期・遅延ペナルティを考慮した新たな資源制約付きプロジェクトスケジューリング問題と強化型進化アルゴリズムによる解決](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-et-rcpsp-a-novel-rcpsp-variant-with-earl) |
 | 2026-11-24 | Markov random"  ﬁelds | [証明可能に最適な堅牢な角度同期](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-certifiably-optimal-robust-angular-synch) |
 | 2026-11-24 | Markov random"  ﬁelds | [GRAFT：グラフ正則化プロトタイプ場による視覚言語モデルの現実的なテスト時適応](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-graft-graph-regularized-prototype-fields) |
 | 2026-11-23 | optimization | [創薬の初期段階における脳内移行性向上のための物理化学的性質の戦略的最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261123-strategic-optimization-of-physicochemica) |
