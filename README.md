@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-24 | Semi supervise | [クラスターレベルの意味的一貫性を備えた半教師あり対称非負値行列因子分解](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-semi-supervised-symmetric-nonnegative-ma) |
 | 2026-11-24 | Semi supervise | [ラベルなしデータの活用はがんの診断と予後に役立つか？半教師あり学習・自己教師あり学習とテーブルデータ基盤モデルの比較](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-does-learning-from-unlabeled-data-help-c) |
 | 2026-11-24 | kalman filter  "anomaly ... | [スマート政府システムにおける継続的保証のためのガバナンス状態空間モデリングとカルマンフィルタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-governance-state-space-modeling-and-kalm) |
 | 2026-11-24 | rcpsp | [ET-RCPSP：早期・遅延ペナルティを考慮した新たな資源制約付きプロジェクトスケジューリング問題と強化型進化アルゴリズムによる解決](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-et-rcpsp-a-novel-rcpsp-variant-with-earl) |
