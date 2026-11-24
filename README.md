@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-24 | ベイジアンネットワーク | [ヒトはAIにどのように悩みや心情を打ち明けるのか：三田市「MIRAIノート」のベイジアンネットワークによる分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-ai-mirai) |
 | 2026-11-24 | Open-Vocabulary Object ... | [知識蒸留と視覚・言語アライメント技術に基づくドローン画像からの効率的な交通施設検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-an-efficient-traffic-facility-detection) |
 | 2026-11-24 | Open-Vocabulary Object ... | [オープン語彙パノプティックセグメンテーションのためのセミパラメトリックな枠組み](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-a-semi-parametric-framework-for-open-voc) |
 | 2026-11-24 | Semi supervise | [3D口腔内画像を用いた半教師あり学習による歯科・顎顔面異常の分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-semi-supervised-classification-of-dental) |
