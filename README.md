@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-24 | Semi supervise | [地理空間的相関を考慮した半教師あり海底底質分類のための疑似ラベル取得](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-pseudo-labels-acquisition-for-semi-super) |
 | 2026-11-24 | Semi supervise | [クラスターレベルの意味的一貫性を備えた半教師あり対称非負値行列因子分解](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-semi-supervised-symmetric-nonnegative-ma) |
 | 2026-11-24 | Semi supervise | [ラベルなしデータの活用はがんの診断と予後に役立つか？半教師あり学習・自己教師あり学習とテーブルデータ基盤モデルの比較](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-does-learning-from-unlabeled-data-help-c) |
 | 2026-11-24 | kalman filter  "anomaly ... | [スマート政府システムにおける継続的保証のためのガバナンス状態空間モデリングとカルマンフィルタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-governance-state-space-modeling-and-kalm) |
