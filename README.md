@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-24 | Open-Vocabulary Object ... | [オープン語彙パノプティックセグメンテーションのためのセミパラメトリックな枠組み](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-a-semi-parametric-framework-for-open-voc) |
 | 2026-11-24 | Semi supervise | [3D口腔内画像を用いた半教師あり学習による歯科・顎顔面異常の分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-semi-supervised-classification-of-dental) |
 | 2026-11-24 | Semi supervise | [重心駆動型対照学習を用いたグラフベース半教師ありハイパースペクトル画像分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-graph-based-semi-supervised-hyperspectra) |
 | 2026-11-24 | Semi supervise | [改良型UNetとFPNに基づく半教師あり画像セマンティックセグメンテーション手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-semi-supervised-image-semantic-segmentat) |
