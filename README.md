@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-25 | Federated Learning | [デバイスの不均一性下におけるパーソナライズされた非同期連合学習での非同期協調](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-asynchronous-collaboration-in-personaliz) |
 | 2026-11-25 | Federated Learning | [連合学習ベースの車載用アドホックネットワーク（VANET）における勾配プライバシーを考慮した安全な認証スキーム](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-a-secure-authentication-scheme-with-grad) |
 | 2026-11-25 | Federated Learning | [IoT侵入検知のための連合学習：比較証拠、報告の質、メタ分析に関する全文検証可能なエビデンスレビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-federated-learning-for-iot-intrusion-det) |
 | 2026-11-25 | Federated Learning | [持続可能なIoTのためのグリーン連合学習：省エネアーキテクチャ、炭素意識型の最適化、およびエッジ主導の持続可能性に関する系統的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-green-federated-learning-for-sustainable) |
