@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-25 | Federated Learning | [持続可能なIoTのためのグリーン連合学習：省エネアーキテクチャ、炭素意識型の最適化、およびエッジ主導の持続可能性に関する系統的レビュー](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-green-federated-learning-for-sustainable) |
 | 2026-11-25 | MRFs Markov | [迷惑をかけずに人間に適応するロボット：進捗が直接見えない状況下でのユーザー推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-robots-adapting-to-people-without-becomi) |
 | 2026-11-24 | ベイジアンネットワーク | [ヒトはAIにどのように悩みや心情を打ち明けるのか：三田市「MIRAIノート」のベイジアンネットワークによる分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-ai-mirai) |
 | 2026-11-24 | Open-Vocabulary Object ... | [知識蒸留と視覚・言語アライメント技術に基づくドローン画像からの効率的な交通施設検出](https://github.com/EngErdes/RecentPapers/tree/paper/20261124-an-efficient-traffic-facility-detection) |
