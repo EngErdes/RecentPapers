@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-25 | kalman filter | [適応フィルタ予測、充電状態、高調波解析を用いた小型電気自動車用太陽光発電・蓄電池併設型充電ステーションのデータ駆動型季節評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-data-informed-seasonal-assessment-of-a-p) |
 | 2026-11-25 | kalman filter | [カルマンフィルタに基づく時間差分ニューラルネットワーク（KBTDNN）：信念入力、カルマンゲイン、および学習ループの制御された再評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-kalman-based-temporal-difference-neural) |
 | 2026-11-25 | kalman filter | [カルマンフィルタ統合に基づく自動運転のためのマルチセンサ自己位置推定に関する研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-research-on-multisensor-localization-for) |
 | 2026-11-25 | Federated Learning | [分散型マルチエージェントシステムにおける階層的信頼性評価：連合学習で検証されたDLTベースのガバナンスフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-hierarchical-trustworthiness-evaluation) |
