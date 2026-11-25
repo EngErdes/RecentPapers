@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-25 | Federated Learning | [連合学習におけるバックドア防御のためのパス認識構造摂動：動的ゲーム理論的フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-path-aware-structured-perturbation-for-b) |
 | 2026-11-25 | Federated Learning | [(ε c, H fl)-プライバシー：IoVTのための不均一な連合学習を用いたクラス適応型ローカル差分プライバシーフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-c-h-fl-privacy-class-adaptive-local-diff) |
 | 2026-11-25 | Federated Learning | [無線マルチモーダル連合学習における鮮度を考慮した枝刈りとリソース割り当て](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-staleness-aware-pruning-and-resource-all) |
 | 2026-11-25 | Federated Learning | [デバイスの不均一性下におけるパーソナライズされた非同期連合学習での非同期協調](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-asynchronous-collaboration-in-personaliz) |
