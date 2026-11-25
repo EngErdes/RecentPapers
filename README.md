@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-25 | Federated Learning | [分散型マルチエージェントシステムにおける階層的信頼性評価：連合学習で検証されたDLTベースのガバナンスフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-hierarchical-trustworthiness-evaluation) |
 | 2026-11-25 | Federated Learning | [GAP-FedPolyp：頑健な大腸ポリープ分割のためのGAN拡張および個別化連合学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-gap-fedpolyp-gan-augmented-and-personali) |
 | 2026-11-25 | Federated Learning | [深層強化学習を用いた車載エッジコンピューティングにおける連合学習のクライアント選択最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-optimizing-client-selection-in-vehicular) |
 | 2026-11-25 | Federated Learning | [連合学習におけるバックドア防御のためのパス認識構造摂動：動的ゲーム理論的フレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-path-aware-structured-perturbation-for-b) |
