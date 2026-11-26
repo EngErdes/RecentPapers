@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-26 | SMOTE | [Naïve BayesとSMOTEを用いたYouTubeにおける政治的コメントの感情分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-sentiment-analysis-of-political-comments) |
 | 2026-11-26 | SMOTE | [MLP、AdaBoost、CatBoostとSMOTE-ENNを組み合わせた肝疾患予測の比較研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-comparison-of-mlp-adaboost-and-catboost) |
 | 2026-11-26 | kalman filter | [非線形システムにおける位置・速度推定のための逐次拡張カルマンフィルタの実装](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-annie-westerlund-helena-jakobsson-larsso) |
 | 2026-11-26 | kalman filter | [低インダクタンスPMSM駆動のための外乱経路再構成型デッドビート予測電流制御と低遅延速度推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-disturbance-path-reshaped-deadbeat-predi) |
