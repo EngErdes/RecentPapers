@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-26 | kalman filter | [動的OCV再構成と物理整合的補正によるリン酸鉄リチウム電池の充電状態推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-state-of-charge-estimation-of-lifepo-bat) |
 | 2026-11-25 | kalman filter | [HiMoTrack: UAVマルチオブジェクトトラッキングのための微小物体認識と階層的動き復元](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-himotrack-small-object-perception-and-hi) |
 | 2026-11-25 | kalman filter | [LiDAR、ROS 2、Raspberry Pi 5を用いた救助活動用地図作成ロボット](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-map-making-robot-for-rescue-operations-u) |
 | 2026-11-25 | kalman filter | [アルミ電解コンデンサの電気・熱連成デジタルツイン：動的な状態推定とパッケージングの共同設計](https://github.com/EngErdes/RecentPapers/tree/paper/20261125-a-coupled-electro-thermal-digital-twin-f) |
