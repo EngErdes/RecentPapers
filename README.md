@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-26 | ALS | [アイルランドにおけるALS阻害剤抵抗性サナエタデの特性評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-characterisation-of-als-inhibitor-resist) |
 | 2026-11-26 | ALS | [ガソリンスタンド従業員における血中鉛濃度の増加とALSリスク上昇の関連性について](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-on-a-connection-between-increased-blood) |
 | 2026-11-26 | SMOTE | [糖尿病および糖尿病網膜症予測のための、グループ化されたネスト型特徴選択を用いた古典的および量子機械学習](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-classical-and-quantum-machine-learning-w) |
 | 2026-11-26 | SMOTE | [BADRNet: 不均衡なネットワーク侵入検知のための境界を考慮した攻撃分布再構成](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-badrnet-boundary-aware-attack-distributi) |
