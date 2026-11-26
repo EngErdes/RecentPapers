@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-26 | SMOTE | [BADRNet: 不均衡なネットワーク侵入検知のための境界を考慮した攻撃分布再構成](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-badrnet-boundary-aware-attack-distributi) |
 | 2026-11-26 | SMOTE | [33kV配電用開閉器における次サイクル故障発生の予測：複数州の公益事業データを用いた機械学習ベンチマーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-predicting-next-cycle-recorded-defect-oc) |
 | 2026-11-26 | SMOTE | [シャリア金融の不良債権予測におけるリサンプリングとコスト考慮型ランダムフォレストおよびXGBoostの活用](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-resampling-and-cost-sensitive-random-for) |
 | 2026-11-26 | SMOTE | [心血管疾患リスクスクリーニングの最適化：コスト感受性学習とデータリサンプリングによるクラス不均衡の調整比較](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-1294-grp-optimizing-cardiovascular-risk) |
