@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-26 | SMOTE | [スマートグリッド向けの検証可能な稀少事象合成：SMOTEからAbsolute Zeroへ](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-verifiable-rare-event-synthesis-for-smar) |
 | 2026-11-26 | SMOTE | [Naïve BayesとSMOTEを用いたYouTubeにおける政治的コメントの感情分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-sentiment-analysis-of-political-comments) |
 | 2026-11-26 | SMOTE | [MLP、AdaBoost、CatBoostとSMOTE-ENNを組み合わせた肝疾患予測の比較研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-comparison-of-mlp-adaboost-and-catboost) |
 | 2026-11-26 | kalman filter | [非線形システムにおける位置・速度推定のための逐次拡張カルマンフィルタの実装](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-annie-westerlund-helena-jakobsson-larsso) |
