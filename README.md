@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | ICA | [MCTSB-InSARとICA-VMD-LSTMを用いたタリム盆地北部の地盤沈下監視と予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-monitoring-and-prediction-of-ground-subs) |
 | 2026-11-27 | kalman filter  "anomaly ... | [強靭な通信を実現するAI駆動型適応信号処理](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-ai-driven-adaptive-signal-processing-for) |
 | 2026-11-27 | manifold learning | [燃焼動力学におけるニューラル次元圧縮モデルの誤差評価と安定性](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-error-bounds-and-stability-of-neural-red) |
 | 2026-11-27 | manifold learning | [竹簡画像の色彩を保持する赤外線・可視光融合のための疎なグラスマン・アテンション](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-sparse-grassmann-attention-for-color-pre) |
