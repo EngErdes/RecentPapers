@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | independent component ... | [非ガウス型構造動的因子モデル：識別と推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-non-gaussian-structural-dynamic-factor-m) |
 | 2026-11-27 | independent component ... | [変分ベイズ独立成分分析を用いた緩慢な地滑り変形と植生指数の分離](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-advisors-mong-han-huang-gimena-chaves-fi) |
 | 2026-11-27 | independent component ... | [非線形な方向性成分発見のためのカーネル・グレンジャー成分分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-kernel-granger-component-analysis-for-no) |
 | 2026-11-27 | ICA | [ドイツにおける歯内療法専門医による治療が歯の生存率と治療コストに与える影響：費用対効果分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-effects-of-specialist-endodontic-therapy) |
