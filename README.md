@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | ICA | [ドイツにおける歯内療法専門医による治療が歯の生存率と治療コストに与える影響：費用対効果分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-effects-of-specialist-endodontic-therapy) |
 | 2026-11-27 | ICA | [腕頭動脈狭窄症の超音波診断：頸部と経頭蓋ドップラーの統合的アプローチ](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-ultrasonographic-clues-to-innominate-art) |
 | 2026-11-27 | ICA | [ヒドロキシベンジリデン・チオセミカルバゾン銅(II)複合体によるカテコラーゼ模倣触媒：構造、速度論、抗酸化能、ドッキング研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-a-hydroxybenzylidene-thiosemicarbazone-c) |
 | 2026-11-27 | ICA | [フェアリー化合物がHaCaT角化細胞におけるセラミド代謝とバリア関連遺伝子の発現を特異的に調節する](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-fairy-chemicals-differentially-modulate) |
