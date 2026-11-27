@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | ICA | [イカリイン・コバルトナノ粒子による抗酸化保護と骨分化能の維持](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-icariin-cobalt-nanoparticles-for-antioxi) |
 | 2026-11-27 | ICA | [PSOとICAを用いたサマラユカ砂丘におけるオフロード車両の操縦性パラメータのメタヒューリスティック最適化](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-metaheuristic-optimization-of-off-road-v) |
 | 2026-11-27 | ICA | [ハイブリッド化されたANN-LM、ANN-ICA、ANN-GWO手法によるプレプレースド・アグリゲート・コンクリート（PAC）強度の高度な予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-advanced-prediction-of-pre-placed-aggreg) |
 | 2026-11-27 | ICA | [MCTSB-InSARとICA-VMD-LSTMを用いたタリム盆地北部の地盤沈下監視と予測](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-monitoring-and-prediction-of-ground-subs) |
