@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | manifold learning | [ネットワークと高次元データにおける多様体構造の解明](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-uncovering-manifold-structure-in-network) |
 | 2026-11-26 | ALS | [レコメンダーシステムにおける履歴を考慮した人気度キャリブレーション](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-1302-gc-history-aware-popularity-calibra) |
 | 2026-11-26 | ALS | [憲法問題としての集中治療へのアクセス](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-der-zugang-zur-intensivmedizinischen-beh) |
 | 2026-11-26 | ALS | [アイルランドにおけるALS阻害剤抵抗性サナエタデの特性評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261126-characterisation-of-als-inhibitor-resist) |
