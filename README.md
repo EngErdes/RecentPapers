@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | manifold learning | [燃焼動力学におけるニューラル次元圧縮モデルの誤差評価と安定性](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-error-bounds-and-stability-of-neural-red) |
 | 2026-11-27 | manifold learning | [竹簡画像の色彩を保持する赤外線・可視光融合のための疎なグラスマン・アテンション](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-sparse-grassmann-attention-for-color-pre) |
 | 2026-11-27 | manifold learning | [非線形多様体学習を用いた工学データの低次元埋め込みと解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-results-in-engineering) |
 | 2026-11-27 | manifold learning | [ネットワークと高次元データにおける多様体構造の解明](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-uncovering-manifold-structure-in-network) |
