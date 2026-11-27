@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | ICA | [ヒドロキシベンジリデン・チオセミカルバゾン銅(II)複合体によるカテコラーゼ模倣触媒：構造、速度論、抗酸化能、ドッキング研究](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-a-hydroxybenzylidene-thiosemicarbazone-c) |
 | 2026-11-27 | ICA | [フェアリー化合物がHaCaT角化細胞におけるセラミド代謝とバリア関連遺伝子の発現を特異的に調節する](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-fairy-chemicals-differentially-modulate) |
 | 2026-11-27 | ICA | [破裂性水疱状動脈瘤に対する治療戦略：カバードステント、フローダイバーター、コイル併用フローダイバーターのメタ解析](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-treatment-strategies-for-ruptured-bliste) |
 | 2026-11-27 | ICA | [イカリイン・コバルトナノ粒子による抗酸化保護と骨分化能の維持](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-icariin-cobalt-nanoparticles-for-antioxi) |
