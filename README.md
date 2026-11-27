@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | Multi Camera Tracking | [物体検出を用いた塗装乾燥炉の視覚ベース稼働状況モニタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-vision-based-utilization-monitoring-for) |
 | 2026-11-27 | Multi Camera Tracking | [拡散霧箱における電離粒子軌跡のステレオ復元と分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-stereo-reconstruction-and-classification) |
 | 2026-11-27 | independent component ... | [集団独立成分分析（GICA）を用いた機能的MRIデータの解析手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-2050-084x) |
 | 2026-11-27 | independent component ... | [非ガウス型構造動的因子モデル：識別と推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-non-gaussian-structural-dynamic-factor-m) |
