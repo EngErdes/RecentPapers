@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-27 | independent component ... | [集団独立成分分析（GICA）を用いた機能的MRIデータの解析手法](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-2050-084x) |
 | 2026-11-27 | independent component ... | [非ガウス型構造動的因子モデル：識別と推定](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-non-gaussian-structural-dynamic-factor-m) |
 | 2026-11-27 | independent component ... | [変分ベイズ独立成分分析を用いた緩慢な地滑り変形と植生指数の分離](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-advisors-mong-han-huang-gimena-chaves-fi) |
 | 2026-11-27 | independent component ... | [非線形な方向性成分発見のためのカーネル・グレンジャー成分分析](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-kernel-granger-component-analysis-for-no) |
