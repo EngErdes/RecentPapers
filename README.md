@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-28 | ALS | [筋萎縮性側索硬化症（ALS）における口腔衛生と機能的歯列：介護者の関与、歯科受診、および教育歴の役割](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-oral-hygiene-and-functional-dentition-in) |
 | 2026-11-28 | ALS | [SOD1変異を伴う家族性筋萎縮性側索硬化症：急速な進行、多職種連携、および診断上の課題に関する症例報告](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-familial-amyotrophic-lateral-sclerosis-a) |
 | 2026-11-28 | ALS | [SOD1遺伝子c.64G>A変異に関連する、純粋な下位運動ニューロン型筋萎縮性側索硬化症（ALS）：症例報告](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-pure-lower-motor-neuron-phenotype-in-amy) |
 | 2026-11-28 | ALS | [進行期筋萎縮性側索硬化症（ALS）における在宅人工呼吸管理](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-home-ventilation-in-advanced-amyotrophic) |
