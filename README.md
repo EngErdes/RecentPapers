@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-28 | Markov random"  ﬁelds | [マルチターミナル秘密鍵容量におけるパーティション・バウンドの厳密性について](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-tightness-of-the-partition-bound-for-mul) |
 | 2026-11-28 | Markov random"  ﬁelds | [階層的場所認識のためのスパイキング駆動型グローバル検索とグラフ誘導再ランキング](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-spiking-driven-global-retrieval-and-grap) |
 | 2026-11-27 | Multi Camera Tracking | [物体検出を用いた塗装乾燥炉の視覚ベース稼働状況モニタリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-vision-based-utilization-monitoring-for) |
 | 2026-11-27 | Multi Camera Tracking | [拡散霧箱における電離粒子軌跡のステレオ復元と分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261127-stereo-reconstruction-and-classification) |
