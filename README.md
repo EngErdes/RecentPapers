@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-28 | SMOTE | [CASTLE-Net: ブロックチェーン保護された電子健康記録無線センサネットワークにおける効率的分類のためのSMOTEを用いた適応型アンサンブルフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-castle-net-adaptive-ensemble-framework-w) |
 | 2026-11-28 | ALS | [ALSにおける音声の明瞭度推定のためのアテンションベースCNN-BiGRU](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-attention-based-cnn-bigru-for-speech-cla) |
 | 2026-11-28 | ALS | [車両走破性解析のための地形モデル構築に向けたALSデータにおける障害物を含む地上点分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-inclusion-of-obstacles-in-ground-point-c) |
 | 2026-11-28 | ALS | [ALS/MNDにおける現在のリハビリテーションアプローチとデジタルヘルス技術の活用；作業療法士と理学療法士を対象とした国際調査](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-current-rehabilitation-approaches-in-als) |
