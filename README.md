@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-28 | ALS | [進行期筋萎縮性側索硬化症（ALS）における在宅人工呼吸管理](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-home-ventilation-in-advanced-amyotrophic) |
 | 2026-11-28 | ALS | [筋萎縮性側索硬化症（ALS）患者におけるスプリット・フェイス現象の臨床的および神経電気生理学的特徴](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-clinical-and-neuroelectrophysiological-c) |
 | 2026-11-28 | ALS | [メキシコの孤発性および家族性筋萎縮性側索硬化症（ALS）におけるC9orf72遺伝子の6塩基反復配列拡大の頻度](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-prevalence-of-c9orf72-hexanucleotide-rep) |
 | 2026-11-28 | ALS | [筋萎縮性側索硬化症（ALS）における記憶障害の性質](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-the-nature-of-memory-impairment-in-amyot) |
