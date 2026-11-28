@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-28 | ALS | [車両走破性解析のための地形モデル構築に向けたALSデータにおける障害物を含む地上点分類](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-inclusion-of-obstacles-in-ground-point-c) |
 | 2026-11-28 | ALS | [ALS/MNDにおける現在のリハビリテーションアプローチとデジタルヘルス技術の活用；作業療法士と理学療法士を対象とした国際調査](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-current-rehabilitation-approaches-in-als) |
 | 2026-11-28 | ALS | [筋萎縮性側索硬化症（ALS）における口腔衛生と機能的歯列：介護者の関与、歯科受診、および教育歴の役割](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-oral-hygiene-and-functional-dentition-in) |
 | 2026-11-28 | ALS | [SOD1変異を伴う家族性筋萎縮性側索硬化症：急速な進行、多職種連携、および診断上の課題に関する症例報告](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-familial-amyotrophic-lateral-sclerosis-a) |
