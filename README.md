@@ -12,6 +12,7 @@ https://grizzled-seahorse-a2c.notion.site/1c0a03616fa08055a874cdb41d5617eb?v=1c0
 
 | 日付 | キーワード | 論文タイトル |
 |---|---|---|
+| 2026-11-28 | SMOTE | [クラス不均衡に対するハイブリッド・リサンプリング手法の比較評価](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-a-comparative-evaluation-of-hybrid-resam) |
 | 2026-11-28 | SMOTE | [バイナリマスク再結合SMOTE：不均衡データに対する特徴レベルの交差を用いた少数派オーバーサンプリング](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-binary-mask-recombination-smote-structur) |
 | 2026-11-28 | SMOTE | [CASTLE-Net: ブロックチェーン保護された電子健康記録無線センサネットワークにおける効率的分類のためのSMOTEを用いた適応型アンサンブルフレームワーク](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-castle-net-adaptive-ensemble-framework-w) |
 | 2026-11-28 | ALS | [ALSにおける音声の明瞭度推定のためのアテンションベースCNN-BiGRU](https://github.com/EngErdes/RecentPapers/tree/paper/20261128-attention-based-cnn-bigru-for-speech-cla) |
